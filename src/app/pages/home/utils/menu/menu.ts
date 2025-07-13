@@ -33,44 +33,11 @@ export const menuData = [
       },
     ],
   },
-  {
-    title: 'Grow-Learning',
-    link: '/about',
-    Id: 'showDrop_1',
-    Dropdown: [
-      {
-        title: 'Online Courses',
-        link: '/courses',
-        imgUrl: '/assets/images/home/online-course.svg',
-      },
-      {
-        title: 'Skill Assessments',
-        link: '/skills-assessments',
-        imgUrl: '/assets/images/home/skill-Assessments.svg',
-      },
-      {
-        title: 'Tutorials Library',
-        link: '/tutorial',
-        imgUrl: '/assets/images/home/tutorial-enter.svg',
-      },
-      {
-        title: 'Online Interview',
-        link: '/interview',
-        imgUrl: '/assets/images/home/interview.svg',
-      },
-
-      {
-        title: 'Free Quizzes',
-        link: '/quizzes',
-        imgUrl: '/assets/images/home/quiz.svg',
-      },
-    ],
-  },
 
   {
     title: 'Compilers',
     link: '/about',
-    Id: 'showDrop_3',
+    Id: 'showDrop_1',
     Dropdown: [
       {
         title: 'C++ Compiler',
