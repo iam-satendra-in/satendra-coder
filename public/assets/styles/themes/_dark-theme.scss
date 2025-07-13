@@ -1,0 +1,58 @@
+/* Dark theme */
+body.dark-theme {
+  --background-color: #101426;
+  --text-color: #ddd;
+  --secondary-background: #222b45;
+  --btn-background-color: #26a69a;
+
+  // Core Dashboard 
+  --d-background-color: #222b45;
+  --d-card-color: #222b45;
+
+  // Models Card
+  --free-card: #222b45;
+  --premium-card: #374151;
+
+  //Compiler Card Colors
+  --compiler-card: #222b45;
+  --compiler-card-text: #ddd;
+  --compiler-head-footer: #1f2937;
+
+
+  // Tools Color Variable
+  --sub-menu-bg: #222b45;
+  --main-bg: #222b45;
+  --search-bg: #101426;
+
+  // Who Iam Card
+  --primary-who-bg: #101426;
+  --primary-who-color: #ddd;
+  --primary-who-btn-bg: #25d366;
+  --primary-who-btn-color: #fff;
+  --secondary-who-bg: #072538;
+  --secondary-who-color: #222b45;
+  --footer-who-bg: #010107;
+  --project-who-bg: #222b45;
+  --banner-who-bg:#222b45;
+}
+
+body.dark-theme {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+
+body.dark-theme .dark_mode_1 {
+  background-color: var(--menu-background-color) !important;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .primary_text {
+  color: var(--text-color) !important;
+}
+
+body.dark-theme .primary_button {
+  color: var(--text-color) !important;
+  background-color: var(--btn-background-color);
+}

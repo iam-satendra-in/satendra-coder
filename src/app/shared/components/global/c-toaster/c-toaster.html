@@ -1,0 +1,11 @@
+<div class="toast-container">
+    @for (toast of toastService.toastsSignal(); track toast) {
+    <div class="toast" [@fadeInOut] [ngClass]="toast.type">
+        <img [src]="getIcon(toast.type)" alt="{{ toast.type }} icon" class="toast-icon" />
+        <div class="toast-content">
+            <strong class="toast-title">{{ toast.title }}</strong>
+            <span class="toast-message">{{ toast.message }}</span>
+        </div>
+    </div>
+    }
+</div>

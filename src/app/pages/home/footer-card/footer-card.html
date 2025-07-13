@@ -1,0 +1,81 @@
+<footer class="footer">
+    <div class="footer-top">
+        <div class="logo-section" routerLink="/blog">
+            <img src="/assets/images/global/satendralogo.svg" alt="Satendra Coder Logo" class="logo">
+            <br><br>
+            <p>
+                Learn coding, freelancing, and real-world dev tools with Satendra Coder. Roadmaps, guides, and tips in
+                Hindi & English to grow your tech career.
+            </p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>GROW LEARN</h4>
+                <a routerLink="/roadmaps">Career Roadmaps</a>
+                <a routerLink="/blogs">Coding Tutorials</a>
+                <a routerLink="/freelancing">Freelancing Tips</a>
+                <a routerLink="/earning">Online Earning</a>
+                <a routerLink="/resources">PDFs & Resources</a>
+            </div>
+            <div class="footer-column">
+                <h4>DEV TOOLS</h4>
+                <a routerLink="/tools/json-viewer">JSON Viewer</a>
+                <a routerLink="/tools/html-formatter">HTML Formatter</a>
+                <a routerLink="/tools/converters">Code Converters</a>
+                <a routerLink="/tools/fake-name-generator">Fake Name Generator</a>
+                <a routerLink="/tools/password-generator">Password Generator</a>
+            </div>
+            <div class="footer-column">
+                <h4>PLATFORM</h4>
+                <a routerLink="/about">About Me</a>
+                <a routerLink="/contact">Contact</a>
+                <a routerLink="/community">Community</a>
+                <a routerLink="/support">Support</a>
+            </div>
+            <div class="footer-column">
+                <h4>MORE</h4>
+                <a routerLink="/privacy-policy">Privacy Policy</a>
+                <a routerLink="/terms">Terms & Conditions</a>
+                <a routerLink="/return-policy">Refund Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+        <div class="left-text">
+            © 2025 Satendra Coder. All Rights Reserved.
+        </div>
+        <div class="right-links">
+            <a routerLink="/about">About</a>
+            <a routerLink="/contact">Contact</a>
+            <a routerLink="/donate">Donate</a>
+            <a routerLink="/terms-and-conditions">Terms</a>
+            <a routerLink="/privacy-policy">Privacy</a>
+            <a routerLink="/pricing-policy">Refund</a>
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- Fixed Buttons -->
+<div class="fixed-button">
+    <div class="theme-button" target="_blank" (click)="isDarkModeMethod()">
+        @if (!isDarkTheme) {
+        <mat-icon class="toggle-icon">wb_sunny</mat-icon>
+        }@else {
+        <mat-icon class="toggle-icon">nights_stay</mat-icon>
+        }
+    </div>
+</div>
+
+
+<!-- Fixed Buttons -->
+<div class="fixed-button_whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=6598077688&text=Hello!%20I%27m%20interested%20in%20Eazycool%27s%20services"
+        class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i> Let's chat
+    </a>
+</div>

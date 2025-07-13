@@ -1,0 +1,81 @@
+<!-- hero-section.component.html -->
+<div class="ssbr_fuild banner_montor" [title]="UserData?.fullName ? UserData?.fullName : 'Satendra Coder'">
+    <section class="hero-section">
+        <div class="container">
+            <!-- Left Content -->
+            <div class="content">
+                <div class="typing-text">
+                    <h1 class="banner-heading" appHoverdirective>👋 Hi, I'm Satendra Rajput
+                    </h1>
+                    <span class="content_1" [ngStyle]="{'width': textWidth, 'color': currentColor}">
+                        {{ currentText }}
+                    </span>
+                </div>
+                <p>
+                    I help students and beginners learn coding, freelancing, and practical tech skills with tools,
+                    tutorials, and real-world projects – in Hindi and English.
+                </p>
+                <div class="buttons">
+                    <a href="/compiler">
+                        <button class="primary-btn">⚡ Try Quick Compiler</button>
+                    </a>
+                    <a href="/explore">
+                        <button class="secondary-btn">📚 Explore Learning</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Images and Followers -->
+            <div class="images-section">
+                <!-- Large Circle Image -->
+                <div class="main-image">
+                    <img src="/assets/images/montor/satendra_1.jpeg" alt="Main Mentor" />
+                </div>
+
+                <!-- Small Circular Images -->
+                <div class="small-images">
+                    @for (img of smallImages; track img) {
+                    <div class="small-image">
+                        <img [src]="img.src" [alt]="img.alt" />
+                    </div>
+                    }
+                </div>
+
+                <!-- Followers Section -->
+                <div class="followers">
+                    <div class="followers-images">
+                        <img src="assets/images/mentor2.jpg" alt="Follower 1" class="follower" />
+                        <img src="assets/images/mentor3.jpg" alt="Follower 2" class="follower" />
+                        <img src="assets/images/mentor4.jpg" alt="Follower 3" class="follower" />
+                    </div>
+                    <span class="followers-count">5500+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+</div>
+
+
+
+<!-- this is most learning -->
+<section class="high-score-container">
+    <div class="high-score-row">
+        @defer (on viewport) {
+        @for (highItem of mostLearning; track highItem) {
+        <div class="high-score-card">
+            <div class="card-item">
+                <img [src]="highItem.imgName" [alt]="highItem.Para">
+            </div>
+            <div class="card-item">
+                <h3>{{highItem.numberCount}}</h3>
+                <p>{{highItem.Para}}</p>
+            </div>
+        </div>
+        }
+        } @placeholder {
+        <div>Loading..</div>
+        }
+
+    </div>
+</section>

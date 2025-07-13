@@ -1,0 +1,41 @@
+<div class="contact-container">
+    <h2>Contact Us</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" formControlName="name" id="name" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" formControlName="email" id="email" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp No*</label>
+                <input type="tel" formControlName="whatsapp" id="whatsapp" />
+            </div>
+
+            <div class="form-group">
+                <label for="category">Select Category*</label>
+                <select formControlName="category" id="category">
+                    <option value="" disabled>Select...</option>
+                    @for (cat of categories; track cat) {
+                    <option [value]="cat">{{ cat }}</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="message">Message*</label>
+            <textarea id="message" rows="4" formControlName="message"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    </form>
+</div>

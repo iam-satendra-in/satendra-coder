@@ -1,0 +1,86 @@
+<div class="login_container">
+    <div class="login-modal">
+        <div class="login-header">
+            <h2>Sign Up</h2>
+            <button class="close-btn"><a href="">×</a></button>
+        </div>
+
+        <div class="login-body">
+            <div class="social-login">
+                <button class="social-btn google" title="google">
+                    <span>Google</span>
+                    <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google" />
+                </button>
+
+                <button class="social-btn github" title="github">
+                    <span>Github</span>
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="Github" />
+                </button>
+            </div>
+            <div class="list-card-heading">
+                <span class="line"></span>
+                <span class="text">OR</span>
+                <span class="line"></span>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Full Name" formControlName="fullName" />
+                @if (fullName?.touched && fullName?.invalid) {
+                <div class="error-message">
+                    @if (fullName?.hasError('fullName')) {
+                    <small>Full Name is required.</small>
+                    }
+                </div>
+                }
+                <input type="email" placeholder="Email" formControlName="email" />
+                @if (email?.touched && email?.invalid) {
+                <div class="error-message">
+                    @if (email?.hasError('required')) {
+                    <small>Email is required.</small>
+                    }
+                    @if (email?.hasError('email')) {
+                    <small>Please enter a valid email address.</small>
+                    }
+                </div>
+                }
+                <div class="password-container">
+                    <input type="password" placeholder="Password" formControlName="password"
+                        [type]="showPassword ? 'text' : 'password'" />
+                    <span class="toggle-password" (click)="togglePasswordVisibility()">
+                        @if (showPassword) {
+                        <img src="https://cdn-icons-png.flaticon.com/512/565/565655.png" alt="Hide Password" />
+                        }
+                        @if (!showPassword) {
+                        <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Show Password" />
+                        }
+                    </span>
+                </div>
+                @if (password?.touched && password?.invalid) {
+                <div class="error-message">
+                    @if (password?.hasError('required')) {
+                    <small>Password is required.</small>
+                    }
+                    @if (password?.hasError('minlength')) {
+                    <small>Password must be at least 6 characters.</small>
+                    }
+                </div>
+                }
+
+                <div class="form-footer">
+                    <button type="submit" class="login-btn" [disabled]="registerForm.invalid">
+                        Sign Up
+                    </button>
+                </div>
+
+                <p>
+                    Already have an account?
+                    <a href="/auth/login" class="signup-link">Sign In</a>
+                </p>
+                <p>
+                    By signing up you agree to our
+                    <a routerLink="/terms-and-conditions">Terms of Service</a> and
+                    <a routerLink="/privacy-policy">Privacy Policy.</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

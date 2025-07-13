@@ -1,0 +1,86 @@
+<nav>
+    <div class="wrapper" [title]="UserData?.fullName ? UserData?.fullName : 'Satendra Coder'">
+        <div class="logo">
+            <a href="/">
+                <h2>
+                    <img src="/assets/images/global/satendralogo.svg" alt="" />
+                </h2>
+            </a>
+        </div>
+
+        <input type="radio" name="slider" id="menu-btn" />
+        <input type="radio" name="slider" id="close-btn" />
+
+        <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn">
+                <h2>
+                    <img src="/assets/images/global/satendralogo.svg" alt="" />
+                </h2>
+                <i><mat-icon (click)="mobileclose()">close</mat-icon></i>
+            </label>
+
+            <!-- Resources start from here -->
+            @for (item_menu of MenuDataDropdown; track $index) {
+            <li>
+                <a href="#" class="desktop-item">
+                    <span class="icons_center">
+                        <span>{{ item_menu.title }}</span>
+                        <mat-icon style="margin-bottom: 5px">keyboard_arrow_down</mat-icon>
+                    </span>
+                </a>
+                <input type="checkbox" [id]="item_menu.Id" />
+                <label [for]="item_menu.Id" class="mobile-item">
+                    <span> {{ item_menu.title }} </span>
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </label>
+
+                <ul class="drop-menu">
+                    @for (item of item_menu.Dropdown; track $index) {
+                    <li class="demo-section">
+                        <a [href]="item.link" id="icons" appHoverGradient [startColor]="'rgb(81 61 235)'"
+                            [endColor]="'#15b7a7'">
+                            <img [src]="item.imgUrl" alt="HTML Solution" width="50px" height="50px" />
+                            <div class="testing_phase">
+                                <span> {{ item.title }}</span>
+                                <!-- <span><br>Lorem ipsum dolor sit,Lorem ipsum dolor sit </span> -->
+                            </div>
+                        </a>
+                    </li>
+                    }
+                </ul>
+            </li>
+            }
+            <li><a routerLink="/roadmaps">Career Roadmaps</a></li>
+            <li><a routerLink="/roadmaps">Career Roadmaps</a></li>
+            <li><a routerLink="/blog">Blog</a></li>
+
+            @if (isLoggedIn) {
+            <li class="loginuser">
+                <div class="user-dropdown">
+                    <button class="user-btn" [title]="UserData?.fullName" (click)="goToAdmin()">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                </div>
+            </li>
+            }@else {
+            <li><a href="/auth/login" class="loginbtn_1">Login</a></li>
+            <li>
+                <a (click)="CBecomeAMember()" target="_blank" class="loginbtn">Become a Creator</a>
+            </li>
+            }
+        </ul>
+
+        <label (click)="mobileClick()" for="menu-btn" class="btnclose menu-btn">
+            @if (!isMobileVisible) {
+            <i><mat-icon>
+                    <svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em">
+                        <path
+                            d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z">
+                        </path>
+                    </svg> </mat-icon></i>
+            } @else{
+            <!-- <app-dropdown-user *ngIf="isLoggedIn"></app-dropdown-user> -->
+            }
+        </label>
+    </div>
+</nav>

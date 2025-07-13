@@ -1,0 +1,45 @@
+.pricing-container {
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+
+    @media (max-width: 768px) {
+        padding: 1.5rem 1rem;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 1.2rem;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 20px;
+        margin-top: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    em {
+        font-size: 14px;
+        color: #888;
+    }
+
+    a {
+        color: #007acc;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -27,6 +27,7 @@
               }
             ],
             "styles": [
+               "public/assets/styles/main.scss",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
@@ -92,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "350d68ba-09f3-4d9e-96df-b7fed06ac45c"
   }
 }

@@ -1,0 +1,65 @@
+// src/assets/scss/base/_typography.scss
+@use '../abstracts/variables' as vars;
+
+body {
+    height: 100%;
+    background-color: #f5f5f5;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-bottom: vars.$spacing-unit;
+    line-height: 1.2;
+  }
+  
+  
+  a {
+    color: vars.$primary-color;
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .bgcolorlinear{
+    font-weight: bold;
+    font-size: 1.5rem;
+    background: linear-gradient(120deg, #d43bd4, #3071ab, #00e8b5);
+    -webkit-background-clip: text;
+    /* For Safari */
+    background-clip: text;
+    /* For other browsers */
+    color: transparent;
+    /* Ensures the text is visible with the gradient */
+    transition: 0.5s all ease-in-out;
+
+    &:hover {
+      background: linear-gradient(120deg, #b415b4, #0e82e7, #09a382);
+      -webkit-background-clip: text;
+      /* For Safari */
+      background-clip: text;
+      /* For other browsers */
+      color: transparent;
+      /* Ensures the text is visible with the gradient */
+      transform: scale(1.1);
+    }
+  }
+
+  // @_grid with Flex and otherClass dynamic
+  .ssbr_fuild{
+    width: 100%;
+    margin: auto;
+  }
+  
+  .ssbr{
+    width: 85%;
+    margin: auto;
+  }
+
+
+  .error{
+    color: red;
+    font-size: 0.8rem;
+  }
