@@ -1,10 +1,12 @@
 .banner_montor {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     background: var(--banner-bg-color);
     padding-top: 75px;
 
     .hero-section {
-        width: 85%;
+        width: 90%;
         margin: 0px auto;
         padding: 1rem 0rem;
         background: var(--banner-bg-color);
@@ -26,7 +28,7 @@
                 text-align: center;
 
                 h1 {
-                    font-size: 1.5rem;
+                    font-size: 2.5rem;
                     font-weight: bold;
                     color: var(--text-color);
                 }
@@ -265,14 +267,14 @@
 // this is most learning 
 
 .high-score-container {
-    width: 100%;
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
     height: auto;
     padding: 40px 0;
     background-color: var(--background-color);
 
     .high-score-row {
-        width: 85%;
+        width: 90%;
         margin: auto;
         display: grid;
         grid-template-columns: repeat(4, 1fr);

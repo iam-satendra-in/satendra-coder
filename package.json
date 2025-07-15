@@ -22,6 +22,7 @@
     "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.3",
+    "@satendracoders/text-editor": "^0.0.2",
     "express": "^5.1.0",
     "html2canvas": "^1.4.1",
     "rxjs": "~7.8.0",

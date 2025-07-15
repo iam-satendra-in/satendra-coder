@@ -1,106 +1,114 @@
-.contact-strip {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+section {
+    width: 100%;
     background-color: #002777;
     color: white;
-    padding: 20px 40px;
-    flex-wrap: wrap;
 
-    .contact-item {
+    .contact-strip {
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 12px;
-        margin-bottom: 10px;
-
-        .icon {
-            background: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-                width: 24px;
-                height: 24px;
-            }
-
-            &.whatsapp img {
-                filter: hue-rotate(90deg); // green
-            }
-
-            &.email img {
-                filter: hue-rotate(330deg); // red
-            }
-        }
-
-        p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        strong {
-            font-size: 16px;
-        }
-    }
-
-    .divider {
-        width: 1px;
-        height: 60px;
-        background-color: #fff;
-        margin: 0 20px;
-
-        @media (max-width: 768px) {
-            display: none;
-        }
-    }
-
-    .social-wrap {
-        display: flex;
-        align-items: center;
-        gap: 16px;
+        padding: 20px 00px;
         flex-wrap: wrap;
 
-        p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .social-icons {
+        .contact-item {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
 
-            a {
+            .icon {
                 background: white;
                 border-radius: 50%;
-                padding: 10px;
+                width: 50px;
+                height: 50px;
                 display: flex;
-                align-items: center;
                 justify-content: center;
+                align-items: center;
 
                 img {
-                    width: 20px;
-                    height: 20px;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                &.whatsapp img {
+                    filter: hue-rotate(90deg); // green
+                }
+
+                &.email img {
+                    filter: hue-rotate(330deg); // red
+                }
+            }
+
+            p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            strong {
+                font-size: 16px;
+            }
+        }
+
+        .divider {
+            width: 1px;
+            height: 60px;
+            background-color: #fff;
+            margin: 0 20px;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        .social-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 10px;
+
+                a {
+                    background: white;
+                    border-radius: 50%;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
                 }
             }
         }
-    }
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
 
-        .contact-item,
-        .social-wrap {
-            width: 100%;
-            justify-content: flex-start;
-        }
+            .contact-item,
+            .social-wrap {
+                width: 100%;
+                justify-content: flex-start;
+            }
 
-        .social-wrap {
-            margin-top: 10px;
+            .social-wrap {
+                margin-top: 10px;
+            }
         }
     }
 }

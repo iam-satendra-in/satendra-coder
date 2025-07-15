@@ -1,6 +1,6 @@
-import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component} from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
-import { isPlatformBrowser } from '@angular/common';
+
 
 @Component({
   selector: 'app-banner-card',
@@ -9,6 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrl: './banner-card.scss'
 })
 export class BannerCard {
+ 
   smallImages = [
     { src: '/assets/images/montor/rishi.png', alt: 'Rishi Singh' },
     { src: '/assets/images/montor/mutawakkil.png', alt: 'Mutawakkil' },
@@ -16,32 +17,30 @@ export class BannerCard {
   ];
 
   texts: string[] = [
-    'Mastering JavaScript', 'Mastering Java', 'Mastering Angular',
-    'Mastering MySQL', 'Mastering HTML', 'Mastering CSS'
+    'Mastering JavaScript','Mastering Java','Mastering Angular',
+    'Mastering MySQL','Mastering HTML','Mastering CSS',
   ];
-
   colors: string[] = [
-    '#3357FF', '#FF5733', '#000000',
-    '#FF5733', '#3357FF', '#FF5733'
-  ];
+    '#3357FF', // Color for 'Web Development'
+    '#FF5733', // Color for 'Learn Programming'
+    '#00000',  // Color for 'App Development'
+    '#08bd59eb',
+    '#eb7f04ff', // Color for 'Web Development'
+    '#d20960ff', // Color for 'Learn Programming'
 
+];
   currentText: string = '';
   currentColor: string = '';
   index: number = 0;
   textWidth: string = '0ch';
   stepsCount: string = 'steps(1)';
-  UserData: any = null;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private cdr: ChangeDetectorRef) { }
+  
+  constructor() { }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const user = sessionStorage.getItem('user');
-      this.UserData = user ? JSON.parse(user) : null;
-    }
-
     this.changeText();
 
+    // Change text every 5 seconds (match with animation timing)
     setInterval(() => {
       this.changeText();
     }, 5000);
@@ -51,11 +50,13 @@ export class BannerCard {
     this.currentText = this.texts[this.index];
     this.currentColor = this.colors[this.index];
     this.index = (this.index + 1) % this.texts.length;
-    this.textWidth = `${this.currentText.length}ch`;
-    this.stepsCount = `steps(${this.currentText.length})`;
-    this.cdr.detectChanges(); // Force detect if needed
-  }
 
+    // Calculate the width based on the currentText length
+    this.textWidth = `${this.currentText.length}ch`;
+
+     // Set the steps for the animation based on the text length
+    this.stepsCount = `steps(${this.currentText.length})`;
+  }
 
 mostLearning=[
     {

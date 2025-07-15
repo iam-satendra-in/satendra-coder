@@ -1,25 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 nav {
     position: fixed;
     z-index: 1000;
     width: 100%;
-    // background-color: #072538 !important;
     background-color: var(--background-color);
     box-shadow: 0px 0px 2px #ccc;
 }
 
 nav .wrapper {
     position: relative;
-    max-width: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0px 15px;
     height: 60px;
     line-height: 60px;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -241,7 +235,6 @@ nav .wrapper {
             }
         }
     }
-
 }
 
 .loginuser img {
@@ -382,8 +375,6 @@ nav .wrapper {
         border-bottom-left-radius: 0px;
     }
 
-
-
     // /* custom scroll bar */
     // ::-webkit-scrollbar {
     //   width: 10px;
@@ -503,7 +494,6 @@ nav .wrapper {
     .drop-menu li a {
         border-radius: 5px;
         font-size: 14px;
-
     }
 }
 
