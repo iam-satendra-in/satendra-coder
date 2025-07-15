@@ -1,0 +1,95 @@
+.career-container {
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+    background: var(--banner-bg-color);
+
+    .career-row {
+        width: 90%;
+        margin: auto;
+        background-color: var(--background-color);
+        padding: 20px 0px;
+        border-radius: 10px;
+
+        .carerr_heading {
+            text-align: center;
+            padding: 20px 0px;
+        }
+
+        .carerr_body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 10px;
+            padding: 10px 10px;
+
+            .btn_primary {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 4px 8px !important;
+                background-color: var(--btn-background-color) !important;
+                color: #fff;
+
+                &:hover {
+                    background-color: var(--btn-color) !important;
+                    color: var(--btn-background-color);
+                }
+            }
+        }
+    }
+}
+
+
+
+// src/assets/scss/components/_buttons.scss
+.btn {
+    padding: 0.5rem 1rem;
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s all ease-in;
+
+    &:hover {
+        background-color: #26a69a;
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+// src/assets/scss/components/_buttons.scss
+.btn_1 {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: 0.3s all ease-in;
+    border: 1px solid #3d7ffc;
+
+    &:hover {
+        background-color: #26a69a;
+        cursor: pointer;
+        transform: scale(1.1);
+        color: #fff;
+    }
+}
+
+// src/assets/scss/components/_buttons.scss
+.btn_primary {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-background);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    transition: 0.3s all ease-in;
+    border: .5px solid #ddd;
+
+    &:hover {
+        // background-color: #26a69a;
+        cursor: pointer;
+        transform: scale(1.1);
+        color: #e7e8f0 !important;
+    }
+}

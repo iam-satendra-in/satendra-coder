@@ -1,0 +1,16 @@
+<div class="career-container">
+    <div class="career-row">
+        <div class="carerr_heading">
+            <h2>Explore Roadmaps</h2>
+        </div>
+        <div class="carerr_body">
+            @for (tool of All_Roadmap; track $index) {
+            <a [href]="tool.BaseUrl"><button class="btn_primary" appHoverGradient [startColor]="'rgb(81 61 235)'"
+                    [endColor]="'#002777'">
+                    {{tool.careerName}} <mat-icon>arrow_circle_right</mat-icon>
+                </button> </a>
+            }
+
+        </div>
+    </div>
+</div>

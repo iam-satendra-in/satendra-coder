@@ -4,7 +4,7 @@
     padding-top: 75px;
 
     .hero-section {
-        width: 85%;
+        width: 90%;
         margin: 0px auto;
         padding: 1rem 0rem;
         background: var(--banner-bg-color);
@@ -26,7 +26,7 @@
                 text-align: center;
 
                 h1 {
-                    font-size: 1.5rem;
+                    font-size: 2.5rem;
                     font-weight: bold;
                     color: var(--text-color);
                 }
@@ -272,7 +272,7 @@
     background-color: var(--background-color);
 
     .high-score-row {
-        width: 85%;
+        width: 90%;
         margin: auto;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
