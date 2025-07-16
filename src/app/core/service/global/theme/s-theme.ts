@@ -1,15 +1,15 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID, Renderer2, RendererFactory2, computed, signal } from '@angular/core';
 import { SSafeStorage } from '../safe-storage/s-safe-storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class STheme {
-  
- private renderer: Renderer2;
-  private isDarkTheme: boolean = false;
+  private renderer: Renderer2;
+  private _isDarkTheme = signal(false); // main signal
 
+  readonly isDarkTheme = computed(() => this._isDarkTheme());
 
   constructor(
     rendererFactory: RendererFactory2,
@@ -17,31 +17,25 @@ export class STheme {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
+
     if (isPlatformBrowser(this.platformId)) {
       const savedTheme = this.storageService.getItem('isDarkTheme');
-      if (savedTheme !== null) {
-        this.isDarkTheme = JSON.parse(savedTheme);
-      } else {
-        if (isPlatformBrowser(this.platformId)) {
-          this.storageService.setItem('isDarkTheme', JSON.stringify(this.isDarkTheme));
-        }
-
-      }
-      this.applyTheme(this.isDarkTheme);
+      const defaultTheme = savedTheme !== null ? JSON.parse(savedTheme) : false;
+      this._isDarkTheme.set(defaultTheme);
+      this.storageService.setItem('isDarkTheme', JSON.stringify(defaultTheme));
+      this.applyTheme(defaultTheme);
     }
-
-
   }
 
   toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-    this.storageService.setItem('isDarkTheme', JSON.stringify(this.isDarkTheme));
-    this.applyTheme(this.isDarkTheme);
+    const newTheme = !this._isDarkTheme();
+    this._isDarkTheme.set(newTheme);
+    this.storageService.setItem('isDarkTheme', JSON.stringify(newTheme));
+    this.applyTheme(newTheme);
   }
 
-  applyTheme(isDark: boolean) {
+  private applyTheme(isDark: boolean) {
     const body = document.body;
-
     if (isDark) {
       this.renderer.removeClass(body, 'light-theme');
       this.renderer.addClass(body, 'dark-theme');
@@ -50,9 +44,4 @@ export class STheme {
       this.renderer.addClass(body, 'light-theme');
     }
   }
-
-  getCurrentTheme() {
-    return this.isDarkTheme;
-  }
 }
-

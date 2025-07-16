@@ -62,8 +62,8 @@
 
 <!-- Fixed Buttons -->
 <div class="fixed-button">
-    <div class="theme-button" target="_blank" (click)="isDarkModeMethod()">
-        @if (!isDarkTheme) {
+    <div class="theme-button" target="_blank" (click)="toggleTheme()">
+        @if (!isDarkTheme()) {
         <mat-icon class="toggle-icon">wb_sunny</mat-icon>
         }@else {
         <mat-icon class="toggle-icon">nights_stay</mat-icon>

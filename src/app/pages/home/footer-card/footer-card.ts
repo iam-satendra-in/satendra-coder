@@ -1,25 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, effect, Signal } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { STheme } from '../../../core/service/global/theme/s-theme';
 
 @Component({
   selector: 'app-footer-card',
+  standalone: true,
   imports: [MateriallistModule],
   templateUrl: './footer-card.html',
   styleUrl: './footer-card.scss',
 })
 export class FooterCard {
-  isDarkTheme: boolean = true;
+  isDarkTheme!: Signal<boolean>; // declare first
 
-  constructor(private themeService: STheme) {}
+  constructor(public themeService: STheme) {
+    this.isDarkTheme = this.themeService.isDarkTheme; // assign after themeService is available
 
-  ngOnInit(): void {
-    this.isDarkTheme = this.themeService.getCurrentTheme();
+    effect(() => {
+      console.log('Theme changed:', this.isDarkTheme());
+    });
   }
 
-  isDarkModeMethod() {
-    debugger
+  toggleTheme() {
     this.themeService.toggleTheme();
-    this.isDarkTheme = this.themeService.getCurrentTheme();
   }
 }
