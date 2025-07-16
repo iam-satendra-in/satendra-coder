@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { SToaster } from '../../../core/service/global/toaster/s-toaster';
+import { SAskme } from '../../../core/service/global/askme/s-askme';
 
 @Component({
   selector: 'app-ask-me-anything',
@@ -17,6 +18,7 @@ export class AskMeAnything {
   private meta = inject(Meta);
   private route = inject(Router);
   private toaster = inject(SToaster);
+  private sAskapi = inject(SAskme);
 
   memberData = {
     name: '',
@@ -34,13 +36,22 @@ export class AskMeAnything {
   submitMemberForm(form: NgForm) {
     if (form.valid) {
       console.log('Contact Submitted:', this.memberData);
-      this.toaster.addToast({
-        title: "Contact Submitted",
-        type: 'success',
-        message: "Thanks! I’ll get back to you shortly."
+      this.sAskapi.sendMessage(this.memberData).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.toaster.addToast({
+            title: "Contact Submitted",
+            type: 'success',
+            message: res?.message
+          })
+          this.route.navigate(['/']);
+          form.resetForm();
+        },
+        error: () => {
+          alert('Failed to send message.');
+        }
       })
-      this.route.navigate(['/']);
-      form.resetForm();
+
     }
   }
 

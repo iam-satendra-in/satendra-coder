@@ -9,5 +9,8 @@ export const APIEndPoint = {
         forgotPassword:`${API_URL}/auth/forgot-password`,
         resetPassword:`${API_URL}/auth/reset-password`,
         logout:`${API_URL}/auth/logout`,
+    },
+    global:{
+        AskMe:`${API_URL}/askme`
     }
 }
