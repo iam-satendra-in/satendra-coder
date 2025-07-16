@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appHoverGradient]'
+  selector: '[appHoverGradient]',
+   standalone: true // 👈 Important for standalone use
 })
 export class HoverGradient {
 

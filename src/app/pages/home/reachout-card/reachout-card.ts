@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CBecomeAMember } from '../../about/c-become-a-member/c-become-a-member';
 
 @Component({
   selector: 'app-reachout-card',

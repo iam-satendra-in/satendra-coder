@@ -71,6 +71,16 @@ export const routes: Routes = [
               (company) => company.CDonate
             ),
         },
+
+        
       ],
     },
+    //@_ask-me-anything routes
+        {
+          path: 'ask-me-anything',
+          loadComponent: () =>
+            import('./pages/about/ask-me-anything/ask-me-anything').then(
+              (company) => company.AskMeAnything
+            ),
+        },
 ];

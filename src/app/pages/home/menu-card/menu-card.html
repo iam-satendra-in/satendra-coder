@@ -64,8 +64,8 @@
             </li>
             }@else {
             <li><a href="/auth/login" class="loginbtn_1">Login</a></li>
-            <li>
-                <a (click)="CBecomeAMember()" target="_blank" class="loginbtn">Become a Creator</a>
+            <li *ngIf="!hideAskMe()">
+                <a href="/ask-me-anything" class="loginbtn">Ask me Anything</a>
             </li>
             }
         </ul>

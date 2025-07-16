@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CBecomeAMember } from './c-become-a-member';
+import { AskMeAnything } from './ask-me-anything';
 
-describe('CBecomeAMember', () => {
-  let component: CBecomeAMember;
-  let fixture: ComponentFixture<CBecomeAMember>;
+describe('AskMeAnything', () => {
+  let component: AskMeAnything;
+  let fixture: ComponentFixture<AskMeAnything>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CBecomeAMember]
+      imports: [AskMeAnything]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CBecomeAMember);
+    fixture = TestBed.createComponent(AskMeAnything);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

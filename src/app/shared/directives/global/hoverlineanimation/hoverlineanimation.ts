@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appHoverlineanimation]'
+  selector: '[appHoverlineanimation]',
+  standalone: true // 👈 Important for standalone use
 })
 export class Hoverlineanimation {
 

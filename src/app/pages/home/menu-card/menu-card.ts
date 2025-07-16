@@ -1,11 +1,11 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, computed, inject, Inject, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { menuData } from '../utils/menu/menu';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { HoverGradient } from '../../../shared/directives/global/hover-gradient/hover-gradient';
-import { CBecomeAMember } from '../../about/c-become-a-member/c-become-a-member';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-menu-card',
@@ -14,34 +14,37 @@ import { CBecomeAMember } from '../../about/c-become-a-member/c-become-a-member'
   styleUrl: './menu-card.scss',
 })
 export class MenuCard {
-  CloseOpen: boolean = false;
-  isLoggedIn: boolean = false;
-  isMobileVisible: boolean = false;
+  CloseOpen = false;
+  isLoggedIn = false;
+  isMobileVisible = false;
   isDropdownOpen = false;
   UserData: any = null;
   MenuDataDropdown = menuData;
-  isVisible: boolean = true;
-  currentUrl: string = '';
+  isVisible = true;
 
-  constructor(
-    private dialog: MatDialog,
-    private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    // Only access sessionStorage if we're in the browser
+  private router = inject(Router);
+  private platformId = inject(PLATFORM_ID);
+
+  // ✅ Define route signal once
+  currentUrl = signal(this.router.url);
+
+  // ✅ Signal-based condition — DO NOT reassign in constructor
+  hideAskMe = computed(() =>
+    ['/login', '/admin', '/dashboard', '/montor'].includes(this.currentUrl())
+  );
+
+  constructor(private dialog: MatDialog) {
+    // ✅ Update signal value on route change
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.currentUrl.set(event.urlAfterRedirects);
+      });
+
+    // ✅ Platform check for sessionStorage
     if (isPlatformBrowser(this.platformId)) {
       const userStr = sessionStorage.getItem('user');
       this.UserData = userStr ? JSON.parse(userStr) : null;
-    }
-  }
-
-  ngOnInit(): void {
-    this.currentUrl = this.router.url;
-    if (this.currentUrl === '/montor') {
-      this.isVisible = false;
-    }
-
-    if (isPlatformBrowser(this.platformId)) {
       this.isLoggedIn = !!sessionStorage.getItem('token');
     }
   }
@@ -56,14 +59,5 @@ export class MenuCard {
 
   mobileclose() {
     this.isMobileVisible = false;
-  }
-
-  CBecomeAMember() {
-    this.dialog.open(CBecomeAMember, {
-      width: '500px',
-      maxHeight: 'auto',
-      autoFocus: false,
-      disableClose: false
-    });
   }
 }
