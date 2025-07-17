@@ -1,0 +1,30 @@
+<div class="compiler-list-card">
+    <div class="compiler-section">
+        <h2 class="title">Free Online Compilers</h2>
+        <p class="description">
+            We believe that coding should be accessible to everyone, which is why we've developed our own compilers for
+            both
+            web and mobile—completely free of charge!
+        </p>
+
+        <div class="category-buttons">
+            @for (category of categories; track category) {
+            <button [class.activecategory]="activeCategory === category" (click)="filterCompilers(category)">
+                {{ category }}
+            </button>
+            }
+        </div>
+
+        <div class="compiler-grid">
+            @for (compiler of filteredCompilers; track $index) {
+            <button class="compiler-card" (click)="openCompiler(compiler)">
+                <span class="arrow">
+                    <img [src]="compiler.img" alt="">
+                </span>
+                <span>{{ compiler.name }}</span>
+            </button>
+            }
+
+        </div>
+    </div>
+</div>

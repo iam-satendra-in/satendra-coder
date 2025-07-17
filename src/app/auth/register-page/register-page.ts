@@ -10,10 +10,9 @@ import { Title, Meta } from '@angular/platform-browser';
   selector: 'app-register-page',
   imports: [MateriallistModule],
   templateUrl: './register-page.html',
-  styleUrl: './register-page.scss'
+  styleUrl: './register-page.scss',
 })
 export class RegisterPage {
-
   showPassword: boolean = false;
   registerForm!: FormGroup;
 
@@ -31,25 +30,29 @@ export class RegisterPage {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
-    this.title.setTitle('Register | SatendraCoder - Create Your Free Developer Account');
+    this.title.setTitle(
+      'Register | SatendraCoder - Create Your Free Developer Account'
+    );
 
     this.meta.addTags([
       {
         name: 'description',
-        content: 'Create your free SatendraCoder account to access developer tools, coding quizzes, online courses, and personalized learning features. Join the growing tech community today.'
+        content:
+          'Create your free SatendraCoder account to access developer tools, coding quizzes, online courses, and personalized learning features. Join the growing tech community today.',
       },
       {
         name: 'keywords',
-        content: 'developer registration, angular registration, SatendraCoder register, sign up coding, frontend account, full stack developer signup, programming courses register'
+        content:
+          'developer registration, angular registration, SatendraCoder register, sign up coding, frontend account, full stack developer signup, programming courses register',
       },
       {
         name: 'author',
-        content: 'Satendra Rajput'
+        content: 'Satendra Rajput',
       },
       {
         name: 'robots',
-        content: 'index, follow'
-      }
+        content: 'index, follow',
+      },
     ]);
   }
 
@@ -67,8 +70,7 @@ export class RegisterPage {
           try {
             console.log('Parsed Response:', response);
             this.toaster.addToast({
-              title: 'Login Success',
-              message: 'Welcome back! Access granted.',
+              message: response?.message,
               type: 'success',
             });
             this.router.navigate(['/auth/login']);
@@ -76,8 +78,6 @@ export class RegisterPage {
             console.log('Response is not JSON:', response);
           }
         });
-      console.log('Form Values:', this.registerForm.value); // Console form values
-
       this.registerForm.reset();
     } else {
       console.log('Form is invalid');
@@ -97,4 +97,3 @@ export class RegisterPage {
     return this.registerForm.get('password');
   }
 }
-

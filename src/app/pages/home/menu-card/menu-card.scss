@@ -216,7 +216,7 @@ nav .wrapper {
             height: 40px;
             border-radius: 50%;
             border: none;
-            background-color: #50bfff;
+            background-color: #26a69a !important;
             cursor: pointer;
             font-size: 20px;
             display: flex;
@@ -235,6 +235,8 @@ nav .wrapper {
             }
         }
     }
+
+
 }
 
 .loginuser img {

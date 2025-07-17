@@ -1,0 +1,70 @@
+<div class="main-layout">
+    <div class="main-content">
+        <app-compiler-header></app-compiler-header>
+        <div class="main-compiler-content">
+            <div class="left-part">
+                <div class="code-editor-container">
+                    <!-- Editor Heading -->
+                    <div class="editor-heading">
+                        <span style="font-size: 20px;">Source</span> - {{ selectedLanguage }}
+                    </div>
+
+                    <!-- Code Editor with Line Numbers -->
+                    <div class="code-editor">
+                        <!-- <div class="line-numbers" >
+                <div *ngFor="let line of lineNumbers" class="line-number">{{ line }}</div>
+              </div> -->
+
+                        <!-- Editable Textarea -->
+                        <!-- <textarea
+                class="code-input"
+                [(ngModel)]=""
+                (ngModelChange)="onFileUpload($event)"
+                spellcheck="false"
+              ></textarea> -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Draggable divider with icon -->
+            <div class="divider" #divider>
+                <span class="resize-handle">
+                    <img src="/assets/images/compiler/col-resize.png" alt="">
+                </span> <!-- Icon for resizing -->
+            </div>
+            <div class="right-part">
+
+                <div class="compiler_output">
+                    <div class="compiler_output__top top-part-output">
+                        <div class="compiler_output__header">
+                            <h3>STDIN</h3>
+                        </div>
+                        <div class="compiler_output__body">
+                            <p>Your Input Goes Here ...
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="divider" id="divider" #divider>
+                        <span class="resize-handle">
+                            <img src="/assets/images/compiler/col-resize.png" alt="Resize Icon" />
+                        </span>
+                    </div>
+
+                    <div class="compiler_output__footer bottom-part-output">
+                        <div class="compiler_output__header">
+                            <h3>STDOUT</h3>
+                        </div>
+                        <div class="compiler_output__body">
+                            <p>Hello world!</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

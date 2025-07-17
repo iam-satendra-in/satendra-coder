@@ -1,26 +1,31 @@
 import { Component, effect, Signal } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { STheme } from '../../../core/service/global/theme/s-theme';
+import { CThemeToggle } from "../../../shared/components/global/c-theme-toggle/c-theme-toggle";
 
 @Component({
   selector: 'app-footer-card',
   standalone: true,
-  imports: [MateriallistModule],
+  imports: [MateriallistModule, CThemeToggle],
   templateUrl: './footer-card.html',
   styleUrl: './footer-card.scss',
 })
 export class FooterCard {
-  isDarkTheme!: Signal<boolean>; // declare first
+  
+  isDarkTheme!: Signal<boolean>;
+selectedTheme: string = 'light';
 
-  constructor(public themeService: STheme) {
-    this.isDarkTheme = this.themeService.isDarkTheme; // assign after themeService is available
+constructor(public themeService: STheme) {
+  this.isDarkTheme = this.themeService.isDarkTheme;
 
-    effect(() => {
-      console.log('Theme changed:', this.isDarkTheme());
-    });
-  }
+  // Reactively update selectedTheme
+  effect(() => {
+    this.selectedTheme = this.isDarkTheme() ? 'dark' : 'light';
+  });
+}
 
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
+onThemeChange(theme: string) {
+  this.themeService.setTheme(theme === 'dark'); // 👈 Apply theme
+}
+
 }

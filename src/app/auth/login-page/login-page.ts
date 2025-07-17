@@ -61,7 +61,6 @@ export class LoginPage {
       this.authService.SignInUser(this.loginForm.value).subscribe((response) => {
         try {
           console.log('Parsed Response:', response);
-
           this.safeStorage.setItem('token', response?.token);
           this.safeStorage.setItem('user', response);
 
@@ -70,11 +69,9 @@ export class LoginPage {
             message: 'Welcome back! Access granted.',
             type: 'success',
           });
-
-          this.router.navigate(['/admin/users']);
+          this.router.navigate(['/admin']);
         } catch (error) {
           this.toaster.addToast({
-            title: 'Login Error',
             message: response,
             type: 'warning',
           });

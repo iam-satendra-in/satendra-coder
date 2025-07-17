@@ -166,49 +166,6 @@
 
 
 
-
-.fixed-button {
-    position: fixed;
-    top: 12%;
-    right: 4px;
-    z-index: 999;
-    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    @media screen and (max-width: 768px) {
-        right: 10%;
-        bottom: 18%;
-    }
-}
-
-.theme-button {
-    display: flex;
-    justify-content: stretch;
-    align-items: center;
-    background: var(--text-color);
-    color: var(--background-color);
-    padding: 4px;
-    text-decoration: none;
-    border-radius: 45px;
-    font-size: 14px;
-    font-family: "mypoppinsRegular";
-    font-weight: bold;
-    letter-spacing: 1px;
-    gap: 6px;
-    cursor: pointer !important;
-
-    svg {
-        margin-right: 10px;
-        /* Space between icon and text */
-        font-size: 10px;
-        /* Adjust icon size if needed */
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-}
-
-
 // What link 
 .fixed-button_whatsapp {
     position: fixed;

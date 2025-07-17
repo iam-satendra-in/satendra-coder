@@ -9,7 +9,7 @@ import { ReachoutCard } from "../reachout-card/reachout-card";
 
 @Component({
   selector: 'app-index-page',
-  imports: [MenuCard, BannerCard, AboutCard, FooterCard, GlobalContact, RoadmapCard, ReachoutCard],
+  imports: [BannerCard, AboutCard, FooterCard, GlobalContact, RoadmapCard, ReachoutCard, MenuCard],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss'
 })

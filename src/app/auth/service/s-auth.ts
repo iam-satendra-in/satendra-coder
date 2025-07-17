@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SignUpPayload, SignInPayload } from '../model/User';
+import { RegisterPayload, LoginPayload } from '../model/User';
 import { APIEndPoint } from '../../core/constants/constants';
 
 // Set headers (adjust content-type based on your API)
@@ -18,16 +18,13 @@ export class SAuth {
 constructor(private http: HttpClient) {}
 
   // Authenticates the user
-  register(registerPayload: SignUpPayload): Observable<any> {
-    return this.http.post(APIEndPoint.Auth.Register, registerPayload, {
-      headers,
-      responseType: 'text' as 'json', // ✅ Important fix
-    });
+  register(registerPayload: RegisterPayload): Observable<any> {
+    return this.http.post(APIEndPoint.Auth.Register, registerPayload, {headers});
   }
 
   // Login Api
-  SignInUser(signInPayload: SignInPayload): Observable<any> {
-    return this.http.post<SignInPayload>(
+  SignInUser(signInPayload: LoginPayload): Observable<any> {
+    return this.http.post<LoginPayload>(
       APIEndPoint.Auth.Login,
       signInPayload,
       { headers }

@@ -1,0 +1,66 @@
+<div class="app-heading-btn">
+    <div class="header-container">
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <a href="/compiler">Quick Compiler</a>
+            <a [href]="AllheaderData?.baseUrl">{{AllheaderData?.name}}</a>
+        </div>
+        <div class="header-actions">
+            <button class="action-btn run">
+                <mat-icon>play_circle</mat-icon>
+                <span>RUN</span>
+            </button>
+
+            <!-- Dropdown for Language -->
+            <div class="dropdown" [class.open]="isLanguageDropdownOpen" appClickOutside
+                (appClickOutside)="closeDropdown('language')">
+                <button class="dropdown-btn" (click)="toggleDropdown('language')">
+                    {{ selectedLanguage }} <!-- Display the selected language -->
+                    <span class="icon" [class.rotate]="isLanguageDropdownOpen">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                </button>
+                <div class="dropdown-content">
+                    <span (click)="selectOption('C++')">C++</span>
+                    <span (click)="selectOption('C')">C</span>
+                    <span (click)="selectOption('Java')">Java</span>
+                    <span (click)="selectOption('JavaScript')">JavaScript</span>
+                    <span (click)="selectOption('Python')">Python</span>
+                    <span (click)="selectOption('SQL')">SQL</span>
+                    <span (click)="selectOption('R')">R Compiler</span>
+                    <span (click)="selectOption('C#')">C#</span>
+                    <span (click)="selectOption('HTML')">HTML/CSS</span>
+                </div>
+            </div>
+
+            <!-- Dropdown for File -->
+            <div class="dropdown" [class.open]="isFileDropdownOpen" appClickOutside
+                (appClickOutside)="closeDropdown('file')">
+                <button class="dropdown-btn" (click)="toggleDropdown('file')">
+                    File
+                    <span class="icon" [class.rotate]="isFileDropdownOpen">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                </button>
+                <div class="dropdown-content">
+                    <span (click)="newFile()">New File</span>
+                    <label>
+                        <span>Upload</span>
+                        <input type="file" (change)="uploadFile($event)" hidden />
+                    </label>
+                    <span (click)="saveFile()">Save</span>
+                </div>
+            </div>
+
+            <button (click)="openEditorSettings()" class="action-btn settings">
+                <span>Settings</span>
+                <mat-icon>settings</mat-icon>
+            </button>
+            <button class="action-btn share">
+                <span>Share</span>
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
+    </div>
+
+</div>

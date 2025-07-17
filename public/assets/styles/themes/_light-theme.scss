@@ -7,37 +7,36 @@ body.light-theme {
   --btn-background-color: #26a69a;
 
   // Core Dashboard 
-  --d-background-color:#121212;
-  --d-card-color:#f5f5f5;
+  --d-background-color: #121212;
+  --d-card-color: #f5f5f5;
 
   // Models Card
-  --free-card:#d9ffddb8;
-  --premium-card:#ffe7e7;
+  --free-card: #d9ffddb8;
+  --premium-card: #ffe7e7;
 
   //Compiler Card Colors
   --compiler-card: #f5f5f5;
   --compiler-card-text: #000000;
-  --compiler-head-footer:#e2e8f0;
+  --compiler-head-footer: #e2e8f0;
 
   // Tools Color Variable
-  --sub-menu-bg:#eee;
+  --sub-menu-bg: #eee;
   --main-bg: #fff;
-  --search-bg:#fff;
+  --search-bg: #fff;
 
   // Who Iam Card
   --primary-who-bg: #f5f5f5;
   --primary-who-color: #000000;
-  --primary-who-btn-bg:#019d91; //#ff4500
-  --primary-who-btn-color:#fff;
-  --secondary-who-bg:#222b45;
-  --secondary-who-color:#222b45;
-  --footer-who-bg:#fff;
-  --project-who-bg:#dae2f9;
-  --banner-who-bg:#dae2f9;
+  --primary-who-btn-bg: #019d91; //#ff4500
+  --primary-who-btn-color: #fff;
+  --secondary-who-bg: #222b45;
+  --secondary-who-color: #222b45;
+  --footer-who-bg: #fff;
+  --project-who-bg: #dae2f9;
+  --banner-who-bg: #dae2f9;
 }
 
 body.light-theme {
   background-color: var(--background-color);
   color: var(--text-color);
 }
-

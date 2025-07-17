@@ -1,4 +1,12 @@
-import { Component, computed, inject, Inject, PLATFORM_ID, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  HostListener,
+  inject,
+  Inject,
+  PLATFORM_ID,
+  signal,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
@@ -21,6 +29,7 @@ export class MenuCard {
   UserData: any = null;
   MenuDataDropdown = menuData;
   isVisible = true;
+  
 
   private router = inject(Router);
   private platformId = inject(PLATFORM_ID);
@@ -49,9 +58,32 @@ export class MenuCard {
     }
   }
 
-  goToAdmin() {
-    this.router.navigate(['/admin/users']);
+
+@HostListener('document:click', ['$event'])
+onClickOutside(event: Event) {
+  const target = event.target as HTMLElement;
+  if (!target.closest('.user-dropdown')) {
+    this.isDropdownOpen = false;
   }
+}
+
+toggleDropdown() {
+  this.isDropdownOpen = !this.isDropdownOpen;
+}
+
+goToProfile() {
+  this.router.navigate(['/profile']);
+}
+
+goToAdmin() {
+  this.router.navigate(['/admin']);
+}
+
+logout() {
+  sessionStorage.clear();
+  this.router.navigate(['/auth/login']);
+}
+
 
   mobileClick() {
     this.isMobileVisible = true;
