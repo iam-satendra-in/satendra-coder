@@ -3,18 +3,17 @@ section {
     background-color: #002777;
     color: white;
 
-    .contact-strip {
+    .wrapper {
+        width: 90%;
         max-width: 1200px;
         margin: 0 auto;
+        padding: 20px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 00px;
         flex-wrap: wrap;
 
         .contact-item {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
             gap: 12px;

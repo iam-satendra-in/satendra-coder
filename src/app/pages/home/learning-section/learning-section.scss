@@ -1,0 +1,81 @@
+.learning-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    background: #f9fafb;
+
+    .tabs-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 30px;
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #e4e9f0;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+
+            &.active {
+                background-color: #002777;
+                color: #fff;
+                box-shadow: 0 4px 12px rgba(0, 39, 119, 0.2);
+            }
+
+            &:hover:not(:disabled) {
+                background-color: #cdd7e5;
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                background: #ddd;
+                color: #666;
+            }
+
+            .soon {
+                font-size: 10px;
+                color: #ff0000;
+                margin-left: 8px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .tab-content {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .tab-card {
+            padding: 30px 10px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade {
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

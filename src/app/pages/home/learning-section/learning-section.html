@@ -1,0 +1,36 @@
+<section class="learning-wrapper">
+    <div class="tabs-row">
+        <button *ngFor="let tab of tabs; let i = index" [class.active]="i === activeIndex" [disabled]="tab.comingSoon"
+            (click)="setActive(i)">
+            {{ tab.title }}
+            <span *ngIf="tab.comingSoon" class="soon">Coming Soon</span>
+        </button>
+    </div>
+
+    <div class="tab-content">
+        <div *ngIf="activeIndex === 0" class="tab-card fade">
+            <h3>Learn Tutorials</h3>
+            <p>All tutorials for HTML, CSS, JS, Angular and more...</p>
+        </div>
+
+        <div *ngIf="activeIndex === 1" class="tab-card fade">
+            <h3>Interview Questions</h3>
+            <p>Frontend & Backend Interview Q&A with examples.</p>
+        </div>
+
+        <div *ngIf="activeIndex === 2" class="tab-card fade">
+            <h3>Free Quizzes</h3>
+            <p>MCQs and coding quizzes to test your skills.</p>
+        </div>
+
+        <div *ngIf="activeIndex === 3" class="tab-card fade">
+            <h3>Roadmaps</h3>
+            <p>Career roadmaps for frontend, backend, fullstack and more.</p>
+        </div>
+
+        <div *ngIf="activeIndex === 4" class="tab-card fade">
+            <h3>Courses</h3>
+            <p>Our courses will launch soon. Stay tuned!</p>
+        </div>
+    </div>
+</section>

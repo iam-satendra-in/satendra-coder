@@ -84,6 +84,7 @@ export class RegisterPage {
     }
   }
 
+
   // Helper method to check if a field is valid and touched
   get fullName() {
     return this.registerForm.get('fullName');
@@ -95,5 +96,14 @@ export class RegisterPage {
 
   get password() {
     return this.registerForm.get('password');
+  }
+
+    // Google login
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
+  }
+  // Github login
+    loginWithGitHub(): void {
+    this.authService.loginWithGitHub();
   }
 }

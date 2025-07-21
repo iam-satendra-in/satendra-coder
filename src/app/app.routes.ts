@@ -30,6 +30,15 @@ export const routes: Routes = [
       ),
   },
 
+  // Compiler Routes is lazy loaded
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/dashboard/dashboard.routes').then(
+        (compiler) => compiler.Dashboard_ROUTES
+      ),
+  },
+
   //Company is lazy loaded
   {
     path: '',

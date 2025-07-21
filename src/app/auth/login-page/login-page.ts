@@ -51,6 +51,10 @@ export class LoginPage {
   loginWithGoogle() {
     this.authService.loginWithGoogle();
   }
+  // Github login
+    loginWithGitHub(): void {
+    this.authService.loginWithGitHub();
+  }
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
