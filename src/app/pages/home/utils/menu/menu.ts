@@ -1,27 +1,16 @@
 export const menuData = [
-
-   {
-    title: 'Grow-Learning',
+  {
+    title: 'Learning',
     link: '/about',
     Id: 'showDrop',
     Dropdown: [
       {
-        title: 'Online Courses',
-        link: '/courses',
-        imgUrl: '/assets/images/home/online-course.svg',
-      },
-      {
-        title: 'Skill Assessments',
-        link: '/skills-assessments',
-        imgUrl: '/assets/images/home/skill-Assessments.svg',
-      },
-      {
-        title: 'Tutorials Library',
+        title: 'Learn Tutorials',
         link: '/tutorial',
         imgUrl: '/assets/images/home/tutorial-enter.svg',
       },
       {
-        title: 'Online Interview',
+        title: 'Interview Questions ',
         link: '/interview',
         imgUrl: '/assets/images/home/interview.svg',
       },
@@ -30,6 +19,16 @@ export const menuData = [
         title: 'Free Quizzes',
         link: '/quizzes',
         imgUrl: '/assets/images/home/quiz.svg',
+      },
+      {
+        title: 'Roadmaps',
+        link: '/quizzes',
+        imgUrl: '/assets/images/home/career_paths.svg',
+      },
+      {
+        title: 'Courses(coming soon)',
+        link: '/courses',
+        imgUrl: '/assets/images/home/online-course.svg',
       },
     ],
   },
@@ -67,4 +66,59 @@ export const menuData = [
     ],
   },
 
+  {
+    title: 'Dev-Tools',
+    link: '/about',
+    Id: 'showDrop_2',
+    Dropdown: [
+      {
+        title: 'JSON Tools',
+        link: '/compiler/cplusplus-compiler',
+        imgUrl: '/assets/images/developer_tools/json/json-file.svg',
+      },
+      {
+        title: 'CSS/HTML/JS Formatters',
+        link: '/compiler/java-compiler',
+        imgUrl: '/assets/icons/program/java.svg',
+      },
+      {
+        title: 'Converters (HTML ↔ JSX)',
+        link: '/compiler/python-compiler',
+        imgUrl: '/assets/images/developer_tools/json/converter.svg',
+      },
+      {
+        title: 'QR Generator',
+        link: '/compiler/javascript-compiler',
+        imgUrl: '/assets/images/developer_tools/json/qr-code.svg',
+      },
+      {
+        title: 'Others',
+        link: '/compiler',
+        imgUrl: '/assets/images/developer_tools/all_tools.svg',
+      },
+    ],
+  },
+
+  {
+    title: 'Extensions',
+    link: '/about',
+    Id: 'showDrop_3',
+    Dropdown: [
+      {
+        title: 'VSCode Extensions',
+        link: '/compiler/cplusplus-compiler',
+        imgUrl: '/assets/images/extensions/global/VSCodeExtensions.svg',
+      },
+      {
+        title: 'Browser Extensions',
+        link: '/compiler/java-compiler',
+        imgUrl: '/assets/images/extensions/global/BrowserExtensions.svg',
+      },
+      {
+        title: 'NPM Libraries',
+        link: '/compiler/python-compiler',
+        imgUrl: '/assets/images/extensions/global/NPMLibraries.svg',
+      },
+    ],
+  },
 ];
