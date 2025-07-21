@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoadmapCard } from './roadmap-card';
+import { MentorshipCard } from './mentorship-card';
 
-describe('RoadmapCard', () => {
-  let component: RoadmapCard;
-  let fixture: ComponentFixture<RoadmapCard>;
+describe('MentorshipCard', () => {
+  let component: MentorshipCard;
+  let fixture: ComponentFixture<MentorshipCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RoadmapCard]
+      imports: [MentorshipCard]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RoadmapCard);
+    fixture = TestBed.createComponent(MentorshipCard);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
