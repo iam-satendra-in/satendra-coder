@@ -119,6 +119,11 @@ export const menuData = [
         link: '/compiler/python-compiler',
         imgUrl: '/assets/images/extensions/global/NPMLibraries.svg',
       },
+      {
+        title: 'Maven Libraries',
+        link: '/compiler/python-compiler',
+        imgUrl: '/assets/images/extensions/global/maven-lib.svg',
+      },
     ],
   },
 ];
