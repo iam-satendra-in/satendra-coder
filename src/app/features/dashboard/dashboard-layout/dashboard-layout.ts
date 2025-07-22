@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
+import { MenuCard } from '../../../pages/home/menu-card/menu-card';
 
 @Component({
   selector: 'app-dashboard-layout',
-  imports: [],
+  imports: [MenuCard],
   templateUrl: './dashboard-layout.html',
   styleUrl: './dashboard-layout.scss'
 })
