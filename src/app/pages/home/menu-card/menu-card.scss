@@ -1,6 +1,5 @@
 .navigation {
     background-color: var(--secondary-background);
-    // border-bottom: 1px solid #e5e7eb;
     position: fixed;
     width: 100%;
     top: 0;
@@ -34,25 +33,6 @@
             img {
                 width: 140px;
             }
-
-            // .logo-icon {
-            //     width: 40px;
-            //     height: 40px;
-            //     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            //     border-radius: 8px;
-            //     display: flex;
-            //     align-items: center;
-            //     justify-content: center;
-            //     color: white;
-            //     font-weight: 700;
-            //     font-size: 16px;
-            // }
-
-            // .brand-name {
-            //     font-size: 1.5rem;
-            //     font-weight: 700;
-            //     color: #1f2937;
-            // }
         }
     }
 
@@ -91,6 +71,7 @@
 
             .dropdown-arrow {
                 transition: transform 0.2s ease;
+                color: var(--text-color);
 
                 &.rotated {
                     transform: rotate(180deg);
@@ -99,7 +80,7 @@
         }
 
         &.active .nav-link {
-            color: #0891b2;
+            color: var(--text-color);
             border-bottom-color: #0891b2;
         }
 
@@ -125,7 +106,7 @@
             top: 100%;
             left: 0;
             min-width: 220px;
-            background-color: var(--background-color);
+            background: white;
             border-radius: 12px;
             box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             border: 1px solid #e5e7eb;
@@ -140,7 +121,7 @@
                 .dropdown-item {
                     display: block;
                     padding: 0.75rem 1.25rem;
-                    color: var(--text-color);
+                    color: #374151;
                     text-decoration: none;
                     font-weight: 500;
                     font-size: 0.9rem;
@@ -274,7 +255,7 @@
                 top: 100%;
                 right: 0;
                 min-width: 240px;
-                background-color: var(--background-color);
+                background: white;
                 border-radius: 12px;
                 box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
                 border: 1px solid #e5e7eb;
@@ -296,8 +277,8 @@
                         transition: all 0.15s ease;
 
                         &:hover {
-                            background-color: #06b6d4;
-                            color: var(--text-color);
+                            background-color: #f9fafb;
+                            color: #1f2937;
                         }
 
                         svg {

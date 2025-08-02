@@ -74,7 +74,7 @@
                         </div>
                         <div class="user-details">
                             <span class="user-name">{{ currentUser?.name }}</span>
-                            <span class="user-email">{{ currentUser?.email | truncateText:10}}</span>
+                            <span class="user-email">{{ currentUser?.email | truncateText:15}}</span>
                         </div>
                         <svg class="dropdown-arrow" [class.rotated]="activeDropdown === 'user-profile'" width="12"
                             height="8" viewBox="0 0 12 8" fill="none">
