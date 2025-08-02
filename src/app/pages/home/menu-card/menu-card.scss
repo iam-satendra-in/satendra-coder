@@ -105,7 +105,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 220px;
+            min-width: 240px;
             background: white;
             border-radius: 12px;
             box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -118,7 +118,7 @@
             .dropdown-content {
                 padding: 0.75rem 0;
 
-                .dropdown-item {
+                .dropdown-item a {
                     display: block;
                     padding: 0.75rem 1.25rem;
                     color: #374151;
@@ -159,12 +159,19 @@
             align-items: center;
             gap: 0.75rem;
             cursor: pointer;
-            padding: 0.5rem 0.75rem;
+            padding: 0.2rem 0.75rem;
             border-radius: 8px;
             transition: background-color 0.2s ease;
+            border: 1px solid transparent;
+            transition: .5s all ease-in-out;
 
             &:hover {
-                background-color: #f9fafb;
+                background: linear-gradient(-135deg, #06b6d4, #0891b2);
+                border: 1px solid var(--text-color);
+
+                .login-text {
+                    color: #fff;
+                }
             }
 
             .profile-avatar {
@@ -180,13 +187,13 @@
 
             .login-text {
                 font-weight: 500;
-                color: #374151;
+                color: var(--text-color);
                 font-size: 0.95rem;
                 cursor: pointer;
                 transition: color 0.2s ease;
 
                 &:hover {
-                    color: #1f2937;
+                    color: #fff;
                 }
             }
         }
@@ -383,7 +390,7 @@
             flex-direction: column;
             align-items: flex-start;
             padding: 2rem 1.5rem;
-            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: -2px 001px rgba(0, 0, 0, 0.1);
             transition: right 0.3s ease;
             z-index: 1000;
             overflow-y: auto;
@@ -688,7 +695,7 @@
             background: white !important;
             margin: 0 !important;
             margin-top: 0.5rem !important;
-            min-width: 220px !important;
+            min-width: 240px !important;
             width: auto !important;
             opacity: 1 !important;
             transform: translateY(0) !important;

@@ -28,7 +28,7 @@
                         <div class="dropdown-content">
                             <a *ngFor="let dropdownItem of item.dropdownItems" href="#" class="dropdown-item"
                                 (click)="$event.preventDefault(); $event.stopPropagation(); closeMobileMenu()">
-                                {{ dropdownItem }}
+                                <a href=""> {{ dropdownItem }}</a>
                             </a>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
 
             <!-- User Actions -->
             <div class="nav-actions">
-                <div class="user-profile" *ngIf="!isLoggedIn">
+                <div class="user-profile" *ngIf="!isLoggedIn" (click)="toggleLogin(); closeMobileMenu()">
                     <div class="profile-avatar">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor"
@@ -57,7 +57,7 @@
                             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
                         </svg>
                     </div>
-                    <span class="login-text" (click)="toggleLogin(); closeMobileMenu()">Login</span>
+                    <span class="login-text">Login</span>
                 </div>
 
                 <!-- Logged In User Profile -->
@@ -131,7 +131,7 @@
                     </div>
                 </div>
 
-                <button class="get-started-btn" (click)="closeMobileMenu()">
+                <button *ngIf="!isLoggedIn" class="get-started-btn" (click)="closeMobileMenu()">
                     Get Started
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -140,6 +140,7 @@
                 </button>
             </div>
         </div>
+
 
         <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">

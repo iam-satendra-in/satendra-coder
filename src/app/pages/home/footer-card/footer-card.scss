@@ -19,6 +19,7 @@
         gap: 3rem;
 
         .logo-section {
+            padding-top: 15px;
             flex: 1 1 250px;
 
             @media screen and (max-width:768px) {
@@ -39,6 +40,7 @@
         }
 
         .footer-links {
+            padding-top: 15px;
             display: flex;
             flex: 3 1 auto;
             flex-wrap: wrap;
@@ -61,8 +63,9 @@
                     color: #b0b0b0;
                     text-decoration: none;
 
+
                     &:hover {
-                        color: #26a69a;
+                        color: #0891b2;
                     }
                 }
             }
@@ -100,7 +103,7 @@
                 font-size: 13px;
 
                 &:hover {
-                    color: #26a69a;
+                    color: #0891b2;
                 }
             }
         }
@@ -133,7 +136,7 @@
 .fixed-button_whatsapp {
     position: fixed;
     top: 20%;
-    right: -100px;
+    right: -86px;
     z-index: 999;
     transition: .5s all ease-in;
 
@@ -145,7 +148,7 @@
         display: flex;
         justify-content: stretch;
         align-items: center;
-        background-color: #26a69a;
+        background-color: #002777;
         color: white;
         padding: 6px 25px 6px 12px;
         text-decoration: none;
@@ -154,6 +157,95 @@
         font-family: "mypoppinsRegular";
         font-weight: 300;
         letter-spacing: 1px;
+
+        img {
+            width: 20px;
+            margin-right: 10px;
+            /* Space between icon and text */
+            font-size: 18px;
+            /* Adjust icon size if needed */
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+// What link button_aks_me_anything
+.fixed-button_aks_me_anything {
+    position: fixed;
+    top: 28%;
+    right: -150px;
+    z-index: 999;
+    transition: .5s all ease-in;
+
+    &:hover {
+        right: -22px;
+    }
+
+    .whatsapp-button_button_aks_me_anything {
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+        padding: 6px 25px 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-family: "mypoppinsRegular";
+        font-weight: 600;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(1, 108, 128, 0.2);
+
+        img {
+            width: 20px;
+            margin-right: 10px;
+            /* Space between icon and text */
+            font-size: 18px;
+            /* Adjust icon size if needed */
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+// What link donate
+.fixed-button_donate {
+    position: fixed;
+    top: 36%;
+    right: -85px;
+    z-index: 999;
+    transition: .5s all ease-in;
+
+    &:hover {
+        right: -22px;
+    }
+
+    .whatsapp-donate {
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 25px 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-family: "mypoppinsRegular";
+        font-weight: 600;
+        letter-spacing: 1px;
+        background: #F97316;
+        color: #002777;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(1, 108, 128, 0.2);
 
         img {
             width: 20px;

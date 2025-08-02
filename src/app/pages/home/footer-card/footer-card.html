@@ -13,30 +13,31 @@
                 <h4>GROW LEARN</h4>
                 <a routerLink="/roadmaps">Career Roadmaps</a>
                 <a routerLink="/blogs">Coding Tutorials</a>
-                <a routerLink="/freelancing">Freelancing Tips</a>
-                <a routerLink="/earning">Online Earning</a>
-                <a routerLink="/resources">PDFs & Resources</a>
+                <a routerLink="/freelancing">Interview Questions Tips</a>
+                <a routerLink="/earning">Roadmaps</a>
+                <a routerLink="/resources">Courses(coming soon)</a>
             </div>
             <div class="footer-column">
                 <h4>DEV TOOLS</h4>
                 <a routerLink="/tools/json-viewer">JSON Viewer</a>
-                <a routerLink="/tools/html-formatter">HTML Formatter</a>
-                <a routerLink="/tools/converters">Code Converters</a>
-                <a routerLink="/tools/fake-name-generator">Fake Name Generator</a>
-                <a routerLink="/tools/password-generator">Password Generator</a>
+                <a routerLink="/tools/html-formatter">CSS/HTML/JS Formatters</a>
+                <a routerLink="/tools/converters">Converters (HTML ↔ JSX)</a>
+                <a routerLink="/tools/fake-name-generator">QR Generator</a>
+                <a routerLink="/tools/password-generator">Meta & SEO Tools</a>
             </div>
             <div class="footer-column">
-                <h4>PLATFORM</h4>
-                <a routerLink="/about">About Me</a>
-                <a routerLink="/contact">Contact</a>
-                <a routerLink="/community">Community</a>
-                <a routerLink="/support">Support</a>
+                <h4>Resources</h4>
+                <a routerLink="/contact">Quick Compiler</a>
+                <a routerLink="/support">Core Subjects</a>
+                <a routerLink="/community">e-Books</a>
+                <a routerLink="/about">NPM Libraries </a>
+                <a routerLink="/community">VS & Browser Extensions</a>
             </div>
             <div class="footer-column">
                 <h4>MORE</h4>
-                <a routerLink="/privacy-policy">Privacy Policy</a>
-                <a routerLink="/terms">Terms & Conditions</a>
-                <a routerLink="/return-policy">Refund Policy</a>
+                <a routerLink="/privacy-policy">Blog</a>
+                <a routerLink="/terms">Mentorship</a>
+                <a routerLink="/return-policy">Community</a>
                 <app-c-theme-toggle [selectedTheme]="selectedTheme"
                     (themeChanged)="onThemeChange($event)"></app-c-theme-toggle>
             </div>
@@ -48,12 +49,12 @@
     <div class="footer-bottom wrapper">
         <div class="left-text">© 2025 Satendra Rajput. All Rights Reserved.</div>
         <div class="right-links">
-            <a routerLink="/about">About</a>
-            <a routerLink="/contact">Contact</a>
-            <a routerLink="/donate">Donate</a>
-            <a routerLink="/terms-and-conditions">Terms</a>
-            <a routerLink="/privacy-policy">Privacy</a>
-            <a routerLink="/pricing-policy">Refund</a>
+            <a routerLink="/about">About us</a>
+            <a routerLink="/contact">Contact us</a>
+            <a routerLink="/donate">Community</a>
+            <a routerLink="/terms-and-conditions">Terms Conditions</a>
+            <a routerLink="/privacy-policy">Privacy Policy</a>
+            <a routerLink="/pricing-policy">Pricing Policy</a>
         </div>
     </div>
 </footer>
@@ -62,5 +63,23 @@
 <div class="fixed-button_whatsapp">
     <a href="https://chat.whatsapp.com/I0uUuT4sUY9FnUDexZCLfy" class="whatsapp-button" target="_blank">
         <img src="/assets/icons/social/whatsapp.svg" alt="whatsapp" /> Let's chat
+    </a>
+</div>
+
+<!-- WhatsApp Fixed button_aks_me_anything -->
+<div class="fixed-button_aks_me_anything">
+    <a routerLink="/ask-me-anything" class="whatsapp-button_button_aks_me_anything" target="_blank">
+        <img src="/assets/icons/more/about.svg" alt="whatsapp" /> Aks Me Anything
+    </a>
+</div>
+
+<!-- WhatsApp Fixed Donation -->
+<div class="fixed-button_donate">
+    <a routerLink="/donate" class="whatsapp-donate" target="_blank">
+        <svg _ngcontent-ng-c813610540="" width="18" height="18" viewBox="0 0 24 24" fill="none" class="support-icon">
+            <path _ngcontent-ng-c813610540=""
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                stroke="#002777" stroke-width="2" fill="none"></path>
+        </svg>Donation
     </a>
 </div>

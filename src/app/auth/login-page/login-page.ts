@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { SAuth } from '../service/s-auth';
 import { Router } from '@angular/router';
@@ -6,6 +6,8 @@ import { SSafeStorage } from '../../core/service/global/safe-storage/s-safe-stor
 import { SToaster } from '../../core/service/global/toaster/s-toaster';
 import { MateriallistModule } from '../../shared/materiallist/materiallist-module';
 import { Title, Meta } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterPage } from '../register-page/register-page';
 
 @Component({
   selector: 'app-login-page',
@@ -15,6 +17,7 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class LoginPage {
 
+   readonly dialog = inject(MatDialog);
   showPassword: boolean = false;
   loginForm!: FormGroup;
   user: any;
@@ -90,5 +93,18 @@ export class LoginPage {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+   regusterCard(){
+    this.dialog.closeAll();
+    setTimeout(()=>{
+  const dialogRef = this.dialog.open(RegisterPage, {
+      panelClass: 'custom-dialog'
+    });
+    })
+  }
+
+   close(){
+    this.dialog.closeAll();
   }
 }

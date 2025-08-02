@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MateriallistModule } from '../../shared/materiallist/materiallist-module';
 import { SAuth } from '../service/s-auth';
 import { SToaster } from '../../core/service/global/toaster/s-toaster';
 import { Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginPage } from '../login-page/login-page';
 
 @Component({
   selector: 'app-register-page',
@@ -15,6 +17,7 @@ import { Title, Meta } from '@angular/platform-browser';
 export class RegisterPage {
   showPassword: boolean = false;
   registerForm!: FormGroup;
+   readonly dialog = inject(MatDialog);
 
   constructor(
     private title: Title,
@@ -106,4 +109,18 @@ export class RegisterPage {
     loginWithGitHub(): void {
     this.authService.loginWithGitHub();
   }
+
+  loginCard(){
+    this.dialog.closeAll();
+    setTimeout(()=>{
+  const dialogRef = this.dialog.open(LoginPage, {
+      panelClass: 'custom-dialog'
+    });
+    })
+  }
+
+  close(){
+    this.dialog.closeAll();
+  }
+
 }

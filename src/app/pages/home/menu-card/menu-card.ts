@@ -1,7 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-text-pipe';
 import { RouterLink } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginPage } from '../../../auth/login-page/login-page';
 
 
 interface MenuItem {
@@ -18,7 +20,7 @@ interface User {
 
 @Component({
   selector: 'app-menu-card',
-  imports: [MateriallistModule, TruncateTextPipe,RouterLink ],
+  imports: [MateriallistModule, TruncateTextPipe, RouterLink],
   templateUrl: './menu-card.html',
   styleUrl: './menu-card.scss',
 })
@@ -28,29 +30,46 @@ export class MenuCard {
   isLoggedIn: boolean = false;
   currentUser: User | null = null;
 
+  readonly dialog = inject(MatDialog);
+
   menuItems: MenuItem[] = [
     {
       label: 'Features',
       hasDropdown: true,
       dropdownItems: [
-        'Platform Features',
-        'How It Works',
-        'Early Access',
-        'FAQ',
+        'Learn Tutorials',
+        'Interview Questions',
+        'Free Quizzes',
+        'Roadmaps',
+        'Courses(coming soon)'
       ],
     },
     {
       label: 'Resources',
       hasDropdown: true,
-      dropdownItems: ['Documentation', 'Tutorials', 'Blog', 'Community'],
+      dropdownItems: [
+        'Blog', 
+        'Community',
+        'Quick Compiler', 
+        'Core Subjects',
+        'VS & Browser Extensions',
+        'NPM Libraries', 
+        'e-Books'
+      ],
     },
     {
-      label: 'Pricing',
+      label: 'Dev-Tools',
+      hasDropdown: true,
+      dropdownItems: ['JSON Tools', 'CSS/HTML/JS Formatters', 'Converters (HTML ↔ JSX)', 'QR Generator','Others'],
+    },
+    {
+      label: 'Mentorship',
       hasDropdown: false,
     },
+     
     {
       label: 'About',
-      hasDropdown: true,
+      hasDropdown: false,
       dropdownItems: ['Our Story', 'Team', 'Careers', 'Contact'],
     },
   ];
@@ -65,6 +84,13 @@ export class MenuCard {
   }
 
   private login(): void {
+    const dialogRef = this.dialog.open(LoginPage, {
+      panelClass: 'custom-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
     // Simulate user login
     this.isLoggedIn = true;
     this.currentUser = {
@@ -132,4 +158,6 @@ export class MenuCard {
       }
     }
   }
+
+
 }

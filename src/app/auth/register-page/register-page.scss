@@ -3,19 +3,18 @@
     margin: auto;
     height: 100%;
     display: flex;
-    background-color: #f0f0f0;
-    background-image: radial-gradient(at 17% 0%, #f0f0f0 0, transparent 50%), radial-gradient(at 98% 1%, #f0f0f0 0, transparent 50%), radial-gradient(at 33% 87%, #f0f0f0 0, transparent 50%), radial-gradient(at 65% 86%, #f0f0f0 0, transparent 50%), radial-gradient(at 61% 21%, #f0f0f0 0, transparent 50%), radial-gradient(at 36% 1%, #f0f0f0 0, transparent 50%), radial-gradient(at 31% 31%, rgba(105, 82, 255, 0.8) 0, transparent 50%), radial-gradient(at 42% 32%, #9d8ff5 0, transparent 50%), radial-gradient(at 0% 1%, #f0f0f0 0, transparent 50%), radial-gradient(at 10% 66%, #f0f0f0 0, transparent 50%), radial-gradient(at 64% 56%, #30e8bd 0, transparent 50%), radial-gradient(at 68% 46%, #54bbbb 0, transparent 50%), radial-gradient(at 99% 98%, #f0f0f0 0, transparent 50%), radial-gradient(at 67% 59%, #75dfff 0, transparent 50%);
+    background-color: transparent;
 }
 
 .login-modal {
-    background: white;
+    background-color: var(--secondary-background);
     border-radius: 10px;
-    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    box-shadow: 0 10px 20px var(--text-color);
+    width: 450px;
     max-width: 100%;
     margin: auto;
-    padding: 10px 20px;
-    color: #333;
+    padding: 10px 40px;
+    color: var(--text-color);
     font-family: Arial, sans-serif;
     position: relative;
 
@@ -65,7 +64,10 @@
 
             a {
                 text-decoration: none;
-                color: #012643;
+                color: var(--text-color);
+                position: absolute;
+                top: 15px;
+                right: 15px;
             }
         }
     }
@@ -76,10 +78,10 @@
         .signup-link {
             color: #0073e6;
             text-decoration: none;
+            cursor: pointer;
 
             &:hover {
                 color: #26a69a;
-                font-weight: 600;
             }
         }
 
@@ -92,8 +94,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                background: #f5f5f5;
-                border: 1px solid #ddd;
+                background: #f5f5f521;
+                border: 1.5px solid #ddd;
                 border-radius: 5px;
                 padding: 10px;
                 font-size: 14px;
@@ -144,9 +146,11 @@
             input {
                 margin-top: 10px;
                 padding: 10px;
-                border: 1px solid #ddd;
+                border: 1.5px solid #ddd;
                 border-radius: 5px;
                 font-size: 14px;
+                background-color: transparent;
+                color: var(--text-color);
 
                 &:focus {
                     outline: 1px solid #0073e6;
@@ -181,7 +185,7 @@
                 .login-btn {
                     width: 100%;
                     padding: 10px 20px;
-                    background: #26a69a;
+                    background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
                     color: white;
                     font-size: 0.9rem;
                     border: none;
@@ -270,6 +274,7 @@ input:valid {
         /* Adjust the spacing between the text and lines */
         white-space: nowrap;
         /* Prevents text from wrapping */
+        color: var(--text-color);
     }
 
     .line {

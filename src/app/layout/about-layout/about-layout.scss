@@ -12,13 +12,22 @@
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
+
+    @media screen and (max-width:480px) {
+        width: 95%;
+    }
+
 }
 
 .main-content {
     background-color: var(--secondary-background);
     padding: 1rem 2rem;
-    margin-top: 35px;
+    margin-top: 80px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    @media screen and (max-width:480px) {
+        padding: 1rem 0.8rem !important;
+    }
 
 }

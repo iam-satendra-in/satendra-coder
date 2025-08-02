@@ -3,39 +3,20 @@
     margin: auto;
     height: 100%;
     display: flex;
-    background-color: #f0f0f0;
-    background-image: radial-gradient(at 17% 0%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 98% 1%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 33% 87%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 65% 86%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 61% 21%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 36% 1%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 31% 31%, rgba(105, 82, 255, 0.8) 0, transparent 50%),
-        radial-gradient(at 42% 32%, #9d8ff5 0, transparent 50%),
-        radial-gradient(at 0% 1%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 10% 66%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 64% 56%, #30e8bd 0, transparent 50%),
-        radial-gradient(at 68% 46%, #54bbbb 0, transparent 50%),
-        radial-gradient(at 99% 98%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 67% 59%, #75dfff 0, transparent 50%);
+    background-color: transparent;
 }
 
 .login-modal {
-    background: white;
+    background-color: var(--secondary-background);
     border-radius: 10px;
-    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    box-shadow: 0 10px 20px var(--text-color);
+    width: 450px;
     max-width: 100%;
     margin: auto;
-    padding: 10px 20px;
-    color: #333;
+    padding: 10px 40px;
+    color: var(--text-color);
     font-family: Arial, sans-serif;
     position: relative;
-
-    @media (max-width: 480px) {
-        width: 85%;
-        margin: auto;
-    }
 
     .login_top_logo {
         width: 100%;
@@ -48,6 +29,7 @@
 
         img {
             width: 150px;
+
         }
     }
 
@@ -82,7 +64,10 @@
 
             a {
                 text-decoration: none;
-                color: #012643;
+                color: var(--text-color);
+                position: absolute;
+                top: 15px;
+                right: 15px;
             }
         }
     }
@@ -90,17 +75,13 @@
     .login-body {
         text-align: center;
 
-        p {
-            padding: 15px 0px;
-        }
-
         .signup-link {
             color: #0073e6;
             text-decoration: none;
+            cursor: pointer;
 
             &:hover {
-                color: #26a69a;
-                font-weight: 600;
+                color: #0891b2;
             }
         }
 
@@ -113,8 +94,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                background: #f5f5f5;
-                border: 1px solid #ddd;
+                background: #f5f5f52c;
+                border: 1.5px solid #0891b2;
                 border-radius: 5px;
                 padding: 10px;
                 font-size: 14px;
@@ -123,7 +104,7 @@
 
                 &:hover {
                     transform: translateY(-5px);
-                    border: 1px solid #26a69a;
+                    border: 1px solid #0891b2;
                 }
 
                 img {
@@ -148,6 +129,8 @@
             .feide {
                 color: #ff9900;
             }
+
+
         }
 
         .or-divider {
@@ -163,9 +146,11 @@
             input {
                 margin-top: 10px;
                 padding: 10px;
-                border: 1px solid #ddd;
+                border: 1.5px solid #ddd;
                 border-radius: 5px;
                 font-size: 14px;
+                background-color: transparent;
+                color: var(--text-color);
 
                 &:focus {
                     outline: 1px solid #0073e6;
@@ -180,32 +165,18 @@
                 gap: 20px;
                 padding: 15px 0px;
 
-                @media screen and (max-width: 480px) {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-direction: column;
-                    width: 90%;
-                    margin: auto;
-                }
-
                 .forgot-password {
                     width: 100%;
                     font-size: 0.9rem;
-                    color: #0073e6;
+                    color: #1a73e8;
                     text-decoration: none;
                     border: 1px solid;
                     padding: 10px 20px;
                     border-radius: 8px;
                     transition: transform 0.3s;
 
-                    @media screen and (max-width: 480px) {
-                        width: 100%;
-                        margin: auto;
-                    }
-
                     &:hover {
-                        background-color: #0073e6;
+                        background-color: #1a73e8d8;
                         color: #fff;
                         transform: translateY(-5px);
                     }
@@ -213,18 +184,18 @@
 
                 .login-btn {
                     width: 100%;
-                    padding: 15px 20px;
-                    background: #26a69a;
+                    padding: 10px 20px;
+                    background: linear-gradient(135deg, #06b6d4, #0891b2);
                     color: white;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
                     border: none;
                     border-radius: 8px;
                     cursor: pointer;
                     transition: transform 0.3s;
 
                     &:hover {
-                        background-color: #fff;
-                        color: #012643;
+                        background-color: #ffffff11;
+                        color: var(--text-color);
                         border: 1px solid;
                         transform: translateY(-5px);
                         font-weight: 500;
@@ -236,7 +207,7 @@
 
     .password-container {
         position: relative;
-        margin: 10px 0px;
+        margin: 2px 0px;
 
         input {
             width: 100%;
@@ -259,6 +230,7 @@
     }
 }
 
+
 .error-message {
     color: red;
     font-size: 0.875rem;
@@ -275,11 +247,17 @@ input:valid {
 }
 
 @media (max-width: 480px) {
+    .login-modal {
+        width: 85%;
+        margin: auto;
+    }
+
     input {
         width: 100% !important;
         padding-right: 40px; // Space for the icon
     }
 }
+
 
 .list-card-heading {
     display: flex;
@@ -296,20 +274,22 @@ input:valid {
         /* Adjust the spacing between the text and lines */
         white-space: nowrap;
         /* Prevents text from wrapping */
+        color: var(--text-color);
     }
 
     .line {
         width: 70px;
         height: 1px;
-        background-color: #dcdcdc;
+        background-color: #DCDCDC;
 
         /* You can change the color if needed */
-        @media screen and (max-width: 1040px) {
+        @media screen and (max-width:1040px) {
             width: 40px;
         }
 
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width:992px) {
             width: 30px;
         }
     }
+
 }
