@@ -1,95 +1,135 @@
-import {
-  Component,
-  computed,
-  HostListener,
-  inject,
-  Inject,
-  PLATFORM_ID,
-  signal,
-} from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
-import { NavigationEnd, Router } from '@angular/router';
-import { menuData } from '../utils/menu/menu';
+import { Component, HostListener } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
-import { HoverGradient } from '../../../shared/directives/global/hover-gradient/hover-gradient';
-import { filter } from 'rxjs';
+import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-text-pipe';
+import { RouterLink } from '@angular/router';
+
+
+interface MenuItem {
+  label: string;
+  hasDropdown: boolean;
+  dropdownItems?: string[];
+}
+
+interface User {
+  name: string;
+  email: string;
+  avatar?: string;
+}
 
 @Component({
   selector: 'app-menu-card',
-  imports: [MateriallistModule, HoverGradient],
+  imports: [MateriallistModule, TruncateTextPipe,RouterLink ],
   templateUrl: './menu-card.html',
   styleUrl: './menu-card.scss',
 })
 export class MenuCard {
-  CloseOpen = false;
-  isLoggedIn = false;
-  isMobileVisible = false;
-  isDropdownOpen = false;
-  UserData: any = null;
-  MenuDataDropdown = menuData;
-  isVisible = true;
-  
+  activeDropdown: string | null = null;
+  isMobileMenuOpen: boolean = false;
+  isLoggedIn: boolean = false;
+  currentUser: User | null = null;
 
-  private router = inject(Router);
-  private platformId = inject(PLATFORM_ID);
+  menuItems: MenuItem[] = [
+    {
+      label: 'Features',
+      hasDropdown: true,
+      dropdownItems: [
+        'Platform Features',
+        'How It Works',
+        'Early Access',
+        'FAQ',
+      ],
+    },
+    {
+      label: 'Resources',
+      hasDropdown: true,
+      dropdownItems: ['Documentation', 'Tutorials', 'Blog', 'Community'],
+    },
+    {
+      label: 'Pricing',
+      hasDropdown: false,
+    },
+    {
+      label: 'About',
+      hasDropdown: true,
+      dropdownItems: ['Our Story', 'Team', 'Careers', 'Contact'],
+    },
+  ];
 
-  // ✅ Define route signal once
-  currentUrl = signal(this.router.url);
-
-  // ✅ Signal-based condition — DO NOT reassign in constructor
-  hideAskMe = computed(() =>
-    ['/login', '/admin', '/dashboard', '/montor'].includes(this.currentUrl())
-  );
-
-  constructor(private dialog: MatDialog) {
-    // ✅ Update signal value on route change
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.currentUrl.set(event.urlAfterRedirects);
-      });
-
-    // ✅ Platform check for sessionStorage
-    if (isPlatformBrowser(this.platformId)) {
-      const userStr = sessionStorage.getItem('user');
-      this.UserData = userStr ? JSON.parse(userStr) : null;
-      this.isLoggedIn = !!sessionStorage.getItem('token');
+  // Simulate login/logout for demo purposes
+  toggleLogin(): void {
+    if (this.isLoggedIn) {
+      this.logout();
+    } else {
+      this.login();
     }
   }
 
-
-@HostListener('document:click', ['$event'])
-onClickOutside(event: Event) {
-  const target = event.target as HTMLElement;
-  if (!target.closest('.user-dropdown')) {
-    this.isDropdownOpen = false;
-  }
-}
-
-toggleDropdown() {
-  this.isDropdownOpen = !this.isDropdownOpen;
-}
-
-goToProfile() {
-  this.router.navigate(['/profile']);
-}
-
-goToAdmin() {
-  this.router.navigate(['/admin']);
-}
-
-logout() {
-  sessionStorage.clear();
-  this.router.navigate(['/auth/login']);
-}
-
-
-  mobileClick() {
-    this.isMobileVisible = true;
+  private login(): void {
+    // Simulate user login
+    this.isLoggedIn = true;
+    this.currentUser = {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      avatar: 'JD',
+    };
+    this.closeDropdowns();
   }
 
-  mobileclose() {
-    this.isMobileVisible = false;
+  private logout(): void {
+    this.isLoggedIn = false;
+    this.currentUser = null;
+    this.closeDropdowns();
+  }
+
+  toggleDropdown(menuLabel: string): void {
+    if (this.isMobileMenuOpen) {
+      // Mobile behavior - toggle dropdown
+      this.activeDropdown =
+        this.activeDropdown === menuLabel ? null : menuLabel;
+    } else {
+      // Desktop behavior - toggle dropdown
+      this.activeDropdown =
+        this.activeDropdown === menuLabel ? null : menuLabel;
+    }
+  }
+
+  closeDropdowns(): void {
+    this.activeDropdown = null;
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    if (this.isMobileMenuOpen) {
+      this.closeDropdowns();
+    }
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+    this.closeDropdowns();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    const navItem = target.closest('.nav-item');
+    const mobileToggle = target.closest('.mobile-menu-toggle');
+
+    // Don't close dropdown if clicking within the same nav item or mobile toggle
+    if (!navItem && !mobileToggle) {
+      this.closeDropdowns();
+    } else if (navItem && !this.isMobileMenuOpen) {
+      // Desktop: close other dropdowns when clicking different nav item
+      const clickedItem = navItem
+        .querySelector('.nav-link')
+        ?.textContent?.trim();
+      if (
+        clickedItem &&
+        this.activeDropdown &&
+        this.activeDropdown !== clickedItem
+      ) {
+        this.activeDropdown = clickedItem;
+      }
+    }
   }
 }

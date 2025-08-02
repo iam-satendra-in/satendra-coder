@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopMenu } from './top-menu';
+import { FaqCard } from './faq-card';
 
-describe('TopMenu', () => {
-  let component: TopMenu;
-  let fixture: ComponentFixture<TopMenu>;
+describe('FaqCard', () => {
+  let component: FaqCard;
+  let fixture: ComponentFixture<FaqCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TopMenu]
+      imports: [FaqCard]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TopMenu);
+    fixture = TestBed.createComponent(FaqCard);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

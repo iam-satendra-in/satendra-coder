@@ -1,8 +1,13 @@
 .page-layout {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    // display: grid;
+    // grid-template-columns: 3fr 1fr;
+    // gap: 2rem;
+    // padding: 2rem;
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -16,40 +21,4 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 
-}
-
-.sidebar {
-    position: sticky;
-    top: 100px;
-    align-self: start;
-
-    @media (max-width: 768px) {
-        position: static;
-        margin-top: 2rem;
-    }
-
-    h4 {
-        margin-bottom: 1rem;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    ul {
-        list-style: none;
-        padding-left: 0;
-
-        li {
-            margin-bottom: 0.5rem;
-
-            a {
-                color: #3366cc;
-                text-decoration: none;
-                font-size: 0.95rem;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
 }

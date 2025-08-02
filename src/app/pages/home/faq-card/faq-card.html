@@ -1,0 +1,22 @@
+<div class="faq-wrapper">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-subtitle">Everything you need to know about BeeSecure</p>
+
+    <div class="faq-accordion">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.active]="i === activeIndex"
+            (click)="toggleFAQ(i)">
+            <div class="faq-question">
+                {{ faq.question }}
+                <span class="icon" [class.rotate]="i === activeIndex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#fff">
+                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                    </svg>
+                </span>
+            </div>
+            <div class="faq-answer" *ngIf="i === activeIndex">
+                <p>{{ faq.answer }}</p>
+            </div>
+        </div>
+    </div>
+</div>

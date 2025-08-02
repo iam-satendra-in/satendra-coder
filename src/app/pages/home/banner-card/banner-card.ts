@@ -1,11 +1,11 @@
-import { ChangeDetectorRef, Component} from '@angular/core';
+import { Component} from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 
 
 @Component({
   selector: 'app-banner-card',
   imports: [MateriallistModule],
-  templateUrl: './banner-card.html',
+  templateUrl:'./banner-card.html',
   styleUrl: './banner-card.scss'
 })
 export class BannerCard {

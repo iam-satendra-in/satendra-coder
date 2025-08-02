@@ -1,81 +1,53 @@
-<!-- hero-section.component.html -->
-<div class="ssbr_fuild banner_montor" title="Satendra Coder">
-    <section class="hero-section">
-        <div class="container">
-            <!-- Left Content -->
-            <div class="content">
-                <div class="typing-text">
-                    <h1 class="banner-heading" appHoverdirective>👋 Hi, I'm Satendra Rajput
-                    </h1>
-                    <span class="content_1" [ngStyle]="{'width': textWidth, 'color': currentColor}">
-                        {{ currentText }}
-                    </span>
-                </div>
-                <p>
-                    I help students and beginners learn coding, freelancing, and practical tech skills with tools,
-                    tutorials, and real-world projects – in Hindi and English.
-                </p>
-                <div class="buttons">
-                    <a href="/compiler">
-                        <button class="primary-btn">⚡ Try Quick Compiler</button>
-                    </a>
-                    <a href="/explore">
-                        <button class="secondary-btn">📚 Explore Learning</button>
-                    </a>
-                </div>
-            </div>
+<div class="banner">
+    <div class="banner__content">
+        <div class="banner__text">
+            <span class="badge">⚡ Interactive Learning Platform</span>
+            <h1>
+                Master <span class="highlight">JavaScript</span><br />
+                and Beyond
+            </h1>
+            <p>
+                From core JavaScript & Java to frameworks like Angular, Rxjs, Ngrx, Spring Boot, and SQL.
+                Learn by building apps, debugging live, and mastering async programming.
+            </p>
+            <ul class="features">
+                <li><span class="icon">👥</span> 75K+ learners</li>
+                <li><span class="icon">🧠</span> 100+ challenges</li>
+                <li><span class="icon">⚙️</span> Extensions & Libraries</li>
+            </ul>
+            <button class="cta">Start Coding in JS <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24"
+                    fill="none">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg></button>
+        </div>
 
-            <!-- Right Images and Followers -->
-            <div class="images-section">
-                <!-- Large Circle Image -->
-                <div class="main-image">
-                    <img src="/assets/images/montor/satendralogo.jpeg" alt="Main Mentor" />
-                </div>
 
-                <!-- Small Circular Images -->
-                <div class="small-images">
-                    @for (img of smallImages; track img) {
-                    <div class="small-image">
-                        <img [src]="img.src" [alt]="img.alt" />
+        <div class="banner__code">
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
-                    }
+                    <span class="filename">hello_world.java</span>
                 </div>
+                <pre class="code">
+<span class="comment">// Your journey starts here</span>
+<span class="keyword">public class</span> <span class="function">Main</span> &#123;
+  <span class="keyword">public static void</span> main(String[] args) &#123;
+    System.out.println(<span class="string">"Hello, Satendracoder!"</span>);
+  &#125;
+&#125;
 
-                <!-- Followers Section -->
-                <div class="followers">
-                    <div class="followers-images">
-                        <img src="assets/images/mentor2.jpg" alt="Follower 1" class="follower" />
-                        <img src="assets/images/mentor3.jpg" alt="Follower 2" class="follower" />
-                        <img src="assets/images/mentor4.jpg" alt="Follower 3" class="follower" />
-                    </div>
-                    <span class="followers-count">5500+</span>
-                </div>
+<span class="output">Output:</span> Hello, Satendracoder!
+</pre>
+
+
+                <div class="toast success">🟢 Code compiled successfully!</div>
+                <div class="toast complete">🏅 First program complete!</div>
             </div>
         </div>
-    </section>
-    <br>
-</div>
-
-
-
-<!-- this is most learning -->
-<section class="high-score-container">
-    <div class="high-score-row">
-        @defer (on viewport) {
-        @for (highItem of mostLearning; track highItem) {
-        <div class="high-score-card">
-            <div class="card-item">
-                <img [src]="highItem.imgName" [alt]="highItem.Para">
-            </div>
-            <div class="card-item">
-                <h3>{{highItem.numberCount}}</h3>
-                <p>{{highItem.Para}}</p>
-            </div>
-        </div>
-        }
-        } @placeholder {
-        <div>Loading..</div>
-        }
-
     </div>
-</section>
+</div>
