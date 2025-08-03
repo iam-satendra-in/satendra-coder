@@ -1,7 +1,7 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-text-pipe';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../../../auth/login-page/login-page';
 import { link } from 'node:fs';
@@ -22,7 +22,7 @@ interface User {
 
 @Component({
   selector: 'app-menu-card',
-  imports: [MateriallistModule, TruncateTextPipe, RouterLink],
+  imports: [MateriallistModule, TruncateTextPipe, RouterLink, RouterLinkWithHref],
   templateUrl: './menu-card.html',
   styleUrl: './menu-card.scss',
 })
@@ -41,23 +41,23 @@ export class MenuCard {
       dropdownItems: [
         {
           name: "Learn Tutorials",
-          link: ""
+          link: "/learn"
         },
         {
           name: "Core Subjects",
-          link: ""
+          link: "/core"
         },
         {
           name: "Interview Questions",
-          link: ""
+          link: "/interview"
         },
         {
           name: "Free Quizzes",
-          link: ""
+          link: "/quiz"
         },
         {
           name: "Roadmaps",
-          link: ""
+          link: "/roadmap"
         },
       ],
     },
@@ -68,23 +68,23 @@ export class MenuCard {
       dropdownItems: [
         {
           name: "Blog",
-          link: ""
+          link: "/blog"
         },
         {
           name: "Community",
-          link: ""
+          link: "/community"
         },
         {
           name: "Online Compiler",
-          link: ""
+          link: "/compiler"
         },
         {
           name: "eBooks Library",
-          link: ""
+          link: "/ebook"
         },
         {
           name: "Mentorship",
-          link: ""
+          link: "/mentorship"
         }
       ],
     },

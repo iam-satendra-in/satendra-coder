@@ -1,23 +1,22 @@
 <div class="technical-skills">
     <div class="container">
         <div class="header">
-            <h1 class="title">Features (Grow - Learning)</h1>
+            <h1 class="title">Everything You Need to Grow as a Developer</h1>
             <p class="subtitle">
-                Explore <strong>Learn Tutorials</strong> to master programming and development fundamentals, dive into
-                <strong>Core Subjects</strong> for a strong foundation, prepare confidently with
-                <strong>Interview Questions</strong>, test your knowledge with <strong>Free Quizzes</strong>, and follow
-                expertly
-                crafted <strong>Roadmaps</strong> to guide your learning journey step by step.
+                From beginner tutorials to advanced tools — learn, practice, build, and grow with a complete developer
+                ecosystem.
             </p>
         </div>
 
         <div class="grid">
             <div class="category-card" *ngFor="let category of categories">
                 <div class="icon">{{ category.icon }}</div>
-                <div class="info">
-                    <h3>{{ category.title }}</h3>
-                    <p>{{ category.description }}</p>
-                </div>
+                <a [routerLink]="category?.link">
+                    <div class="info">
+                        <h3>{{ category.title }}</h3>
+                        <p>{{ category.description }}</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

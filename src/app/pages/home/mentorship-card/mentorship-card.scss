@@ -1,6 +1,6 @@
 section.mentorship-section {
     width: 100%;
-    background-color: #f9fafb;
+    background-color: var(--background-color);
     padding: 4rem 1rem;
 
     .mentorship-wrapper {
@@ -18,7 +18,7 @@ section.mentorship-section {
             h2 {
                 font-size: 2rem;
                 font-weight: 600;
-                color: #002777;
+                color: var(--mentor-color);
                 margin-bottom: 0.5rem;
             }
 
@@ -35,7 +35,7 @@ section.mentorship-section {
             gap: 2rem;
 
             .mentorship-card {
-                background: white;
+                background: var(--secondary-background);
                 border-radius: 12px;
                 padding: 2rem;
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
@@ -49,7 +49,7 @@ section.mentorship-section {
                 h3 {
                     font-size: 1.25rem;
                     font-weight: 600;
-                    color: #002777;
+                    color: var(--mentor-color);
                     margin-bottom: 0.5rem;
                 }
 
@@ -70,8 +70,8 @@ section.mentorship-section {
                     margin-bottom: 1rem;
 
                     img {
-                        width: 24px;
-                        height: 24px;
+                        width: 34px;
+                        height: 34px;
                     }
                 }
             }

@@ -11,24 +11,50 @@ export class FaqCard {
 
   activeIndex: number | null = null;
 
-faqs = [
+
+  faqs = [
   {
     question: 'What is SatendraCoder and who is it for?',
-    answer: 'SatendraCoder is an all-in-one platform designed for students, developers, and professionals. It provides free tools, learning resources, and extensions to help you code faster, learn better, and stay industry-ready. Whether you’re a beginner or an experienced coder, SatendraCoder has something for you.'
+    answer:
+      'SatendraCoder is an all-in-one platform built for students, developers, and tech professionals. It offers free learning resources, coding tools, extensions, and guides to help you build skills and stay industry-ready. Whether you’re just starting out or looking to grow, SatendraCoder is for you.'
   },
   {
     question: 'What features and tools does SatendraCoder offer?',
-    answer: 'SatendraCoder includes a wide range of developer utilities such as JSON viewers, formatters, HTML ↔ JSX converters, QR generators, and more. It also offers browser and VS Code extensions, Maven libraries, compilers, roadmaps, interview questions, eBooks, and core subject tutorials — all under one ecosystem.'
+    answer:
+      'SatendraCoder provides a wide range of tools including code formatters, JSON viewers, QR code generators, HTML↔JSX converters, and compilers. It also offers tutorials, interview prep, roadmaps, eBooks, and browser/VS Code extensions — all integrated into one developer ecosystem.'
   },
   {
     question: 'Is SatendraCoder just a tools platform or more than that?',
-    answer: 'It’s much more than just tools. SatendraCoder is a personal brand turned educational platform that focuses on empowering developers through tutorials, interview prep, coding roadmaps, and curated resources. The platform is evolving into a complete developer education ecosystem with upcoming courses and community engagement.'
+    answer:
+      'It’s more than just tools. SatendraCoder is an educational and productivity platform that combines developer utilities with structured learning content, mentorship, and community support. It’s designed to support your full dev journey — from beginner to pro.'
   },
   {
     question: 'How can I get started with SatendraCoder?',
-    answer: 'Getting started is simple — no sign-up is needed to use most tools. Just visit the site and explore. For enhanced features like saving your work, accessing premium content, or using browser/VS Code extensions, you can optionally register for a free account.'
+    answer:
+      'Just visit the website and start using the tools — no sign-up required. To unlock additional features like saving your work, syncing extensions, or accessing mentorship, you can create a free account.'
+  },
+  {
+    question: 'Do I need to install anything to use SatendraCoder tools?',
+    answer:
+      'No installation is needed for most features. Everything works directly in your browser. However, optional extensions for VS Code and Chrome are available to bring the tools to your daily workflow.'
+  },
+  {
+    question: 'Is the platform completely free to use?',
+    answer:
+      'Yes, most tools and learning content are free to use. Some advanced features and mentorship offerings may be part of a future premium plan — but the core platform will always remain free and accessible.'
+  },
+  {
+    question: 'Can I contribute to SatendraCoder or suggest features?',
+    answer:
+      'Absolutely! Feedback and contributions are welcome. You can reach out via the community section, submit suggestions, or even contribute to open-source tools if published on GitHub.'
+  },
+  {
+    question: 'What makes SatendraCoder different from other dev platforms?',
+    answer:
+      'SatendraCoder brings tools, learning, community, and productivity under one roof. Unlike most platforms, it doesn’t just focus on one area — it bridges the gap between coding utilities, real-world learning, and developer career growth.'
   }
 ];
+
 
 
 

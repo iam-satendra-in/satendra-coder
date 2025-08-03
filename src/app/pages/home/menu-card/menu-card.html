@@ -28,19 +28,19 @@
                         <div class="dropdown-content">
                             <a *ngFor="let dropdownItem of item.dropdownItems" href="#" class="dropdown-item"
                                 (click)="$event.preventDefault(); $event.stopPropagation(); closeMobileMenu()">
-                                <a [href]="dropdownItem?.link"> {{ dropdownItem?.name }}</a>
+                                <a [routerLink]="dropdownItem?.link"> {{ dropdownItem?.name }}</a>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="nav-item ">
-                    <span class="nav-link" routerLink="/">
+                    <span class="nav-link" routerLink="/mentorship">
                         Mentorship
                     </span>
                 </div>
                 <div class="nav-item ">
-                    <span class="nav-link" routerLink="/">
+                    <span class="nav-link" routerLink="/about">
                         About
                     </span>
                 </div>
