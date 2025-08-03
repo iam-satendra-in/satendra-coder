@@ -1,0 +1,73 @@
+/* Search box and item styling */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width:768px) {
+        display: none;
+    }
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #ccc;
+    padding: 4px 5px;
+    border-radius: 60px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.search-item input {
+    width: 200px;
+    border: none;
+    outline: none;
+    background-color: transparent !important;
+    flex-grow: 1;
+    padding: 6px;
+    font-size: 14px;
+    transition: 1s all ease;
+    color: var(--text-color);
+
+    &:focus {
+        width: 300px;
+        background-color: transparent;
+        color: var(--text-color);
+    }
+}
+
+
+.search-item mat-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    border-left: 1.8px solid #ddd;
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+
+    a {
+        color: #000;
+    }
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}

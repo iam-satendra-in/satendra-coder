@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
-import { MenuCard } from '../../../pages/home/menu-card/menu-card';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
+import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { DashboardSidebar } from '../dashboard-sidebar/dashboard-sidebar';
+import { DashboardHeader } from "../dashboard-header/dashboard-header";
+
 
 @Component({
   selector: 'app-dashboard-layout',
-  imports: [MenuCard],
+  imports: [DashboardSidebar, RouterOutlet, MateriallistModule, DashboardHeader],
   templateUrl: './dashboard-layout.html',
   styleUrl: './dashboard-layout.scss'
 })

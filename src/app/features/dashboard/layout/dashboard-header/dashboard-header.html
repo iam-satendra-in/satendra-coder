@@ -1,0 +1,56 @@
+<header class="header" id="header" #myDiv>
+    <div class="search-bar">
+        <app-search-box></app-search-box>
+    </div>
+
+    <div class="profile-container" (mouseenter)="showDropdown()" (mouseleave)="hideDropdown()">
+        <!-- Profile Icon -->
+        <div class="profile-icon">
+            <span>S</span>
+        </div>
+
+        <!-- Dropdown Menu -->
+        @if (isDropdownVisible) {
+        <div class="dropdown-menu">
+            <div class="profile-header">
+                <div class="profile-avatar">S</div>
+                <p class="username">Satendra RBM</p>
+                <p class="plan">Starter Plan</p>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <mat-icon>account_circle</mat-icon>
+                    Profile
+                </li>
+                <li>
+                    <mat-icon>settings</mat-icon>
+                    Settings
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <mat-icon>rewarded_ads</mat-icon>
+                    Refer friends, get rewards
+                    <span class="notification-dot"></span>
+                </li>
+                <li><mat-icon>group</mat-icon> Uxcel for Teams</li>
+            </ul>
+            <hr>
+            <ul>
+                <li style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Theme</span>
+                    @if (isDarkTheme) {
+                    <mat-icon (click)="isDarkModeMethod()">dark_mode</mat-icon>
+                    }@else {
+                    <mat-icon (click)="isDarkModeMethod()">light_mode</mat-icon>
+                    }
+                </li>
+                <li><mat-icon>help</mat-icon> Help Center</li>
+                <li><mat-icon>logout</mat-icon> Sign Out</li>
+            </ul>
+        </div>
+        }
+    </div>
+</header>

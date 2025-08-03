@@ -1,0 +1,60 @@
+<!-- SIDEBAR CONTAINER -->
+<div class="sidebar-container" [class.collapsed]="isCollapsed">
+
+    <!-- टॉप सेक्शन (Logo / Brand) -->
+    <div class="top-section">
+        <div class="logo_sidebar" (click)="getRouter()">
+            <span class="logo bgcolorlinear">
+                <img src="/assets/images/global/satendralogo.svg" alt="">
+            </span>
+            <span class="bgcolorlinear hide_ele">
+                <img src="/assets/images/global/logo.png" alt="">
+            </span>
+        </div>
+    </div>
+
+    <!-- स्क्रॉल करने योग्य सेक्शन (मेन्यू हेडिंग्स + आइटम्स) -->
+    <div class="scrollable-section">
+        <ul>
+            <li [matTooltip]="isCollapsed ? 'Explore' : null" [matTooltipPosition]="position.value!">
+                <a routerLink="/explore" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
+                    <mat-icon>explore</mat-icon>
+                    @if (!isCollapsed) {
+                    <span>Explore</span>
+                    }
+                </a>
+            </li>
+        </ul>
+        <!-- Learn Section -->
+        @for (item_list of Sidebar_data_list; track $index) {
+        @if (!isCollapsed) {
+        <div class="title-container">
+            <h4 class="section-title">{{item_list.headingName}}</h4>
+            <hr class="title-line">
+        </div>
+        }
+        <ul>
+            @for (item_subList of item_list.detailsList; track $index) {
+            <li [matTooltip]="isCollapsed ? item_subList.title : null" [matTooltipPosition]="position.value!">
+                <a [routerLink]="item_subList.baseUrl" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: false }">
+                    <mat-icon>{{item_subList.icon}}</mat-icon>
+                    @if (!isCollapsed) {
+                    <span>{{item_subList.title}}</span>
+                    }
+                </a>
+            </li>
+            }
+
+        </ul>
+        }
+    </div> <!-- scrollable-section ends -->
+
+
+    <button class="toggle-btn" (click)="toggleSidebar()">
+        <mat-icon>
+            {{ isCollapsed ? 'read_more' : 'signpost' }}
+        </mat-icon>
+    </button>
+
+</div>

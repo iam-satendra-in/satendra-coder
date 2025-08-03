@@ -1,0 +1,215 @@
+.sidebar-container {
+    /* बेस स्टाइल (ऊँचाई, चौड़ाई, बॉर्डर आदि) */
+    width: 230px;
+    height: 100vh;
+    border-right: 1.5px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    position: relative;
+
+
+    &:hover {
+        border-right: 1.5px solid #ddd;
+        cursor: pointer;
+    }
+
+    /* क्लोज़ स्टेट */
+    &.collapsed {
+        width: 70px;
+
+        /* आइकन-ओनली मोड */
+        .logo {
+            display: none;
+            /* अगर टेक्स्ट लोगो छिपाना चाहते हैं */
+        }
+
+        .hide_ele {
+            display: block !important;
+        }
+
+        .scrollable-section {
+            width: 65px;
+            margin: 0px 2px;
+
+            ul li a {
+                margin: 9px;
+            }
+        }
+    }
+
+    /* टॉप सेक्शन (स्टिकी रखना चाहें तो) */
+    .top-section {
+        padding: 5px 0px;
+        background-color: var(--secondary-background);
+        box-shadow: 0px 0px 1px var(--text-color);
+        height: 65px;
+        /* या कोई ग्रेडिएंट */
+        /* position: sticky; top: 0;  (यदि स्क्रॉल के साथ ऊपर फिक्स रखना हो) */
+
+        .logo_sidebar {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+
+            .hide_ele {
+                display: none;
+
+                img {
+                    width: 35px;
+                    height: 35px;
+                    margin-top: 8px;
+                }
+            }
+
+            .logo {
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+
+                img {
+                    width: 160px;
+                    height: 45px;
+                    margin-top: 4px;
+                }
+            }
+
+            .brand-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+    }
+
+    /* स्क्रॉल करने योग्य सेक्शन */
+    .scrollable-section {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.5rem 0;
+        margin: 0px 1px;
+
+        /* ऊपर-नीचे कुछ स्पेस */
+        /* custom scroll bar */
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 5px;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* हेडिंग और लाइन के बीच स्पेस */
+
+            .section-title {
+                margin: 0.5rem 0 0.5rem .5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--text-color);
+            }
+
+            .title-line {
+                flex-grow: 1;
+                height: 1.5px;
+                border: none;
+                background-color: rgba(26, 27, 31, 0.12);
+                margin-top: 10px;
+                margin-right: 10px;
+            }
+
+        }
+
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+
+            li {
+                a {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    margin: 0.55rem 1rem;
+                    padding: 6px 8px;
+                    text-decoration: none;
+                    color: var(--text-color);
+                    transition: background-color 0.2s ease;
+                    border-radius: 10px;
+                    gap: 5px;
+                    font-size: 14px;
+
+
+                    mat-icon {
+                        margin-right: 0rem;
+                    }
+
+                    &.active {
+                        background-color: var(--d-background-color);
+                        /* Active background color */
+                        font-weight: 400;
+                        color: #fff;
+                    }
+
+                    &:hover {
+                        background-color: #d1cdcdd4;
+                        border-radius: 10px;
+                        color: #000;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 4px;
+                        background-color: #4c5df2;
+                        /* या अपनी पसंद का कलर */
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    &:hover::before {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    /* टॉगल बटन (साइडबार नीचे या कहीं भी) */
+    .toggle-btn {
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        outline: none;
+        position: relative;
+        text-align: right;
+        border-radius: 0px;
+        background-color: transparent;
+        transition: 0.3s ease;
+        right: 0;
+        background-color: var(--secondary-background);
+        box-shadow: 0px 0px 1px var(--text-color);
+        padding: 8px 8px;
+
+        mat-icon {
+            font-size: 26px;
+            color: var(--text-color);
+            margin-top: 6px;
+            margin-right: 10px;
+        }
+    }
+}

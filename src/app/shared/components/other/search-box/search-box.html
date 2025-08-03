@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSearch()">
+    <div class="search-box">
+        <div class="search-item">
+            <input type="search" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}" (input)="onSearch()"
+                placeholder="Search Coding Questions" id="searchInput">
+            <mat-icon>book_6</mat-icon>
+        </div>
+
+        @if (filteredResults.length > 0) {
+        <div class="dropdown">
+            @for (item of filteredResults; track $index) {
+            <div class="dropdown-item" (click)="selectItem(item)">
+                <a [href]="item.baseUrl">{{ item.name }}</a>
+            </div>
+            } @empty {
+            No
+            }
+        </div>
+        }
+
+    </div>
+</form>
