@@ -13,38 +13,23 @@ export class FaqCard {
 
 faqs = [
   {
-    question: 'Is SatendraCoder free to use?',
-    answer: 'Yes, all core utilities like formatters, converters, and compilers are free. We aim to make learning and development tools accessible to everyone.'
+    question: 'What is SatendraCoder and who is it for?',
+    answer: 'SatendraCoder is an all-in-one platform designed for students, developers, and professionals. It provides free tools, learning resources, and extensions to help you code faster, learn better, and stay industry-ready. Whether you’re a beginner or an experienced coder, SatendraCoder has something for you.'
   },
   {
-    question: 'Do I need to sign up to use the tools?',
-    answer: 'No sign-up is required for most tools. However, registering allows you to save your progress, bookmark content, and access premium features.'
+    question: 'What features and tools does SatendraCoder offer?',
+    answer: 'SatendraCoder includes a wide range of developer utilities such as JSON viewers, formatters, HTML ↔ JSX converters, QR generators, and more. It also offers browser and VS Code extensions, Maven libraries, compilers, roadmaps, interview questions, eBooks, and core subject tutorials — all under one ecosystem.'
   },
   {
-    question: 'What programming languages are supported?',
-    answer: 'Currently, we support C, C++, Java, JavaScript, TypeScript, Python, HTML, CSS, XML, and more. New languages are added regularly.'
+    question: 'Is SatendraCoder just a tools platform or more than that?',
+    answer: 'It’s much more than just tools. SatendraCoder is a personal brand turned educational platform that focuses on empowering developers through tutorials, interview prep, coding roadmaps, and curated resources. The platform is evolving into a complete developer education ecosystem with upcoming courses and community engagement.'
   },
   {
-    question: 'Can I use your online compiler for full projects?',
-    answer: 'Our compiler is optimized for small to medium code snippets and learning. For larger projects, we recommend using local development environments.'
-  },
-  {
-    question: 'Are your blogs and tutorials beginner friendly?',
-    answer: 'Yes. Our content is designed for all levels — from absolute beginners to working professionals — with step-by-step examples and explanations.'
-  },
-  {
-    question: 'Can I suggest a new tool or feature?',
-    answer: 'Absolutely! You can reach out via the contact form or connect with us on social platforms. We welcome feedback and ideas.'
-  },
-  {
-    question: 'Is my code or data stored on your servers?',
-    answer: 'No, we don’t store your code unless you explicitly save it. All data is processed securely and locally when possible.'
-  },
-  {
-    question: 'Who is behind SatendraCoder?',
-    answer: 'This platform is built and maintained by Satendra Rajput, a passionate developer and educator aiming to simplify tech learning.'
+    question: 'How can I get started with SatendraCoder?',
+    answer: 'Getting started is simple — no sign-up is needed to use most tools. Just visit the site and explore. For enhanced features like saving your work, accessing premium content, or using browser/VS Code extensions, you can optionally register for a free account.'
   }
 ];
+
 
 
   toggleFAQ(index: number) {

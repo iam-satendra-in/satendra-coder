@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExtensionsCard } from './extensions-card';
+import { CollaborateCard } from './collaborate-card';
 
-describe('ExtensionsCard', () => {
-  let component: ExtensionsCard;
-  let fixture: ComponentFixture<ExtensionsCard>;
+describe('CollaborateCard', () => {
+  let component: CollaborateCard;
+  let fixture: ComponentFixture<CollaborateCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExtensionsCard]
+      imports: [CollaborateCard]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ExtensionsCard);
+    fixture = TestBed.createComponent(CollaborateCard);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

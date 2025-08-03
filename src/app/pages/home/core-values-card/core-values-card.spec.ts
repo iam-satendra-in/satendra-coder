@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReachoutCard } from './reachout-card';
+import { CoreValuesCard } from './core-values-card';
 
-describe('ReachoutCard', () => {
-  let component: ReachoutCard;
-  let fixture: ComponentFixture<ReachoutCard>;
+describe('CoreValuesCard', () => {
+  let component: CoreValuesCard;
+  let fixture: ComponentFixture<CoreValuesCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReachoutCard]
+      imports: [CoreValuesCard]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReachoutCard);
+    fixture = TestBed.createComponent(CoreValuesCard);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

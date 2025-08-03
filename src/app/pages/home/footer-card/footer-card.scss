@@ -34,7 +34,7 @@
 
             p {
                 max-width: 350px;
-                font-size: 14px;
+                font-size: .90rem;
                 color: #d0d0d0;
             }
         }
@@ -59,7 +59,7 @@
                 a {
                     display: block;
                     margin-bottom: 8px;
-                    font-size: 14px;
+                    font-size: .90rem;
                     color: #b0b0b0;
                     text-decoration: none;
 
@@ -135,10 +135,14 @@
 // What link 
 .fixed-button_whatsapp {
     position: fixed;
-    top: 20%;
-    right: -86px;
+    bottom: 22%;
+    right: -205px;
     z-index: 999;
     transition: .5s all ease-in;
+
+    @media screen and (max-width:480px) {
+        display: none;
+    }
 
     &:hover {
         right: -22px;
@@ -154,8 +158,7 @@
         text-decoration: none;
         border-radius: 25px;
         font-size: 16px;
-        font-family: "mypoppinsRegular";
-        font-weight: 300;
+        font-weight: 600;
         letter-spacing: 1px;
 
         img {
@@ -175,10 +178,14 @@
 // What link button_aks_me_anything
 .fixed-button_aks_me_anything {
     position: fixed;
-    top: 28%;
+    bottom: 13%;
     right: -150px;
     z-index: 999;
     transition: .5s all ease-in;
+
+    @media screen and (max-width:480px) {
+        display: none;
+    }
 
     &:hover {
         right: -22px;
@@ -192,7 +199,6 @@
         text-decoration: none;
         border-radius: 25px;
         font-size: 16px;
-        font-family: "mypoppinsRegular";
         font-weight: 600;
         letter-spacing: 1px;
         background: linear-gradient(135deg, #06b6d4, #0891b2);
@@ -219,10 +225,14 @@
 // What link donate
 .fixed-button_donate {
     position: fixed;
-    top: 36%;
-    right: -85px;
+    bottom: 4%;
+    right: -150px;
     z-index: 999;
     transition: .5s all ease-in;
+
+    @media screen and (max-width:480px) {
+        display: none;
+    }
 
     &:hover {
         right: -22px;
@@ -232,12 +242,11 @@
         display: flex;
         justify-content: stretch;
         align-items: center;
-        gap: 8px;
+        gap: 5px;
         padding: 6px 25px 6px 12px;
         text-decoration: none;
         border-radius: 25px;
         font-size: 16px;
-        font-family: "mypoppinsRegular";
         font-weight: 600;
         letter-spacing: 1px;
         background: #F97316;

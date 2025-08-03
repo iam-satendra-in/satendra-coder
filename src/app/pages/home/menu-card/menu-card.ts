@@ -4,12 +4,14 @@ import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-t
 import { RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../../../auth/login-page/login-page';
+import { link } from 'node:fs';
 
 
 interface MenuItem {
   label: string;
+  link?: string;
   hasDropdown: boolean;
-  dropdownItems?: string[];
+  dropdownItems?: any[];
 }
 
 interface User {
@@ -37,41 +39,81 @@ export class MenuCard {
       label: 'Features',
       hasDropdown: true,
       dropdownItems: [
-        'Learn Tutorials',
-        'Interview Questions',
-        'Free Quizzes',
-        'Roadmaps',
-        'Courses(coming soon)'
+        {
+          name: "Learn Tutorials",
+          link: ""
+        },
+        {
+          name: "Core Subjects",
+          link: ""
+        },
+        {
+          name: "Interview Questions",
+          link: ""
+        },
+        {
+          name: "Free Quizzes",
+          link: ""
+        },
+        {
+          name: "Roadmaps",
+          link: ""
+        },
       ],
     },
+    
     {
       label: 'Resources',
       hasDropdown: true,
       dropdownItems: [
-        'Blog', 
-        'Community',
-        'Quick Compiler', 
-        'Core Subjects',
-        'VS & Browser Extensions',
-        'NPM Libraries', 
-        'e-Books'
+        {
+          name: "Blog",
+          link: ""
+        },
+        {
+          name: "Community",
+          link: ""
+        },
+        {
+          name: "Online Compiler",
+          link: ""
+        },
+        {
+          name: "eBooks Library",
+          link: ""
+        },
+        {
+          name: "Mentorship",
+          link: ""
+        }
       ],
     },
     {
       label: 'Dev-Tools',
       hasDropdown: true,
-      dropdownItems: ['JSON Tools', 'CSS/HTML/JS Formatters', 'Converters (HTML ↔ JSX)', 'QR Generator','Others'],
+      dropdownItems: [
+        {
+          name: "JSON Tools",
+          link: ""
+        },
+        {
+          name: "Code Formatters",
+          link: ""
+        },
+        {
+          name: "Code Converters",
+          link: ""
+        },
+        {
+          name: "QR Generator",
+          link: ""
+        },
+        {
+          name: "More Tools",
+          link: ""
+        }],
     },
-    {
-      label: 'Mentorship',
-      hasDropdown: false,
-    },
-     
-    {
-      label: 'About',
-      hasDropdown: false,
-      dropdownItems: ['Our Story', 'Team', 'Careers', 'Contact'],
-    },
+
   ];
 
   // Simulate login/logout for demo purposes

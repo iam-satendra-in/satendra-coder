@@ -111,3 +111,119 @@ section {
         }
     }
 }
+
+
+.connect-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(180deg, #0b1120, #101828);
+    color: #ffffff;
+
+    .contact-btn {
+        background-color: #262c3a;
+        color: #ccc;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        border: none;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #3a3f4d;
+        }
+
+        .icon {
+            font-size: 1.1rem;
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #b0c4d4;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.25rem;
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+
+            &.email {
+                border-color: #28a5f5;
+                background-color: rgba(40, 165, 245, 0.1);
+            }
+
+            &.linkedin {
+                border-color: #c084fc;
+                background-color: rgba(192, 132, 252, 0.1);
+            }
+
+            &.twitter {
+                border-color: #2dd4bf;
+                background-color: rgba(45, 212, 191, 0.1);
+            }
+
+            &.github {
+                border-color: #52525b;
+                background-color: rgba(82, 82, 91, 0.1);
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+                opacity: 0.95;
+            }
+        }
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .connect-section {
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .social-links {
+            flex-direction: column;
+            align-items: center;
+
+            .link {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    }
+}
