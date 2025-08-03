@@ -1,84 +1,22 @@
 <div class="technical-skills">
     <div class="container">
         <div class="header">
-            <h1 class="title">Features (Grow -Learning)</h1>
-            <p>
+            <h1 class="title">Features (Grow - Learning)</h1>
+            <p class="subtitle">
                 Explore <strong>Learn Tutorials</strong> to master programming and development fundamentals, dive into
-                <strong>Core Subjects</strong> for a strong foundation, prepare confidently with <strong>Interview
-                    Questions</strong>, test your knowledge with <strong>Free Quizzes</strong>, and follow expertly
+                <strong>Core Subjects</strong> for a strong foundation, prepare confidently with
+                <strong>Interview Questions</strong>, test your knowledge with <strong>Free Quizzes</strong>, and follow
+                expertly
                 crafted <strong>Roadmaps</strong> to guide your learning journey step by step.
             </p>
         </div>
 
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="card-header">
-                    <span class="icon programming">💻</span>
-                    <h3 class="card-title">Learn Tutorials</h3>
-                </div>
-
-                <div class="skills-container">
-                    <span class="skill-tag Tutorials">HTML CSS JavaScript</span>
-                    <span class="skill-tag Tutorials">Angular</span>
-                    <span class="skill-tag Tutorials">Java+8</span>
-                    <span class="skill-tag Tutorials">Spring Boot</span>
-                    <span class="skill-tag Tutorials">Node.js, REST APIs</span>
-                    <span class="skill-tag Tutorials">Git & GitHub</span>
-                    <span class="skill-tag Tutorials">Vercel, Netlify</span>
-                    <span class="skill-tag Tutorials">Spring Boot with Docker</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="card-header">
-                    <span class="icon frameworks">🔧</span>
-                    <h3 class="card-title">Core Subjects</h3>
-                </div>
-
-                <div class="skills-container">
-                    <span class="skill-tag Subjects">DSA(Java)</span>
-                    <span class="skill-tag Subjects">Operating Systems</span>
-                    <span class="skill-tag Subjects">DBMS</span>
-                    <span class="skill-tag Subjects">Computer Networks</span>
-                    <span class="skill-tag Subjects">OOPs Concepts in Java</span>
-                    <span class="skill-tag Subjects">System Design Basics</span>
-                    <span class="skill-tag Subjects">Agile, SDLC</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="card-header">
-                    <span class="icon tools">⚙️</span>
-                    <h3 class="card-title">Roadmaps</h3>
-                </div>
-
-                <div class="skills-container">
-                    <span class="skill-tag Roadmaps">Frontend Developer</span>
-                    <span class="skill-tag Roadmaps">Java Backend Developer</span>
-                    <span class="skill-tag Roadmaps">Full Stack(Angular + Spring Boot)</span>
-                    <span class="skill-tag Roadmaps">SDE 1 / SDE 2 Interview Roadmap</span>
-                    <span class="skill-tag Roadmaps">DevOps + Deployment</span>
-                    <span class="skill-tag Roadmaps">Guide for Self-Taught Devs</span>
-                    <span class="skill-tag Roadmaps">Year-wise roadmap</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="card-header">
-                    <span class="icon data">📊</span>
-                    <h3 class="card-title">Quizzes & Interview-Questions</h3>
-                </div>
-
-                <div class="skills-container">
-                    <span class="skill-tag Quizzes ">HTML Forms</span>
-                    <span class="skill-tag Quizzes ">CSS Flexbox/Grid</span>
-                    <span class="skill-tag Quizzes ">Angular</span>
-                    <span class="skill-tag Quizzes ">Java</span>
-                    <span class="skill-tag Quizzes ">JavaScript</span>
-                    <span class="skill-tag Quizzes ">Angular + Routing</span>
-                    <span class="skill-tag Quizzes ">DSA</span>
-                    <span class="skill-tag Quizzes ">OS & DBMS</span>
-                    <span class="skill-tag Quizzes ">OOPs</span>
+        <div class="grid">
+            <div class="category-card" *ngFor="let category of categories">
+                <div class="icon">{{ category.icon }}</div>
+                <div class="info">
+                    <h3>{{ category.title }}</h3>
+                    <p>{{ category.description }}</p>
                 </div>
             </div>
         </div>

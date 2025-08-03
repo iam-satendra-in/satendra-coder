@@ -9,18 +9,36 @@ import { MateriallistModule } from '../../../shared/materiallist/materiallist-mo
 })
 export class LearningSection {
  
-   tabs = [
-    { title: 'Learn Tutorials' },
-    { title: 'Interview Questions',comingSoon: true },
-    { title: 'Free Quizzes' },
-    { title: 'Roadmaps' },
-    { title: 'Courses', comingSoon: true }
+categories = [
+    {
+      title: 'Learn Tutorials',
+      description: 'Master programming and development fundamentals with interactive tutorials.',
+      icon: '📘'
+    },
+    {
+      title: 'Core Subjects',
+      description: 'Strengthen your foundation in Computer Science fundamentals and theory.',
+      icon: '📚'
+    },
+    {
+      title: 'Interview Questions',
+      description: 'Prepare confidently with curated technical interview questions.',
+      icon: '💼'
+    },
+    {
+      title: 'Free Quizzes',
+      description: 'Test your knowledge with short, topic-based quizzes.',
+      icon: '❓'
+    },
+    {
+      title: 'Roadmaps',
+      description: 'Follow step-by-step learning guides for frontend, backend, and more.',
+      icon: '🗺️'
+    },
+    {
+      title: 'Projects',
+      description: 'Build hands-on projects to reinforce your learning and portfolio.',
+      icon: '🛠️'
+    }
   ];
-
-  activeIndex = 0;
-
-  setActive(index: number) {
-    if (this.tabs[index].comingSoon) return; // prevent switching to coming soon
-    this.activeIndex = index;
-  }
 }

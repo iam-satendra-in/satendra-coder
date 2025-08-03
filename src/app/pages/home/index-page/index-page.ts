@@ -8,6 +8,7 @@ import { MentorshipCard } from "../mentorship-card/mentorship-card";
 import { LearningSection } from "../learning-section/learning-section";
 import { LatestBlogCard } from "../latest-blog-card/latest-blog-card";
 import { FaqCard } from "../faq-card/faq-card";
+import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 
 
 @Component({
@@ -22,8 +23,10 @@ import { FaqCard } from "../faq-card/faq-card";
     LatestBlogCard,
     FaqCard,
     MenuCard,
+    MateriallistModule
 ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',
 })
-export class IndexPage {}
+export class IndexPage {
+}
