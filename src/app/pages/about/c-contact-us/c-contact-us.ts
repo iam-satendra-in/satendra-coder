@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SToaster } from '../../../core/service/global/toaster/s-toaster';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
+import { SSeo } from '../../../core/service/other/seo/s-seo';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class CContactUs {
 
   contactForm: FormGroup;
   submitted = false;
+  private seo = inject(SSeo);
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -30,5 +32,16 @@ export class CContactUs {
     if (this.contactForm.invalid) return;
 
     console.log('Form submitted:', this.contactForm.value);
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.seo.updateMeta({
+      title:'Contact – Satendra Coder',
+      description:'Reach out to Satendra Rajput for support, feedback, and tech collaboration.',
+      keywords:'satendra coder, contact satendra, tech support',
+      url:'https://satendracoder.com/contact',
+    })
   }
 }

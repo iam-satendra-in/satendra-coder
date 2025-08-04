@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { SSeo } from '../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-c-privacy-policy',
@@ -9,23 +10,18 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class CPrivacyPolicy {
 
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+  private seo = inject(SSeo);
 
-  constructor() {
-    this.titleService.setTitle('Privacy Policy | SatendraCoder.com - Secure & Transparent Usage');
+ngOnInit(): void {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  this.seo.updateMeta({
+  title: 'Privacy Policy – Satendra Coder',
+  description: 'Read the Privacy Policy of Satendra Coder to learn how we collect, use, and protect your personal information when you use our tools, tutorials, and services.',
+  keywords: 'privacy policy, satendra coder privacy, data protection, user information, personal data, satendra rajput, satendracoder.com, cookies, user consent, secure developer tools',
+  url: 'https://satendracoder.com/privacy-policy',
+  image: 'https://satendracoder.com/assets/cover-image.png'
+});
 
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Review SatendraCoder.com’s Privacy Policy explaining how we collect, store, use, and protect your personal information while using our developer tools and courses.'
-    });
-
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: 'Privacy Policy SatendraCoder, Satendra Rajput, Personal Data Policy, Cookie Usage, Data Protection, Angular Website Privacy, Developer Platform Privacy, GDPR Compliance, Secure Web Services'
-    });
-
-    this.metaService.updateTag({ name: 'author', content: 'Satendra Rajput' });
-    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
-  }
+}
 }

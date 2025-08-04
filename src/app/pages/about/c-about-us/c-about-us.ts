@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { SSeo } from '../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-c-about-us',
@@ -9,30 +9,17 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class CAboutUs {
 
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+  private seo = inject(SSeo);
 
-  constructor() {
-    this.titleService.setTitle('About SatendraCoder.com | Learn Angular, Java, Full Stack Development');
-
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'SatendraCoder.com is a developer learning platform built by Angular expert Satendra Rajput. Explore Angular tutorials, Java backend tips, roadmaps, tools, and interview prep for frontend and full stack developers.'
-    });
-
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: 'Satendra Coder, Satendra Rajput, Angular Developer, Angular Tutorials, Java Developer, Full Stack Roadmap, UI/UX Design, Developer Tools, Learn Angular, Web Development, Frontend Interview'
-    });
-
-    this.metaService.updateTag({
-      name: 'author',
-      content: 'Satendra Rajput'
-    });
-
-    this.metaService.updateTag({
-      name: 'robots',
-      content: 'index, follow'
-    });
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.seo.updateMeta({
+    title: 'Satendra Coder – About Satendra Rajput, the Creator Behind the Platform',
+    description: 'Learn about Satendra Rajput, the mind behind Satendra Coder – a platform offering developer tools, coding tutorials, and tech insights in Hindi & English. Discover the mission, story, and vision.',
+    keywords: 'about satendra coder, satendra rajput, developer profile, tech creator, hindi coding tutorials, dev tools founder, satendra coder story',
+    url: 'https://satendracoder.com/about',
+    image: 'https://satendracoder.com/assets/cover-image.png'
+  });
   }
 }

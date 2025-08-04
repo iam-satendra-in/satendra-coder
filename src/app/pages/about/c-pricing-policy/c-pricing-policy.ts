@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { SSeo } from '../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-c-pricing-policy',
@@ -9,23 +10,18 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class CPricingPolicy {
 
-private titleService = inject(Title);
-  private metaService = inject(Meta);
+private seo = inject(SSeo);
 
-  constructor() {
-    this.titleService.setTitle('Pricing Policy | SatendraCoder.com');
+ngOnInit(): void {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  this.seo.updateMeta({
+  title: 'Pricing Policy – Satendra Coder',
+  description: 'Understand the Pricing Policy of Satendra Coder. Learn how our courses, tools, and services are priced, including free and premium features.',
+  keywords: 'pricing policy, satendra coder pricing, satendra rajput, course pricing, tool pricing, developer tools cost, subscription policy, free tools, paid features, satendracoder.com',
+  url: 'https://satendracoder.com/pricing-policy',
+  image: 'https://satendracoder.com/assets/cover-image.png'
+});
 
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Learn about the pricing model at SatendraCoder.com including free content, premium course fees, subscriptions, payment methods, and refund policies.'
-    });
-
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: 'Pricing Policy, Satendra Coder Courses, Developer Pricing, Angular Course Cost, Java Subscription, Full Stack Bundles, Refund Policy SatendraCoder, Course Plans, Developer Academy'
-    });
-
-    this.metaService.updateTag({ name: 'author', content: 'Satendra Rajput' });
-    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
-  }
+}
 }

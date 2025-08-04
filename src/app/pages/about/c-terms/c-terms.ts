@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { SSeo } from '../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-c-terms',
@@ -8,23 +9,23 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './c-terms.scss'
 })
 export class CTerms {
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+
+  private seo = inject(SSeo);
 
   constructor() {
-    this.titleService.setTitle('Terms & Conditions | SatendraCoder.com');
 
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Read the Terms & Conditions of SatendraCoder.com to understand your rights and responsibilities when using our website, courses, and developer tools.'
+  }
+
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.seo.updateMeta({
+      title: 'Terms & Conditions – Satendra Coder',
+      description: 'Review the Terms & Conditions of Satendra Coder to understand usage policies, intellectual property rights, course access rules, and developer tool guidelines.',
+      keywords: 'terms and conditions, satendra coder terms, usage policy, satendra rajput, course access policy, developer tool terms, intellectual property, user agreement, satendracoder.com',
+      url: 'https://satendracoder.com/terms',
+      image: 'https://satendracoder.com/assets/cover-image.png'
     });
-
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: 'Terms and Conditions, SatendraCoder, Usage Policy, Tool Terms, Course Access Policy, Satendra Rajput, Developer Tools T&C, Account Terms, Intellectual Property Rules'
-    });
-
-    this.metaService.updateTag({ name: 'author', content: 'Satendra Rajput' });
-    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
   }
 }

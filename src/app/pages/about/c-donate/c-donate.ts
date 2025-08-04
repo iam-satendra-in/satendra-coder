@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { SSeo } from '../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-c-donate',
@@ -9,23 +9,19 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class CDonate {
 
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+  private seo = inject(SSeo);
 
-  constructor() {
-    this.titleService.setTitle('Donate | Support Free Learning on SatendraCoder.com');
 
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Support free education on SatendraCoder.com. Your donation helps provide coding resources, tutorials, and tools to students, kids, and underprivileged learners.'
-    });
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.seo.updateMeta({
+  title: 'Donation Helps – Support Satendra Coder',
+  description: 'Your donation helps Satendra Coder grow and continue offering free developer tools, tutorials, and tech resources in Hindi & English. Support independent tech content today.',
+  keywords: 'donate satendra coder, support satendra rajput, donation helps, contribute to coding platform, support developer tools, free coding tutorials support, satendracoder.com donate',
+  url: 'https://satendracoder.com/donation-helps',
+  image: 'https://satendracoder.com/assets/cover-image.png'
+});
 
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: 'Donate SatendraCoder, Support Coding Education, Free Developer Resources, UPI Donation QR, Support Open Education, Satendra Rajput Donation, Help Students Learn Code'
-    });
-
-    this.metaService.updateTag({ name: 'author', content: 'Satendra Rajput' });
-    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
   }
 }
