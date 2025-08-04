@@ -1,11 +1,14 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-text-pipe';
-import { RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
+import {
+  RouterLink,
+  RouterLinkActive,
+  RouterLinkWithHref,
+} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../../../auth/login-page/login-page';
-import { link } from 'node:fs';
-
+import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
 
 interface MenuItem {
   label: string;
@@ -22,7 +25,12 @@ interface User {
 
 @Component({
   selector: 'app-menu-card',
-  imports: [MateriallistModule, TruncateTextPipe, RouterLink, RouterLinkWithHref],
+  imports: [
+    MateriallistModule,
+    TruncateTextPipe,
+    RouterLink,
+    RouterLinkWithHref,
+  ],
   templateUrl: './menu-card.html',
   styleUrl: './menu-card.scss',
 })
@@ -34,58 +42,90 @@ export class MenuCard {
 
   readonly dialog = inject(MatDialog);
 
+  constructor(private safestorage: SSafeStorage) {}
+
+  ngOnInit(): void {
+    debugger;
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    const userdata = this.safestorage.getItem('user');
+    console.log(userdata);
+    if (userdata) {
+      this.isLoggedIn = true;
+      this.currentUser = {
+        name: userdata.name,
+        email: userdata?.email,
+        avatar: this.getInitials(userdata.name),
+      };
+      this.closeDropdowns();
+    }
+  }
+
+  getInitials(fullName: string): string {
+    debugger
+    if (!fullName) return '';
+    const names = fullName.trim().split(' ');
+    if (names.length === 1) {
+      return names[0].charAt(0).toUpperCase();
+    }
+    return (
+      names[0].charAt(0).toUpperCase() +
+      names[names.length - 1].charAt(0).toUpperCase()
+    );
+  }
+
   menuItems: MenuItem[] = [
     {
       label: 'Features',
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "Learn Tutorials",
-          link: "/learn"
+          name: 'Learn Tutorials',
+          link: '/learn',
         },
         {
-          name: "Core Subjects",
-          link: "/core"
+          name: 'Core Subjects',
+          link: '/core',
         },
         {
-          name: "Interview Questions",
-          link: "/interview"
+          name: 'Interview Questions',
+          link: '/interview',
         },
         {
-          name: "Free Quizzes",
-          link: "/quiz"
+          name: 'Free Quizzes',
+          link: '/quiz',
         },
         {
-          name: "Roadmaps",
-          link: "/roadmap"
+          name: 'Roadmaps',
+          link: '/roadmap',
         },
       ],
     },
-    
+
     {
       label: 'Resources',
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "Blog",
-          link: "/blog"
+          name: 'Blog',
+          link: '/blog',
         },
         {
-          name: "Community",
-          link: "/community"
+          name: 'Community',
+          link: '/community',
         },
         {
-          name: "Online Compiler",
-          link: "/compiler"
+          name: 'Online Compiler',
+          link: '/compiler',
         },
         {
-          name: "eBooks Library",
-          link: "/ebook"
+          name: 'eBooks Library',
+          link: '/ebook',
         },
         {
-          name: "Mentorship",
-          link: "/mentorship"
-        }
+          name: 'Mentorship',
+          link: '/mentorship',
+        },
       ],
     },
     {
@@ -93,27 +133,27 @@ export class MenuCard {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "JSON Tools",
-          link: ""
+          name: 'JSON Tools',
+          link: '',
         },
         {
-          name: "Code Formatters",
-          link: ""
+          name: 'Code Formatters',
+          link: '',
         },
         {
-          name: "Code Converters",
-          link: ""
+          name: 'Code Converters',
+          link: '',
         },
         {
-          name: "QR Generator",
-          link: ""
+          name: 'QR Generator',
+          link: '',
         },
         {
-          name: "More Tools",
-          link: ""
-        }],
+          name: 'More Tools',
+          link: '',
+        },
+      ],
     },
-
   ];
 
   // Simulate login/logout for demo purposes
@@ -127,23 +167,16 @@ export class MenuCard {
 
   private login(): void {
     const dialogRef = this.dialog.open(LoginPage, {
-      panelClass: 'custom-dialog'
+      panelClass: 'custom-dialog',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
-    // Simulate user login
-    this.isLoggedIn = true;
-    this.currentUser = {
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      avatar: 'JD',
-    };
-    this.closeDropdowns();
   }
 
   private logout(): void {
+    this.safestorage.removeItem('user');
     this.isLoggedIn = false;
     this.currentUser = null;
     this.closeDropdowns();
@@ -200,6 +233,4 @@ export class MenuCard {
       }
     }
   }
-
-
 }

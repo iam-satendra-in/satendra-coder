@@ -76,6 +76,7 @@ export class LoginPage {
             message: 'Welcome back! Access granted.',
             type: 'success',
           });
+           this.dialog.closeAll();
           this.router.navigate(['/admin']);
         } catch (error) {
           this.toaster.addToast({
@@ -98,7 +99,7 @@ export class LoginPage {
    regusterCard(){
     this.dialog.closeAll();
     setTimeout(()=>{
-  const dialogRef = this.dialog.open(RegisterPage, {
+    const dialogRef = this.dialog.open(RegisterPage, {
       panelClass: 'custom-dialog'
     });
     })

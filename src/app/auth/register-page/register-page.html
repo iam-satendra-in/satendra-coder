@@ -23,10 +23,10 @@
                 <span class="line"></span>
             </div>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                <input type="text" placeholder="Full Name" formControlName="fullName" />
-                @if (fullName?.touched && fullName?.invalid) {
+                <input type="text" placeholder="Full Name" formControlName="name" />
+                @if (name?.touched && name?.invalid) {
                 <div class="error-message">
-                    @if (fullName?.hasError('fullName')) {
+                    @if (name?.hasError('name')) {
                     <small>Full Name is required.</small>
                     }
                 </div>

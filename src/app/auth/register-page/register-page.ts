@@ -28,7 +28,7 @@ export class RegisterPage {
     private fb: FormBuilder
   ) {
     this.registerForm = this.fb.group({
-      fullName: ['', Validators.required],
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -76,12 +76,13 @@ export class RegisterPage {
               message: response?.message,
               type: 'success',
             });
-            this.router.navigate(['/auth/login']);
+             this.registerForm.reset();
+           this.loginCard();
           } catch (error) {
             console.log('Response is not JSON:', response);
           }
         });
-      this.registerForm.reset();
+     
     } else {
       console.log('Form is invalid');
     }
@@ -89,8 +90,8 @@ export class RegisterPage {
 
 
   // Helper method to check if a field is valid and touched
-  get fullName() {
-    return this.registerForm.get('fullName');
+  get name() {
+    return this.registerForm.get('name');
   }
 
   get email() {
