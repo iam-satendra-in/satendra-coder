@@ -71,6 +71,12 @@ export class LearningSection {
     link: '/mentorship'
   },
   {
+    title: 'Dev-Tools',
+    description: 'Access essential developer tools like formatters, validators, and converters in one place.',
+    icon: '🛠️',
+    link: '/dev-tools'
+  },
+  {
     title: 'VSCode Extension',
     description: 'Install productivity and coding tools directly into VS Code.',
     icon: '🧩',
@@ -93,12 +99,6 @@ export class LearningSection {
     description: 'Integrate powerful Java libraries using Maven for seamless dependency management.',
     icon: '☕',
     link: '/maven-library'
-  },
-  {
-    title: 'Dev-Tools',
-    description: 'Access essential developer tools like formatters, validators, and converters in one place.',
-    icon: '🛠️',
-    link: '/dev-tools'
   }
 ];
 
