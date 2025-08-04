@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { CollaborateCard } from "../../home/collaborate-card/collaborate-card";
+import { GlobalContact } from "../../../shared/components/other/global-contact/global-contact";
 
 @Component({
   selector: 'app-community-page',
-  imports: [CollaborateCard],
+  imports: [GlobalContact],
   templateUrl: './community-page.html',
   styleUrl: './community-page.scss'
 })
