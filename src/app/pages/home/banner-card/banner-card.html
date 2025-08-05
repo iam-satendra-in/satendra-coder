@@ -2,26 +2,27 @@
     <div class="banner__content">
         <div class="banner__text">
             <span class="badge">⚡ Interactive Learning Platform</span>
+
             <h1>
-                Master <span class="highlight">JavaScript</span><br />
-                and Beyond
+                {{ currentItem.heading }}
             </h1>
-            <p>
-                From core JavaScript & Java to frameworks like Angular, Rxjs, Ngrx, Spring Boot, and SQL.
-                Learn by building apps, debugging live, and mastering async programming.
-            </p>
+
+            <p>{{ currentItem.description }}</p>
+
             <ul class="features">
-                <li><span class="icon">👥</span> 75K+ learners</li>
-                <li><span class="icon">🧠</span> 100+ challenges</li>
-                <li><span class="icon">⚙️</span> Extensions & Libraries</li>
+                <li *ngFor="let feature of currentItem.features">
+                    <span class="icon">{{ feature.icon }}</span> {{ feature.text }}
+                </li>
             </ul>
-            <button class="cta">Start Coding in JS <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24"
-                    fill="none">
+
+            <button class="cta">
+                {{ currentItem.button }}
+                <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
-                </svg></button>
+                </svg>
+            </button>
         </div>
-
 
         <div class="banner__code">
             <div class="code-window">
@@ -31,22 +32,20 @@
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="filename">hello_world.java</span>
+                    <span class="filename">{{ currentItem.codeFilename }}</span>
                 </div>
                 <pre class="code">
-<span class="comment">// Your journey starts here</span>
-<span class="keyword">public class</span> <span class="function">Main</span> &#123;
-  <span class="keyword">public static void</span> main(String[] args) &#123;
-    System.out.println(<span class="string">"Hello, Satendracoder!"</span>);
+<span class="comment">{{ currentItem.codeComment }}</span>
+<span class="keyword">{{ currentItem.codeKeyword }}</span> <span class="function">{{ currentItem.className }}</span> &#123;
+  <span class="keyword">{{ currentItem.mainSignature }}</span> &#123;
+    {{ currentItem.codeLine }}
   &#125;
 &#125;
-
-<span class="output">Output:</span> Hello, Satendracoder!
+<span class="output">Output:</span> {{ currentItem.output }}
 </pre>
 
-
-                <div class="toast success">🟢 Code compiled successfully!</div>
-                <div class="toast complete">🏅 First program complete!</div>
+                <div class="toast success">{{ currentItem.toastSuccess }}</div>
+                <div class="toast complete">{{ currentItem.toastComplete }}</div>
             </div>
         </div>
     </div>
