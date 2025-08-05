@@ -42,12 +42,8 @@ export class MenuCard {
 
   readonly dialog = inject(MatDialog);
 
-  constructor(private safestorage: SSafeStorage) {}
-
-  ngOnInit(): void {
-    debugger;
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+  constructor(private safestorage: SSafeStorage) {
+    debugger
     const userdata = this.safestorage.getItem('user');
     console.log(userdata);
     if (userdata) {
@@ -58,7 +54,15 @@ export class MenuCard {
         avatar: this.getInitials(userdata.name),
       };
       this.closeDropdowns();
+    } else {
+      this.isLoggedIn = false;
     }
+  }
+
+  ngOnInit(): void {
+    debugger;
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
   }
 
   getInitials(fullName: string): string {

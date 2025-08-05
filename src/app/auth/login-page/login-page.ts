@@ -17,14 +17,14 @@ import { RegisterPage } from '../register-page/register-page';
 })
 export class LoginPage {
 
-   readonly dialog = inject(MatDialog);
+  readonly dialog = inject(MatDialog);
   showPassword: boolean = false;
   loginForm!: FormGroup;
   user: any;
   isBrowser: boolean = false;
 
   constructor(
-    private titleService: Title, 
+    private titleService: Title,
     private metaService: Meta,
     private fb: FormBuilder,
     private router: Router,
@@ -38,7 +38,7 @@ export class LoginPage {
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
 
-     this.titleService.setTitle('Login | SatendraCoder - Access Your Developer Dashboard');
+    this.titleService.setTitle('Login | SatendraCoder - Access Your Developer Dashboard');
 
     this.metaService.addTags([
       { name: 'description', content: 'Login to SatendraCoder to access developer tools, online courses, coding quizzes, and personalized content. Built for Angular developers, learners, and tech enthusiasts.' },
@@ -55,7 +55,7 @@ export class LoginPage {
     this.authService.loginWithGoogle();
   }
   // Github login
-    loginWithGitHub(): void {
+  loginWithGitHub(): void {
     this.authService.loginWithGitHub();
   }
 
@@ -76,8 +76,13 @@ export class LoginPage {
             message: 'Welcome back! Access granted.',
             type: 'success',
           });
-           this.dialog.closeAll();
-          this.router.navigate(['/admin']);
+          this.dialog.closeAll();
+          if (response.role === "USER") {
+            this.router.navigate(['/dashboard']);
+          } else {
+            this.router.navigate(['/admin']);
+          }
+
         } catch (error) {
           this.toaster.addToast({
             message: response,
@@ -96,16 +101,16 @@ export class LoginPage {
     return this.loginForm.get('password');
   }
 
-   regusterCard(){
+  regusterCard() {
     this.dialog.closeAll();
-    setTimeout(()=>{
-    const dialogRef = this.dialog.open(RegisterPage, {
-      panelClass: 'custom-dialog'
-    });
+    setTimeout(() => {
+      const dialogRef = this.dialog.open(RegisterPage, {
+        panelClass: 'custom-dialog'
+      });
     })
   }
 
-   close(){
+  close() {
     this.dialog.closeAll();
   }
 }

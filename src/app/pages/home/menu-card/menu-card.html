@@ -59,20 +59,9 @@
 
             <!-- User Actions -->
             <div class="nav-actions">
-                <div class="user-profile" *ngIf="!isLoggedIn" (click)="toggleLogin(); closeMobileMenu()">
-                    <div class="profile-avatar">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor"
-                                stroke-width="2" />
-                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
-                        </svg>
-                    </div>
-                    <span class="login-text">Login</span>
-                </div>
-
+                @if (isLoggedIn) {
                 <!-- Logged In User Profile -->
-                <div class="user-profile-dropdown" *ngIf="isLoggedIn"
-                    [class.active]="activeDropdown === 'user-profile'">
+                <div class="user-profile-dropdown" [class.active]="activeDropdown === 'user-profile'">
                     <div class="user-info" (click)="toggleDropdown('user-profile'); $event.stopPropagation()">
                         <div class="user-avatar">
                             <span *ngIf="currentUser?.avatar">{{ currentUser?.avatar }}</span>
@@ -140,14 +129,26 @@
                         </div>
                     </div>
                 </div>
+                } @else {
+                <div class="user-profile" (click)="toggleLogin(); closeMobileMenu()">
+                    <div class="profile-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                    <span class="login-text">Login</span>
+                </div>
 
-                <button *ngIf="!isLoggedIn" class="get-started-btn" (click)="closeMobileMenu()">
+                <button class="get-started-btn" (click)="closeMobileMenu()">
                     Get Started
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
                 </button>
+                }
             </div>
         </div>
 

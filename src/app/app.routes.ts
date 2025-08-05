@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { IndexPage } from './pages/home/index-page/index-page';
+import { roleGuard } from './core/guards/check-role/role-guard';
+
 
 export const routes: Routes = [
   {
@@ -15,11 +17,13 @@ export const routes: Routes = [
   },
 
   // Admin Routes is lazy loaded
-  {
-    path: 'admin',
-    loadChildren: () =>
-      import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
-  },
+{
+  path: 'admin',
+  loadChildren: () =>
+    import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
+  canActivate: [roleGuard],
+  data: { roles: ['ADMIN'] }
+},
 
   // Compiler Routes is lazy loaded
   {
@@ -101,6 +105,16 @@ export const routes: Routes = [
         (roadmap) => roadmap.ROADMAP_ROUTES
       ),
   },
+
+  // MENTORSHIP_ROUTES Package Routes is lazy loaded
+  {
+    path: 'mentorship',
+    loadChildren: () =>
+      import('./features/mentorship/mentorship.routes').then(
+        (mentorship) => mentorship.MENTORSHIP_ROUTES
+      ),
+  },
+
 
 
   //Company is lazy loaded
