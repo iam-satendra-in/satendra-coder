@@ -28,8 +28,66 @@
             }
 
             .logo {
-                max-width: 180px;
+
                 margin-bottom: 15px;
+                cursor: pointer;
+
+
+                .logo-tab {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: row;
+                    padding: 10px 0px;
+                    transition: 0.5s all ease-in;
+                    gap: 2px;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+
+                    .logo-icon {
+                        width: 40px;
+                        // background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                        background: transparent;
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-weight: 700;
+                        font-size: 16px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .brand-name {
+                        font-size: 1rem;
+                        font-weight: 700;
+                        color: #1f2937;
+                        display: flex;
+                        flex-direction: column;
+                        background: linear-gradient(135deg, #06b6d4, #0891b2);
+                        background-clip: text;
+                        color: transparent;
+                        position: relative;
+
+                        .logo-title {
+                            font-size: 1.15rem;
+                        }
+
+                        .sub-title {
+                            position: absolute;
+                            font-size: 0.48rem;
+                            top: 24px;
+                            left: 2px;
+                            color: #fff;
+                            font-weight: 500;
+                        }
+                    }
+
+                }
             }
 
             p {

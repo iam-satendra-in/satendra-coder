@@ -20,19 +20,59 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0rem;
             text-decoration: none;
             color: inherit;
             transition: .5s all ease;
             cursor: pointer;
 
+            .logo-icon {
+                width: 40px;
+                margin-top: 5px;
+                // background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                background: transparent;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 700;
+                font-size: 16px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .brand-name {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #1f2937;
+                display: flex;
+                flex-direction: column;
+                background: linear-gradient(135deg, #06b6d4, #0891b2);
+                background-clip: text;
+                color: transparent;
+                position: relative;
+
+                .logo-title {
+                    font-size: 1.15rem;
+                }
+
+                .sub-title {
+                    position: absolute;
+                    font-size: 0.46rem;
+                    top: 22px;
+                    color: var(--text-color);
+                    font-weight: 500;
+                }
+            }
+
             &:hover {
                 transform: scale(1.1);
             }
 
-            img {
-                width: 170px;
-            }
+
         }
     }
 

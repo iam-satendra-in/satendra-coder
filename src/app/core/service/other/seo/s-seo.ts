@@ -15,7 +15,7 @@ constructor(private title: Title, private meta: Meta) {}
     url?: string;
     image?: string;
   }) {
-    const { title, description, keywords = '', url = 'https://satendracoder.com', image = 'https://satendracoder.com/assets/logo.png' } = meta;
+    const { title, description, keywords = '', url = 'https://satendracoder.com', image = 'https://satendracoder.com/assets/favicon.ico' } = meta;
 
     this.title.setTitle(title);
 

@@ -27,7 +27,7 @@ export class App {
       description:this.description,
       keywords:this.keywords,
       url:'https://satendracoder.com',
-      image:'https://satendracoder.com/assets/logo.png'
+      image:'https://satendracoder.com/assets/favicon.ico'
     })
   }
 }
