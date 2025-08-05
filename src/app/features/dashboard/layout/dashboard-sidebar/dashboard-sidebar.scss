@@ -21,7 +21,7 @@
 
         /* आइकन-ओनली मोड */
         .logo {
-            display: none;
+            display: none !important;
             /* अगर टेक्स्ट लोगो छिपाना चाहते हैं */
         }
 
@@ -64,14 +64,35 @@
             }
 
             .logo {
-                font-weight: bold;
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                gap: 0px;
 
                 img {
-                    width: 160px;
-                    height: 45px;
-                    margin-top: 4px;
+                    width: 40px;
+                }
+
+                .sub-title {
+                    font-size: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    position: static;
+                    background: linear-gradient(135deg, #06b6d4, #0891b2);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
+                    font-weight: 600;
+
+
+                    .user-title {
+                        position: absolute;
+                        font-size: .49rem;
+                        top: 35px;
+                        color: var(--text-color);
+                        transition: .5s all ease-in;
+                    }
                 }
             }
 
@@ -142,7 +163,7 @@
                     display: flex;
                     align-items: center;
                     margin: 0.55rem 1rem;
-                    padding: 6px 8px;
+                    padding: 6px 10px;
                     text-decoration: none;
                     color: var(--text-color);
                     transition: background-color 0.2s ease;

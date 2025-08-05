@@ -1,4 +1,12 @@
+.dashboard_wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
 .app-container {
+    width: 100%;
+    margin: auto;
     display: flex;
     height: 100vh;
     /* पूरे व्यू-पोर्ट की ऊँचाई ले */

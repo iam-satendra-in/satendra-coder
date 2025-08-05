@@ -1,12 +1,14 @@
-<div class="app-container">
-    <!-- Left Sidebar -->
-    <app-dashboard-sidebar></app-dashboard-sidebar>
-    <!-- Right section: Header + Main Content -->
-    <div class="main-content">
-        <app-dashboard-header></app-dashboard-header>
-        <div class="page-content">
-            <router-outlet></router-outlet>
-            <!-- Footer should be separate to stay at the bottom -->
+<div class="dashboard_wrapper">
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <app-dashboard-sidebar></app-dashboard-sidebar>
+        <!-- Right section: Header + Main Content -->
+        <div class="main-content">
+            <app-dashboard-header></app-dashboard-header>
+            <div class="page-content">
+                <router-outlet></router-outlet>
+                <!-- Footer should be separate to stay at the bottom -->
+            </div>
         </div>
     </div>
 </div>
