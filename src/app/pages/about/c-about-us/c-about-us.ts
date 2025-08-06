@@ -1,15 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { SSeo } from '../../../core/service/other/seo/s-seo';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-c-about-us',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './c-about-us.html',
   styleUrl: './c-about-us.scss'
 })
 export class CAboutUs {
 
   private seo = inject(SSeo);
+  private route = inject(Router);
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -22,4 +24,5 @@ export class CAboutUs {
     image: 'https://satendracoder.com/assets/cover-image.png'
   });
   }
+
 }
