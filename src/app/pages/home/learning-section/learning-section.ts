@@ -74,7 +74,7 @@ export class LearningSection {
     title: 'Dev-Tools',
     description: 'Access essential developer tools like formatters, validators, and converters in one place.',
     icon: '🛠️',
-    link: '/dev-tools'
+    link: '/tools'
   },
   {
     title: 'VSCode Extension',
