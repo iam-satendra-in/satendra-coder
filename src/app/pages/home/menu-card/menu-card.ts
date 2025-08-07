@@ -137,24 +137,24 @@ export class MenuCard {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: 'JSON Tools',
-          link: '',
+          name: 'JSON Formatter',
+          link: '/tools/json-formatter',
         },
         {
-          name: 'Code Formatters',
-          link: '',
+          name: 'JSON to XML Converter',
+          link: '/tools/json-to-xml',
         },
         {
-          name: 'Code Converters',
-          link: '',
+          name: 'Base64 Encoder/Decoder',
+          link: '/tools/base64-encoder-decoder',
         },
         {
-          name: 'QR Generator',
-          link: '',
+          name: 'QR Code Generator',
+          link: '/tools/qr-code-generator',
         },
         {
           name: 'More Tools',
-          link: '',
+          link: 'tools',
         },
       ],
     },

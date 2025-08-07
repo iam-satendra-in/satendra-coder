@@ -21,8 +21,8 @@ export const routes: Routes = [
   path: 'admin',
   loadChildren: () =>
     import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
-  canActivate: [roleGuard],
-  data: { roles: ['ADMIN'] }
+  // canActivate: [roleGuard],
+  // data: { roles: ['ADMIN'] }
 },
 
   // Compiler Routes is lazy loaded
@@ -54,7 +54,7 @@ export const routes: Routes = [
 
   // Tools Routes is lazy loaded
   {
-    path: 'tool',
+    path: '',
     loadChildren: () =>
       import('./features/dev-tool/tools.routes').then(
         (tool) => tool.TOOLS_ROUTES
