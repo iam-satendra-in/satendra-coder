@@ -6,9 +6,11 @@
     display: flex;
     justify-content: center;
     border-radius: 5px;
+    height: 450px;
 
     @media screen and (max-width:480px) {
         padding: 5rem 1rem 1rem 1rem;
+        height: max-content;
     }
 
     &__content {
