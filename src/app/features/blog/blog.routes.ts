@@ -9,7 +9,11 @@ export const BLOG_ROUTES: Routes = [
   },
 
   {
-    path:'blog/:id', loadComponent:()=> import('./layout/blog-details/blog-details').then((mod)=> mod.BlogDetails)
+    path: 'blog/:id',
+    loadComponent: () =>
+      import('./layout/blog-details/blog-details').then(
+        (mod) => mod.BlogDetails
+      ),
   },
-   { path: 'category/:slug', component: BlogCategoryDetails },
+  { path: 'category/:slug', component: BlogCategoryDetails },
 ];
