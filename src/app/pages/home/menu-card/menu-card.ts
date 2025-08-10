@@ -43,7 +43,7 @@ export class MenuCard {
   readonly dialog = inject(MatDialog);
 
   constructor(private safestorage: SSafeStorage) {
-    debugger
+    debugger;
     const userdata = this.safestorage.getItem('user');
     console.log(userdata);
     if (userdata) {
@@ -66,7 +66,7 @@ export class MenuCard {
   }
 
   getInitials(fullName: string): string {
-    debugger
+    debugger;
     if (!fullName) return '';
     const names = fullName.trim().split(' ');
     if (names.length === 1) {
@@ -115,6 +115,10 @@ export class MenuCard {
           link: '/blog',
         },
         {
+          name: 'About',
+          link: '/about',
+        },
+        {
           name: 'Community',
           link: '/community',
         },
@@ -125,10 +129,6 @@ export class MenuCard {
         {
           name: 'eBooks Library',
           link: '/ebook',
-        },
-        {
-          name: 'Mentorship',
-          link: '/mentorship',
         },
       ],
     },
