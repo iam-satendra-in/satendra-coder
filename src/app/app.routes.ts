@@ -45,7 +45,7 @@ export const routes: Routes = [
 
   // Blog Routes is lazy loaded
   {
-    path: 'blog',
+    path: '',
     loadChildren: () =>
       import('./features/blog/blog.routes').then(
         (blog) => blog.BLOG_ROUTES

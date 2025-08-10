@@ -1,0 +1,30 @@
+<div class="banner">
+    <div class="banner-content">
+        <h1 class="banner-title">Discover Amazing Stories</h1>
+        <p class="banner-subtitle">Explore our collection of blogs across different categories</p>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" [(ngModel)]="searchQuery" placeholder="Search articles..." class="search-input"
+                    (keyup.enter)="onSearch()">
+                <select [(ngModel)]="selectedCategory" class="category-select">
+                    <option value="all">All Categories</option>
+                    <option *ngFor="let category of categories" [value]="category.slug">
+                        {{ category.name }}
+                    </option>
+                </select>
+                <button class="search-btn" (click)="onSearch()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21 21L16.5 16.5M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner-background">
+        <div class="gradient-overlay"></div>
+    </div>
+</div>

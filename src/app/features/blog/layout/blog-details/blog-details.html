@@ -1,0 +1,85 @@
+<app-menu-card></app-menu-card>
+<br><br>
+<div class="blog-detail" *ngIf="blog">
+    <div class="container">
+        <div class="blog-layout">
+            <main class="blog-main">
+                <!-- Blog Header -->
+                <div class="blog-header">
+                    <div class="breadcrumb">
+                        <a routerLink="/">Home</a>
+                        <span class="separator">/</span>
+                        <a [routerLink]="['/category', blog.category.toLowerCase()]">{{ blog.category }}</a>
+                        <span class="separator">/</span>
+                        <span class="current">{{ blog.title }}</span>
+                    </div>
+
+                    <h1 class="blog-title">{{ blog.title }}</h1>
+
+                    <div class="blog-meta">
+                        <div class="author-info">
+                            <div class="author-avatar">
+                                <img src="https://satendra-coder.vercel.app/assets/images/home/satendra.jpg"
+                                    alt="Author">
+                            </div>
+                            <div class="author-details">
+                                <span class="author-name">{{ blog.author }}</span>
+                                <div class="meta-info">
+                                    <span class="publish-date">{{ blog.publishDate | date:'MMM d, y' }}</span>
+                                    <span class="read-time">{{ blog.readTime }} min read</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-actions">
+                            <button class="action-btn share-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.85L8.91 12.7C8.96 12.47 9 12.24 9 12S8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5S19.66 2 18 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12S4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.34C15.11 18.55 15.08 18.77 15.08 19C15.08 20.61 16.39 21.92 18 21.92S20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"
+                                        fill="currentColor" />
+                                </svg>
+                                Share
+                            </button>
+                            <button class="action-btn bookmark-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 21L12 16L5 21V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                Bookmark
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                <div class="featured-image">
+                    <img [src]="blog.imageUrl" [alt]="blog.title">
+                </div>
+
+                <!-- Blog Content -->
+                <div class="blog-content" [innerHTML]="blog.content"></div>
+
+                <!-- Tags -->
+                <div class="blog-tags">
+                    <h3>Tags</h3>
+                    <div class="tags-list">
+                        <span *ngFor="let tag of blog.tags" class="tag">{{ tag }}</span>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+            <app-blog-sidebar class="blog-sidebar"></app-blog-sidebar>
+        </div>
+
+        <!-- Related Posts Slider -->
+        <app-blog-slider *ngIf="relatedBlogs.length > 0" [blogs]="relatedBlogs" [title]="'More from ' + blog.category"
+            [slidesToShow]="3"></app-blog-slider>
+    </div>
+</div>
+<app-global-contact></app-global-contact>
+<app-footer-card></app-footer-card>

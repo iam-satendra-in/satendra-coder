@@ -1,0 +1,122 @@
+.blog-slider {
+    margin: 3rem 0;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.slider-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        border-radius: 2px;
+    }
+}
+
+.slider-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.slider-btn {
+    background: white;
+    border: 2px solid #e2e8f0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+        border-color: #2563eb;
+        color: #2563eb;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.slider-container {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: calc(100% / 3);
+    padding: 0 1rem;
+
+    @media (max-width: 1024px) {
+        min-width: calc(100% / 2);
+    }
+
+    @media (max-width: 768px) {
+        min-width: 100%;
+    }
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        transform: scale(1.2);
+    }
+
+    &:hover {
+        background: #cbd5e1;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .slider-title {
+        font-size: 1.5rem;
+    }
+
+    .slide {
+        padding: 0 0.5rem;
+    }
+}
