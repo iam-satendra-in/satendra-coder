@@ -1,11 +1,10 @@
-import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { SAuth } from '../service/s-auth';
 import { Router } from '@angular/router';
 import { SSafeStorage } from '../../core/service/global/safe-storage/s-safe-storage';
 import { SToaster } from '../../core/service/global/toaster/s-toaster';
 import { MateriallistModule } from '../../shared/materiallist/materiallist-module';
-import { Title, Meta } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterPage } from '../register-page/register-page';
 
@@ -24,8 +23,6 @@ export class LoginPage {
   isBrowser: boolean = false;
 
   constructor(
-    private titleService: Title,
-    private metaService: Meta,
     private fb: FormBuilder,
     private router: Router,
     private toaster: SToaster,
@@ -38,14 +35,6 @@ export class LoginPage {
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
 
-    this.titleService.setTitle('Login | SatendraCoder - Access Your Developer Dashboard');
-
-    this.metaService.addTags([
-      { name: 'description', content: 'Login to SatendraCoder to access developer tools, online courses, coding quizzes, and personalized content. Built for Angular developers, learners, and tech enthusiasts.' },
-      { name: 'keywords', content: 'Angular login, developer login, SatendraCoder login, access coding tools, online learning login, frontend developer portal, angular tools, sign in, dashboard access, programming login' },
-      { name: 'author', content: 'Satendra Rajput' },
-      { name: 'robots', content: 'index, follow' },
-    ]);
   }
 
   ngOnInit(): void { }
@@ -113,4 +102,5 @@ export class LoginPage {
   close() {
     this.dialog.closeAll();
   }
+
 }

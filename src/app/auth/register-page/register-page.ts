@@ -4,7 +4,6 @@ import { MateriallistModule } from '../../shared/materiallist/materiallist-modul
 import { SAuth } from '../service/s-auth';
 import { SToaster } from '../../core/service/global/toaster/s-toaster';
 import { Router } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../login-page/login-page';
 
@@ -20,8 +19,6 @@ export class RegisterPage {
    readonly dialog = inject(MatDialog);
 
   constructor(
-    private title: Title,
-    private meta: Meta,
     private authService: SAuth,
     private toaster: SToaster,
     private router: Router,
@@ -33,30 +30,6 @@ export class RegisterPage {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
-    this.title.setTitle(
-      'Register | SatendraCoder - Create Your Free Developer Account'
-    );
-
-    this.meta.addTags([
-      {
-        name: 'description',
-        content:
-          'Create your free SatendraCoder account to access developer tools, coding quizzes, online courses, and personalized learning features. Join the growing tech community today.',
-      },
-      {
-        name: 'keywords',
-        content:
-          'developer registration, angular registration, SatendraCoder register, sign up coding, frontend account, full stack developer signup, programming courses register',
-      },
-      {
-        name: 'author',
-        content: 'Satendra Rajput',
-      },
-      {
-        name: 'robots',
-        content: 'index, follow',
-      },
-    ]);
   }
 
   togglePasswordVisibility() {

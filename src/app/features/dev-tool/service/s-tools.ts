@@ -66,7 +66,7 @@ private toolsSubject = new BehaviorSubject<Tool[]>([
     icon: '🔄',
     rating: 4.6,
     price: 'Free',
-    link:'/tools/json-to-xml'
+    link:'/tools/json-to-xml-converter'
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ private toolsSubject = new BehaviorSubject<Tool[]>([
     icon: '📊',
     rating: 4.5,
     price: 'Free',
-    link:'/tools/json-to-csv'
+    link:'/tools/json-to-csv-converter'
   },
   {
     id: 9,
@@ -106,7 +106,7 @@ private toolsSubject = new BehaviorSubject<Tool[]>([
     icon: '⚛️',
     rating: 4.6,
     price: 'Free',
-    link:'/tools/html-to-jsx'
+    link:'/tools/html-to-jsx-converter'
   },
   {
     id: 11,

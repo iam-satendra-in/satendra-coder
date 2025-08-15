@@ -5,9 +5,11 @@ import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { FormControl } from '@angular/forms';
 import { STools } from '../../service/s-tools';
-import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, Observable } from 'rxjs';
 import { Tool } from '../../models/tool.interface';
 import { GlobalContact } from "../../../../shared/components/other/global-contact/global-contact";
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tools-home',
@@ -19,11 +21,16 @@ export class ToolsHome {
 
   searchControl = new FormControl('');
   isSearchActive = false;
+  showElement = false;
 
   filteredTools$!: Observable<Tool[]>;
 
-  constructor(private toolsService: STools) {}
+  constructor(
+    private toolsService: STools, 
+    private router: Router, 
+    private route: ActivatedRoute,) {}
 
+  
   ngOnInit(): void {
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
@@ -34,7 +41,30 @@ export class ToolsHome {
     });
 
     this.filteredTools$ = this.toolsService.filteredTools$;
+
+   // Listen to route changes
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.updateShowElement(event.urlAfterRedirects);
+      });
+
+    // Also check once at start
+    this.updateShowElement(this.router.url);
   }
+
+
+private updateShowElement(url: string) {
+  const cleanUrl = url.split('?')[0].split('#')[0];
+
+  // Extract base path
+  const parts = cleanUrl.split('/');
+  const basePath = '/' + (parts[1] || '');
+
+  // Show list if URL has only base path (like /tools, /other-tools)
+  this.showElement = parts.length === 2 && basePath.includes('tools');
+}
+
 
   getRatingStars(rating: number): string[] {
     const fullStars = Math.floor(rating);
