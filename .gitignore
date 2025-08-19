@@ -42,8 +42,11 @@ testem.log
 Thumbs.db
 
 # Ignore core constants file(s)
-/src/app/core/constants/*.constant.ts
+/src/app/core/constants/*.constants.ts
 
 # Ignore all assets folder
 /src/assets/
 ./public/assets
+
+# Ignore environment files
+/src/environments/environment*.ts
