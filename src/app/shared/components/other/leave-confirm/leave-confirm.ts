@@ -8,7 +8,7 @@ import { MateriallistModule } from '../../../materiallist/materiallist-module';
   styleUrl: './leave-confirm.scss'
 })
 export class LeaveConfirm {
-formData: string = '';
+  formData: string = '';
   isFormDirty: boolean = false; // 🔹 Flag for unsaved changes
 
   // Track changes in form
