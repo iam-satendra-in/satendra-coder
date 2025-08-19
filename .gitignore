@@ -40,5 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-.constants.ts
-.public
+
+# Ignore core constants file(s)
+/src/app/core/constants/*.constant.ts
+
+# Ignore all assets folder
+/src/assets/
+./public/assets
