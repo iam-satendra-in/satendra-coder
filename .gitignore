@@ -41,8 +41,15 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Ignore core constants file(s)
-/src/app/core/constants/*.constants.ts
+
+# Ignore single constants file
+/src/app/core/constants/constants.ts
+
+# Ignore public assets folder
+/public/assets/
+/public/assets/*
+!/public/assets/logo.png
+!/public/assets/favicon.ico
 
 # Ignore all assets folder
 /src/assets/
