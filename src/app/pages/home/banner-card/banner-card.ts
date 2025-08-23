@@ -167,8 +167,8 @@ export class BannerCard implements OnInit, OnDestroy {
           this.cd.markForCheck(); // Trigger OnPush UI update
         });
 
-        console.log('Auto Switched to:', this.currentItem.heading);
-      }, 3000);
+        // console.log('Auto Switched to:', this.currentItem.heading);
+      }, 9000);
     });
   }
 

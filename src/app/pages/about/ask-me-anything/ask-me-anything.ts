@@ -42,6 +42,7 @@ ngOnInit(): void {
 
   submitMemberForm(form: NgForm) {
     if (form.valid) {
+      debugger
       console.log('Contact Submitted:', this.memberData);
       this.sAskapi.sendMessage(this.memberData).subscribe({
         next: (res) => {

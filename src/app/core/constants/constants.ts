@@ -12,6 +12,6 @@ export const APIEndPoint = {
         logout:`${API_URL}/auth/logout`,
     },
     global:{
-        AskMe:`${API_URL}/askme`
+        AskMe:`${API_URL}/ask-me-anything`
     }
 }
