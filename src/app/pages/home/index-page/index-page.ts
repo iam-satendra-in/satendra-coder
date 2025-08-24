@@ -67,6 +67,11 @@ export class IndexPage {
       description: 'Handles long documents and images, tracking full context and details.',
       side: 'left'
     },
+    
+  ];
+
+
+    modelsright = [
     {
       name: 'Perplexity Sonar Pro',
       role: 'Live Web Researcher',

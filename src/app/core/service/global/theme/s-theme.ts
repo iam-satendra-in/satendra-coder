@@ -44,7 +44,7 @@ setTheme(isDark: boolean) {
 
 private applyTheme(isDark: boolean) {
   const body = document.body;
-  if (isDark) {
+  if (!isDark) {
     this.renderer.removeClass(body, 'light-theme');
     this.renderer.addClass(body, 'dark-theme');
   } else {
