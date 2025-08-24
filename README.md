@@ -56,7 +56,8 @@ npm test
 ## 📚 Resources
 
 - [SatendraCoder Website](https://satendracoder.com)
-- [Follow on Instagram](https://instagram.com/satendracoder)
+- [Follow on Instagram](https://instagram.com/satendracoder1)
+- [Follow on YouTube](https://youtube.com/@satendracoder?si=SKEgnjAbi9JEY4JP)
 - [Angular Documentation](https://angular.dev)
 
 ---
