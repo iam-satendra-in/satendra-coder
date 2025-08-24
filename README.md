@@ -7,7 +7,7 @@ This project is part of the SatendraCoder ecosystem where we build **useful tool
 
 ## 📸 Web
 
-![App Screenshot](./bannerimge.png")
+![App Screenshot](./https://github.com/satendracoder/satendra-coder/blob/master/public/bannerimge.png")
 
 ---
 
