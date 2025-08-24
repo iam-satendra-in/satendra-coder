@@ -5,11 +5,9 @@ This project is part of the SatendraCoder ecosystem where we build **useful tool
 
 ---
 
-## 📸 Screenshots
+## 📸 Web
 
-![App Screenshot](./public/bannerimge.png")
-
-_(Add your screenshots here. Place them in the project folder and update the path.)_
+![App Screenshot](./bannerimge.png")
 
 ---
 
