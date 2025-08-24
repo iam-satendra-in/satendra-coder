@@ -1,5 +1,4 @@
-import { environment } from "../../../environments/environment";
-
+import { environment } from "../../../environments/environment.development";
 
 const API_URL = environment.API_URL;
 
