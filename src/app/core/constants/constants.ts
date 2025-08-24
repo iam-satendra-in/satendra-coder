@@ -1,6 +1,6 @@
 import { environment } from "../../../environments/environment.development";
 
-const API_URL = environment.API_URL;
+const API_URL = '';
 
 export const APIEndPoint = {
     Auth:{
