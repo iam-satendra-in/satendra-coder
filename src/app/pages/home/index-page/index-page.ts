@@ -46,4 +46,45 @@ export class IndexPage {
       image:'https://satendracoder.com/assets/favicon.ico'
     })
   }
+
+
+  models = [
+    {
+      name: 'ChatGPT 5',
+      role: 'All Rounder Explainer',
+      description: 'Great for questions, brainstorming, and clear step-by-step explanations.',
+      side: 'left'
+    },
+    {
+      name: 'Claude Sonnet 4',
+      role: 'Co-Writing Master',
+      description: 'Refines polished emails, essays, and scripts while keeping your style.',
+      side: 'left'
+    },
+    {
+      name: 'Gemini 2.5 Pro',
+      role: 'Long Context Master',
+      description: 'Handles long documents and images, tracking full context and details.',
+      side: 'left'
+    },
+    {
+      name: 'Perplexity Sonar Pro',
+      role: 'Live Web Researcher',
+      description: 'Delivers fresh answers and news from credible, real-time sources.',
+      side: 'right'
+    },
+    {
+      name: 'DeepSeek',
+      role: 'Reasoning Specialist',
+      description: 'Excels at logic, math, and coding with clear, detailed solutions.',
+      side: 'right'
+    },
+    {
+      name: 'Grok 4',
+      role: 'Creative Powerhouse',
+      description: 'Bold, unconventional ideas and punchy copy for trend-focused content.',
+      side: 'right'
+    }
+  ];
+
 }

@@ -8,4 +8,30 @@
     <app-faq-card></app-faq-card>
     <app-global-contact></app-global-contact>
     <app-footer-card></app-footer-card>
+
+    <div class="ai-models-container">
+        <!-- Left side cards -->
+        <div class="cards left">
+            <div *ngFor="let model of models" [ngClass]="{'card': true, 'left-card': model.side === 'left'}">
+                <h3>{{ model.name }}</h3>
+                <span class="role">{{ model.role }}</span>
+                <p>{{ model.description }}</p>
+            </div>
+        </div>
+
+        <!-- Central circle -->
+        <div class="central-circle">
+            <div class="logo">AI</div>
+        </div>
+
+        <!-- Right side cards -->
+        <div class="cards right">
+            <div *ngFor="let model of models" [ngClass]="{'card': true, 'right-card': model.side === 'right'}">
+                <h3>{{ model.name }}</h3>
+                <span class="role">{{ model.role }}</span>
+                <p>{{ model.description }}</p>
+            </div>
+        </div>
+    </div>
+
 </div>
