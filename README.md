@@ -1,59 +1,87 @@
-# SatendraCoder
+# 🚀 SatendraCoder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Welcome to the **SatendraCoder** project!  
+This project is part of the SatendraCoder ecosystem where we build **useful tools, projects, and educational content** for developers.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📸 Screenshots
 
-```bash
-ng serve
-```
+![App Screenshot](./public/bannerimge.png")
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+_(Add your screenshots here. Place them in the project folder and update the path.)_
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠 Features
 
-```bash
-ng generate component component-name
-```
+- Modern UI with responsive design
+- Clean and optimized code structure
+- Easy to extend and customize
+- Open-source project
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📦 Installation
 
-## Building
-
-To build the project run:
+Clone the repository:
 
 ```bash
-ng build
+git clone https://github.com/your-username/satendracoder.git
+cd satendracoder
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Install dependencies:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Run the project:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 🧪 Tests
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+To run tests:
+
+```bash
+npm test
+```
+
+---
+
+## 📚 Resources
+
+- [SatendraCoder Website](https://satendracoder.com)
+- [Follow on Instagram](https://instagram.com/satendracoder)
+- [Angular Documentation](https://angular.dev)
+
+---
+
+## 🙌 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+---
+
+## ✍️ Author
+
+**Satendra Rajput (SatendraCoder)**  
+🌐 [satendracoder.com](https://satendracoder.com)
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** – feel free to use and modify it.
