@@ -19,7 +19,5 @@ export class App {
     event.preventDefault();
     event.returnValue = "Are you sure you want to leave?";
   }
-  ngOnDestroy(): void {
- console.log("Angular ngOnDestroy called");
-  }
+
 }

@@ -62,7 +62,6 @@ export class MenuCard {
   }
 
   getInitials(fullName: string): string {
-    debugger;
     if (!fullName) return '';
     const names = fullName.trim().split(' ');
     if (names.length === 1) {

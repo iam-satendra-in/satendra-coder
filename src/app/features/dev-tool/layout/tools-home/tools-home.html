@@ -1,16 +1,23 @@
-<app-menu-card></app-menu-card> <br /><br /><br />
-@if (showElement) {
-<div class="search">
-    <div class="search__container" [class.search__container--active]="isSearchActive">
-        <div class="search__icon">🔍</div>
-        <input type="text" class="search__input" placeholder="Search tools..." [formControl]="searchControl"
-            (focus)="onFocus()" (blur)="onBlur()" />
-        <button *ngIf="isSearchActive && searchControl.value" class="search__clear" (click)="clearSearch()"
-            type="button">
-            ✕
-        </button>
+<app-menu-card></app-menu-card>
+<section class="hero">
+    <div class="container">
+        <h1>🚀 Satendra Coder - All Developer Tools</h1>
+        <p>Powerful, lightweight, and developer-friendly devloper tools to boost your productivity.</p>
+        <br>
+        <div class="search">
+            <div class="search__container" [class.search__container--active]="isSearchActive">
+                <div class="search__icon">🔍</div>
+                <input type="text" class="search__input" placeholder="Search tools..." [formControl]="searchControl"
+                    (focus)="onFocus()" (blur)="onBlur()" />
+                <button *ngIf="isSearchActive && searchControl.value" class="search__clear" (click)="clearSearch()"
+                    type="button">
+                    ✕
+                </button>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+@if (showElement) {
 <section class="tool-list">
     <div class="tool-list__container">
         <div class="tool-list__header">

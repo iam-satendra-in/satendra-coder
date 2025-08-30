@@ -72,7 +72,7 @@ export const routes: Routes = [
 
   // NPM Package Routes is lazy loaded
   {
-    path: 'npm',
+    path: '',
     loadChildren: () =>
       import('./features/npm-package/npm.routes').then(
         (npm) => npm.NPM_ROUTES
