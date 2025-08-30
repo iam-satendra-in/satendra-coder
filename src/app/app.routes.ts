@@ -133,14 +133,6 @@ export const routes: Routes = [
             (company) => company.CAboutUs
           ),
       },
-      //@_contact-us routes
-      {
-        path: 'contact',
-        loadComponent: () =>
-          import('./pages/about/c-contact-us/c-contact-us').then(
-            (company) => company.CContactUs
-          ),
-      },
       //@_pricing-policy routes
       {
         path: 'pricing-policy',
@@ -187,8 +179,16 @@ export const routes: Routes = [
   {
     path: 'ask-me-anything',
     loadComponent: () =>
-      import('./pages/about/ask-me-anything/ask-me-anything').then(
+      import('./shared/components/other/ask-me-anything/ask-me-anything').then(
         (company) => company.AskMeAnything
+      ),
+  },
+  //@_Become to Membars
+  {
+    path: 'become-a-member',
+    loadComponent: () =>
+      import('./shared/components/other/become-member/become-member').then(
+        (become) => become.BecomeMember
       ),
   },
 

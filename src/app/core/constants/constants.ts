@@ -1,6 +1,6 @@
 // import { environment } from "../../../environments/environment.development";
 
-const API_URL = 'https://api.satendracoder.com/api/v1';
+const API_URL = 'http://localhost:8080/api/v1';
 //const API_URL = environment.API_URL;
 
 export const APIEndPoint = {
@@ -13,6 +13,7 @@ export const APIEndPoint = {
         logout:`${API_URL}/auth/logout`,
     },
     global:{
-        AskMe:`${API_URL}/ask-me-anything`
+        AskMe:`${API_URL}/global/ask-me-anything`,
+        BecomeMember:`${API_URL}/global/become-a-member`
     }
 }

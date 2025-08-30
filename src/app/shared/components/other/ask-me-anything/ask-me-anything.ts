@@ -1,11 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
+import { MateriallistModule } from '../../../materiallist/materiallist-module';
 import { NgForm } from '@angular/forms';
-import { Title, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { SToaster } from '../../../core/service/global/toaster/s-toaster';
-import { SAskme } from '../../../core/service/global/askme/s-askme';
-import { SSeo } from '../../../core/service/other/seo/s-seo';
+import { SToaster } from '../../../../core/service/global/toaster/s-toaster';
+import { SAskme } from '../../../../core/service/global/askme/s-askme';
+import { SSeo } from '../../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-ask-me-anything',
@@ -52,7 +51,6 @@ ngOnInit(): void {
             type: 'success',
             message: res?.message
           })
-          this.route.navigate(['/']);
           form.resetForm();
         },
         error: () => {

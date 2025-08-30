@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { ContactMessage } from '../../../model/global/contact-message.model';
+import { BecomeMemberModel, ContactMessage } from '../../../model/global/contact-message.model';
 import { Observable } from 'rxjs';
 import { APIEndPoint } from '../../../constants/constants';
 
@@ -16,5 +16,9 @@ export class SAskme {
 
   sendMessage(data: ContactMessage): Observable<any> {
     return this.http.post(APIEndPoint.global.AskMe, data,{headers});
+  }
+
+  becomeMember(BecomePayload: BecomeMemberModel): Observable<any> {
+    return this.http.post(APIEndPoint.global.BecomeMember, BecomePayload,{headers});
   }
 }
