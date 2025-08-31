@@ -29,16 +29,19 @@ export class MentorshipCard {
     this.updateItemsPerView();
   }
 
-  updateItemsPerView() {
+updateItemsPerView() {
+  if (typeof window !== 'undefined') {
     const width = window.innerWidth;
     if (width <= 600) {
       this.itemsPerView = 1;
     } else if (width <= 1024) {
       this.itemsPerView = 2;
     } else {
-      this.itemsPerView = 4; // can set 5 also
+      this.itemsPerView = 4; // or 5
     }
   }
+}
+
 
   nextSlide() {
     if (this.currentIndex < this.trainers.length - this.itemsPerView) {
