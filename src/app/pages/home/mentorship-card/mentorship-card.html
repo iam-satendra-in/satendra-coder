@@ -1,7 +1,44 @@
+<div class="wrapper">
+    <div class="container">
+        <h4 class="sub-title">TOP SELECTED</h4>
+        <h2 class="main-title">Trainers from Industry</h2>
+
+        <div class="carousel">
+            <!-- Left Arrow -->
+            <button class="arrow left" (click)="prevSlide()"
+                [disabled]="currentIndex === 0"><mat-icon>keyboard_arrow_left</mat-icon></button>
+
+            <!-- Slide Track -->
+            <div class="carousel-track"
+                [style.transform]="'translateX(-' + (currentIndex * (100 / itemsPerView)) + '%)'">
+                <div class="trainer-card" *ngFor="let trainer of trainers"
+                    [style.flex]="'0 0 ' + (100 / itemsPerView) + '%'">
+                    <div class="trainer-img">
+                        <img [src]="trainer.img" [alt]="trainer.name">
+                    </div>
+                    <h3>{{ trainer.name }}</h3>
+                    <p>{{ trainer.role }}</p>
+                </div>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="arrow right" (click)="nextSlide()"
+                [disabled]="currentIndex >= trainers.length - itemsPerView"><mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+        </div>
+
+        <button class="btn-primary" routerLink="/become-a-member">Become A Trainer →</button>
+    </div>
+</div>
+
+
+<br>
+
+
 <section class="mentorship-section">
     <div class="mentorship-wrapper">
         <div class="mentorship-header">
-            <h2>Mentorship Program</h2>
+            <h2>🎓 Mentorship Program</h2>
             <p>Get guidance from experienced mentors in development, tech careers, and projects.</p>
         </div>
 

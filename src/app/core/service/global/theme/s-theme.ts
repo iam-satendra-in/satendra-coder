@@ -16,7 +16,7 @@ import { SSafeStorage } from '../safe-storage/s-safe-storage';
 })
 export class STheme {
   private renderer: Renderer2;
-  private _isDarkTheme = signal(false); // main signal
+  private _isDarkTheme = signal(true); // main signal
 
   readonly isDarkTheme = computed(() => this._isDarkTheme());
 

@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { MenuCard } from "../../../../pages/home/menu-card/menu-card";
 import { FooterCard } from "../../../../pages/home/footer-card/footer-card";
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { MateriallistModule } from "../../../../shared/materiallist/materiallist-module";
+import { SSeo } from '../../../../core/service/other/seo/s-seo';
 
 
 interface Testimonial {
@@ -105,6 +106,7 @@ export class NpmLayout {
   }
 ];
 
+private seoapi = inject(SSeo);
 
 testimonials: Testimonial[] = [
   {
@@ -153,6 +155,15 @@ showElement = false;
 
     // Also check once at start
     this.updateShowElement(this.router.url);
+
+    //SEO for this page
+    this.seoapi.updateMeta({
+      title: 'Satendra Coder NPM Packages - Angular Developer Tools & Utilities',
+      description: 'Explore Satendra Coder’s NPM packages for Angular developers. Boost productivity with ready-made components, form validators, auth guards, and more.',
+      keywords: 'satendra coder npm packages, angular developer tools, angular utilities, angular snippets, angular form validators, angular auth guard',
+      url: 'https://satendracoder.com/npm-package',
+      image: 'https://satendracoder.com/assets/favicon.ico'
+    });
   }
 
   private updateShowElement(url: string) {

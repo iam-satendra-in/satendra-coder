@@ -18,6 +18,11 @@
                 font-size: 2rem;
                 font-weight: bold;
                 color: var(--mentor-color);
+
+                span {
+                    font-size: 12px;
+                    font-weight: 400;
+                }
             }
 
             .view-all-btn {

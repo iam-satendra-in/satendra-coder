@@ -10,6 +10,7 @@ import { LatestBlogCard } from "../latest-blog-card/latest-blog-card";
 import { FaqCard } from "../faq-card/faq-card";
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { SSeo } from '../../../core/service/other/seo/s-seo';
+import { LibraryExtensionCard } from "../library-extension-card/library-extension-card";
 
 
 @Component({
@@ -24,7 +25,8 @@ import { SSeo } from '../../../core/service/other/seo/s-seo';
     LatestBlogCard,
     FaqCard,
     MenuCard,
-    MateriallistModule
+    MateriallistModule,
+    LibraryExtensionCard
 ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',

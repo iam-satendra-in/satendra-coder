@@ -47,52 +47,16 @@ export class LearningSection {
     link: '/ebook'
   },
   {
-    title: 'Blog',
-    description: 'Read developer blogs and articles on the latest technologies.',
-    icon: '📝',
-    link: '/blog'
-  },
-  {
-    title: 'Community',
-    description: 'Join discussions, ask questions, and connect with fellow learners.',
-    icon: '👥',
-    link: '/community'
-  },
-  {
     title: 'Online Compiler',
     description: 'Write, run, and debug code instantly from your browser.',
     icon: '💻',
     link: '/compiler'
   },
   {
-    title: 'Mentorship',
-    description: 'Connect with mentors for guidance, advice, and career growth.',
-    icon: '🎓',
-    link: '/mentorship'
-  },
-  {
-    title: 'Dev-Tools',
-    description: 'Access essential developer tools like formatters, validators, and converters in one place.',
-    icon: '🛠️',
-    link: '/tools'
-  },
-  {
-    title: 'VSCode Extension',
-    description: 'Install productivity and coding tools directly into VS Code.',
-    icon: '🧩',
-    link: '/vscode-extension'
-  },
-  {
     title: 'Browser Extension',
     description: 'Enhance your browsing experience with developer tools.',
     icon: '🌐',
     link: '/browser-extension'
-  },
-  {
-    title: 'NPM Package',
-    description: 'Install reusable modules via Node Package Manager.',
-    icon: '📦',
-    link: '/npm-package'
   },
   {
     title: 'Maven Library',

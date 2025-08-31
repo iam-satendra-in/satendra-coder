@@ -1,12 +1,16 @@
 <section class="latest-blogs-wrapper">
     <div class="latest-blogs-container">
         <div class="section-header">
-            <h2>Latest Blog Posts</h2>
-            <button class="view-all-btn">View All</button>
+            <h2>📝 Latest Blog Posts
+                <br>
+                <span>Read developer blogs and articles on the latest technologies.</span>
+            </h2>
+            <button routerLink="/blog" class="view-all-btn">see more</button>
         </div>
 
         <div class="blogs-grid">
-            <div class="blog-card" *ngFor="let blog of blogs">
+            @for (blog of blogs; track $index) {
+            <div class="blog-card">
                 <div class="image-wrapper">
                     <img [src]="blog.image" alt="Blog Image" />
                 </div>
@@ -15,6 +19,7 @@
                     <p class="meta">By {{ blog.author }} • {{ blog.date }}</p>
                 </div>
             </div>
+            }
         </div>
     </div>
 </section>
