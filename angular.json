@@ -28,7 +28,7 @@
             ],
             "styles": [
                "public/assets/styles/main.scss",
-              "src/styles.scss"
+                "src/styles.scss"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
