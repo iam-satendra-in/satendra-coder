@@ -9,12 +9,12 @@ import { MateriallistModule } from '../../../shared/materiallist/materiallist-mo
 })
 export class MentorshipCard {
  trainers = [
-    { name: 'Satendra Rajput', role: 'Frontend Engineer', img: '/assets/images/global/satendra.png' },
-    { name: 'Rishi Singh', role: 'Sr. Full Stack Engineer(Dot Net)', img: '/assets/images/global/rishi.png' },
-    { name: 'Mutawakkil Shahid', role: 'Sr. UI/UX Engineer', img: '/assets/images/global/mutawakkil.png' },
-    { name: 'Govind Singh', role: 'Sr. Full Stack Engineer(Dot Net)', img: '/assets/images/global/govind.png' },
-    { name: 'Prashant Yadav', role: 'Accounting and Financials Professional', img: '/assets/images/global/prashant.png' },
-    { name: 'Rohan Vishwakarma', role: 'Business & Operations Manager', img: '/assets/images/global/rohan.png' }
+    { name: 'Satendra Rajput', role: 'Frontend Engineer', img: 'assets/images/global/satendra.png' },
+    { name: 'Rishi Singh', role: 'Sr. Full Stack Engineer(Dot Net)', img: 'assets/images/global/rishi.png' },
+    { name: 'Mutawakkil Shahid', role: 'Sr. UI/UX Engineer', img: 'assets/images/global/mutawakkil.png' },
+    { name: 'Govind Singh', role: 'Sr. Full Stack Engineer(Dot Net)', img: 'assets/images/global/govind.png' },
+    { name: 'Prashant Yadav', role: 'Accounting and Financials Professional', img: 'assets/images/global/prashant.png' },
+    { name: 'Rohan Vishwakarma', role: 'Business & Operations Manager', img: 'assets/images/global/rohan.png' }
   ];
 
   currentIndex = 0;
