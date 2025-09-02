@@ -53,9 +53,9 @@ export class LearningSection {
     link: '/compiler'
   },
   {
-    title: 'Browser Extension',
-    description: 'Enhance your browsing experience with developer tools.',
-    icon: '🌐',
+    title: 'Kids Corner',
+    description: 'Safe, fun learning—coding, maths, reading, and creativity for kids.',
+    icon: '👩‍👧‍👦',
     link: '/browser-extension'
   },
   {
