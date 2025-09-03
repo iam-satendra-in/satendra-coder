@@ -25,7 +25,7 @@ export const AUTH_ROUTES: Routes = [
   },
 
 {
-  path: 'auth/reset-password/:token',
+  path: 'auth/reset-password',
   loadComponent: () =>
     import('./reset-password/reset-password').then(
       (reset) => reset.ResetPassword
