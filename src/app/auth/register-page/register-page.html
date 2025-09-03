@@ -2,7 +2,7 @@
     <div class="login-modal">
         <div class="login-header">
             <h2>Sign Up</h2>
-            <button class="close-btn" (click)="close()">×</button>
+            <button routerLink="/" class="close-btn" (click)="close()">×</button>
         </div>
 
         <div class="login-body">
@@ -73,7 +73,7 @@
 
                 <p>
                     Already have an account?
-                    <a (click)="loginCard()" class="signup-link">Sign In</a>
+                    <a routerLink="/auth/login" class="signup-link">Sign In</a>
                 </p>
                 <p>
                     By signing up you agree to our

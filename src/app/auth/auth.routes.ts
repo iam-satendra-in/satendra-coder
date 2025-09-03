@@ -24,11 +24,11 @@ export const AUTH_ROUTES: Routes = [
       ),
   },
 
-  {
-    path: 'reset-password',
-    loadComponent: () =>
-      import('./reset-password/reset-password').then(
-        (reset) => reset.ResetPassword
-      ),
-  },
+{
+  path: 'auth/reset-password/:token',
+  loadComponent: () =>
+    import('./reset-password/reset-password').then(
+      (reset) => reset.ResetPassword
+    ),
+},
 ];

@@ -3,13 +3,22 @@
     margin: auto;
     height: 100%;
     display: flex;
-    background-color: transparent;
+    background-color: #f0f0f0;
+    background-image:
+        radial-gradient(at 17% 0%, #f0f0f0 0, transparent 50%),
+        radial-gradient(at 98% 1%, #f0f0f0 0, transparent 50%),
+        radial-gradient(at 33% 87%, #f0f0f0 0, transparent 50%),
+        radial-gradient(at 65% 86%, #f0f0f0 0, transparent 50%),
+        radial-gradient(at 61% 21%, #f0f0f0 0, transparent 50%),
+        radial-gradient(at 31% 31%, rgba(105, 82, 255, 0.8) 0, transparent 50%),
+        radial-gradient(at 64% 56%, #30e8bd 0, transparent 50%),
+        radial-gradient(at 67% 59%, #75dfff 0, transparent 50%);
 }
 
 .login-modal {
-    background-color: var(--secondary-background);
+    background-color: #ffff;
     border-radius: 10px;
-    box-shadow: 0 10px 20px var(--text-color);
+    box-shadow: 0 0px 1px var(--text-color);
     width: 450px;
     max-width: 100%;
     margin: auto;

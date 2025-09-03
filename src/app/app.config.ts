@@ -7,13 +7,14 @@ import { iloadersInterceptor } from './core/interceptor/loader/iloaders-intercep
 import { provideServiceWorker } from '@angular/service-worker';
 
 import { routes } from './app.routes';
+import { iauthInterceptor } from './core/interceptor/auth/iauth-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideAnimations(),
-    provideHttpClient(withFetch(), withInterceptors([iloadersInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([iloadersInterceptor, iauthInterceptor])),
     provideClientHydration(withEventReplay()),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),

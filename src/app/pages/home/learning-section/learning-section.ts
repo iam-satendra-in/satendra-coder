@@ -59,10 +59,10 @@ export class LearningSection {
     link: '/browser-extension'
   },
   {
-    title: 'Maven Library',
-    description: 'Integrate powerful Java libraries using Maven for seamless dependency management.',
-    icon: '☕',
-    link: '/maven-library'
+    title: 'Communication Skills',
+    description: 'Developers ke liye professional English + soft skills.',
+    icon: '🗣️',
+    link: '/communication-skills'
   }
 ];
 

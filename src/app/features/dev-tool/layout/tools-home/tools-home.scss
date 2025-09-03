@@ -44,9 +44,10 @@
         align-items: center;
         background: var(--background-color);
         border-radius: 1rem;
-        //box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
         border: 2px solid transparent;
+        border: .5px solid #e2e8f0;
 
         &--active {
             transform: scale(1.02);
@@ -390,6 +391,10 @@
             }
         }
     }
+}
+
+.tool-main {
+    margin-top: 70px;
 }
 
 @media (max-width: 768px) {

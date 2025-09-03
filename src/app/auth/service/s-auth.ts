@@ -29,6 +29,11 @@ export class SAuth {
     });
   }
 
+  //Forgot Password Api
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post<any>(APIEndPoint.Auth.forgotPassword, { email }, { headers });
+  }
+
   // Fetch user info from backend after OAuth login
   getUserInfo(): Observable<any> {
     return this.http.get<any>(APIEndPoint.Auth.OAuth, { headers });
