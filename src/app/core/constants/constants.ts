@@ -10,6 +10,7 @@ export const APIEndPoint = {
         OAuth:`${API_URL}/auth/oauth-user`,
         forgotPassword:`${API_URL}/auth/forgot-password`,
         resetPassword:`${API_URL}/auth/reset-password`,
+        changePassword:`${API_URL}/auth/change-password`,
         logout:`${API_URL}/auth/logout`,
     },
     global:{

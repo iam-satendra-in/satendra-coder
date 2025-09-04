@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from '../core/guards/auth/auth-guard';
 
 export const AUTH_ROUTES: Routes = [
   {
@@ -25,10 +26,19 @@ export const AUTH_ROUTES: Routes = [
   },
 
 {
-  path: 'auth/reset-password',
+  path: 'reset-password',
   loadComponent: () =>
     import('./reset-password/reset-password').then(
       (reset) => reset.ResetPassword
     ),
 },
+
+{
+  path: 'change-password',
+  canActivate: [authGuard],
+  loadComponent: () =>
+    import('./change-password/change-password').then(
+      (verify) => verify.ChangePassword
+    ),
+}
 ];
