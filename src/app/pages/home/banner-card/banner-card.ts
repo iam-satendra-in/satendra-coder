@@ -156,21 +156,26 @@ export class BannerCard implements OnInit, OnDestroy {
     private zone: NgZone
   ) {}
 
+ 
   ngOnInit(): void {
-    this.zone.runOutsideAngular(() => {
-      this.intervalId = setInterval(() => {
-        this.index = (this.index + 1) % this.items.length;
-        this.currentItem = this.items[this.index];
+  // Random index select karo
+  this.index = Math.floor(Math.random() * this.items.length);
+  this.currentItem = this.items[this.index];
 
-        // Force Angular to update the view
-        this.zone.run(() => {
-          this.cd.markForCheck(); // Trigger OnPush UI update
-        });
+  // Auto change karte rehne ke liye interval
+  this.zone.runOutsideAngular(() => {
+    this.intervalId = setInterval(() => {
+      this.index = (this.index + 1) % this.items.length;
+      this.currentItem = this.items[this.index];
 
-        // console.log('Auto Switched to:', this.currentItem.heading);
-      }, 9000);
-    });
-  }
+      // Force Angular to update the view
+      this.zone.run(() => {
+        this.cd.markForCheck(); 
+      });
+    }, 9000);
+  });
+}
+
 
   ngOnDestroy(): void {
     if (this.intervalId) {
