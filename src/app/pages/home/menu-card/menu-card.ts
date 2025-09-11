@@ -80,11 +80,11 @@ export class MenuCard {
       dropdownItems: [
         {
           name: 'Learn Tutorials',
-          link: '/learn',
+          link: '/tutorials',
         },
         {
           name: 'Core Subjects',
-          link: '/core',
+          link: '/subjects',
         },
         {
           name: 'Interview Questions',

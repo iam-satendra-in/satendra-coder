@@ -1,0 +1,76 @@
+.tutorial-container {
+    width: 100%;
+    margin: 70px auto auto auto;
+
+    .tutorial-row {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        position: relative;
+
+        @media screen and (max-width: 768px) {
+            margin: 60px auto auto auto;
+        }
+
+    }
+}
+
+.tutorial-wrapper {
+    display: flex;
+}
+
+
+
+/* Content Area */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-background);
+}
+
+/* Top bar */
+.topbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+
+    .menu-icon {
+        font-size: 24px;
+        margin-right: 15px;
+        cursor: pointer;
+        display: none; // desktop par hidden
+
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        a {
+            text-decoration: none;
+            color: #333;
+
+            &:hover {
+                text-decoration: underline;
+                color: #0891b2;
+            }
+        }
+    }
+}
+
+
+
+/* Responsive */
+@media (max-width: 992px) {
+
+    .menu-icon {
+        display: block !important; // mobile par visible
+    }
+}

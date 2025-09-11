@@ -1,26 +1,43 @@
 <app-menu-card></app-menu-card>
-
+<app-blog-banner></app-blog-banner>
 <div class="home">
-    <app-blog-banner></app-blog-banner>
-    <div class="container">
-        <section *ngFor="let category of categories" class="category-section">
-            <div class="section-header">
-                <h2 class="section-title">{{ category.name }}</h2>
-                <button class="view-all-btn" [routerLink]="['/category', category.slug]">
-                    View All ({{ category.count }})
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
+    <div class="blog-grid">
+        <div class="blog-card" *ngFor="let blog of paginatedBlogs" (click)="openBlog(blog.id)">
+            <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="blog-image" />
+            <div class="category-badge">{{ blog.category }}</div>
+            <div class="blog-top-read">
+                <span class="author">{{ blog.readTime }} min read</span>
+                <div>
+                    <span *ngFor="let tag of blog.tags.slice(0, 2)" class="tag-name">{{ tag }}</span>
+                </div>
             </div>
+            <div class="blog-card-body">
+                <h3>{{ blog.title }}</h3>
+                <p>{{ blog.excerpt }}</p>
+            </div>
+            <div class="blog-card-footer">
+                <div class="meta">
+                    <span class="author">{{ blog.author }}</span>
+                    <span class="date">{{ blog.publishDate | date:'d MMM, y' }}</span>
 
-            <div class="blogs-grid">
-                <app-blog-card *ngFor="let blog of getBlogsByCategory(category.name).slice(0, 3)"
-                    [blog]="blog"></app-blog-card>
+                </div>
+                <span class="read-more">Read More →</span>
             </div>
-        </section>
+        </div>
     </div>
+
+    <!-- Pagination -->
+    <ul class="pagination">
+        <li (click)="prevPage()" [class.disabled]="currentPage === 1">Previous</li>
+
+        <li *ngFor="let page of pages" [class.active]="page === currentPage" (click)="page > 0 && goToPage(page)">
+            <span *ngIf="page > 0">{{ page }}</span>
+            <strong style="border: none;" *ngIf="page < 0"><b>...</b></strong>
+        </li>
+
+        <li (click)="nextPage()" [class.disabled]="currentPage === totalPages">Next</li>
+    </ul>
+
 </div>
 
 <app-footer-card></app-footer-card>

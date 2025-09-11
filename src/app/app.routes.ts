@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { IndexPage } from './pages/home/index-page/index-page';
 import { roleGuard } from './core/guards/check-role/role-guard';
 
-
 export const routes: Routes = [
   {
     path: '',
@@ -17,13 +16,13 @@ export const routes: Routes = [
   },
 
   // Admin Routes is lazy loaded
-{
-  path: 'admin',
-  loadChildren: () =>
-    import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
-  // canActivate: [roleGuard],
-  // data: { roles: ['ADMIN'] }
-},
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
+    // canActivate: [roleGuard],
+    // data: { roles: ['ADMIN'] }
+  },
 
   // Compiler Routes is lazy loaded
   {
@@ -47,9 +46,7 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./features/blog/blog.routes').then(
-        (blog) => blog.BLOG_ROUTES
-      ),
+      import('./features/blog/blog.routes').then((blog) => blog.BLOG_ROUTES),
   },
 
   // Tools Routes is lazy loaded
@@ -74,9 +71,7 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./features/npm-package/npm.routes').then(
-        (npm) => npm.NPM_ROUTES
-      ),
+      import('./features/npm-package/npm.routes').then((npm) => npm.NPM_ROUTES),
   },
 
   // VSCODE_ROUTES Routes is lazy loaded
@@ -114,8 +109,6 @@ export const routes: Routes = [
         (mentorship) => mentorship.MENTORSHIP_ROUTES
       ),
   },
-
-
 
   //Company is lazy loaded
   {
@@ -192,14 +185,46 @@ export const routes: Routes = [
       ),
   },
 
-
   // Kids Routes is lazy loaded
   {
     path: 'kids',
     loadChildren: () =>
-      import('./features/kids/kids.routes').then(
-        (kids) => kids.KIDS_ROUTES
-      ),
-  }
+      import('./features/kids/kids.routes').then((kids) => kids.KIDS_ROUTES),
+  },
 
+  // Tutorial Routes is lazy loaded
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/grow-learning/tutorials/tutorial.routes').then(
+        (tutorial) => tutorial.TUTORIAL_ROUTES
+      ),
+  },
+
+  // Core Subjects Routes is lazy loaded
+  {
+    path: 'subjects',
+    loadChildren: () =>
+      import('./features/grow-learning/core-subjects/subjects.routes').then(
+        (subjects) => subjects.SUBJECTS_ROUTES
+      ),
+  },
+
+  // Interview Routes is lazy loaded
+  {
+    path: 'interview',
+    loadChildren: () =>
+      import('./features/grow-learning/interview/interview.routes').then(
+        (interview) => interview.INTERVIEW_ROUTES
+      ),
+  },
+
+  // Interview Routes is lazy loaded
+  {
+    path: 'quiz',
+    loadChildren: () =>
+      import('./features/grow-learning/quizzes/quizzes.routes').then(
+        (quizzes) => quizzes.QUIZZES_ROUTES
+      ),
+  },
 ];

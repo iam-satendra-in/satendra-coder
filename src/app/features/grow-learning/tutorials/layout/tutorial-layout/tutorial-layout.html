@@ -1,0 +1,34 @@
+<div class="tutorial-container">
+    <div class="tutorial-row">
+        <app-menu-card></app-menu-card>
+        @if (isTutorialRoute()) {
+        <app-tutorial-home></app-tutorial-home>
+        }@else {
+        <div class="tutorial-wrapper">
+            <!-- Sidebar -->
+            <app-tutoral-sidebar [isOpen]="isSidebarOpen" (closed)="onSidebarClosed()"></app-tutoral-sidebar>
+
+            <!-- Main Content -->
+            <main class="content">
+                <!-- Top Bar with Breadcrumb + Icon -->
+                <div class="topbar">
+                    <div class="menu-icon" (click)="toggleSidebar()">
+                        <mat-icon>left_panel_close</mat-icon>
+                    </div>
+                    <nav class="breadcrumb">
+                        <a routerLink="/tutorials">Tutorials</a> <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                            <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                        </svg>
+                        <span>HTML Tutorial</span>
+                    </nav>
+                </div>
+
+                <router-outlet></router-outlet>
+            </main>
+        </div>
+        }
+        <app-footer-card></app-footer-card>
+
+    </div>
+</div>

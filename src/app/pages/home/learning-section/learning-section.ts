@@ -14,13 +14,13 @@ export class LearningSection {
     title: 'Learn Tutorials',
     description: 'Master programming and development fundamentals with interactive tutorials.',
     icon: '📘',
-    link: '/learn'
+    link: '/tutorials'
   },
   {
     title: 'Core Subjects',
     description: 'Strengthen your foundation in Computer Science fundamentals and theory.',
     icon: '📚',
-    link: '/core'
+    link: '/subjects'
   },
   {
     title: 'Interview Questions',
