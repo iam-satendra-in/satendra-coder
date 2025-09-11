@@ -2,17 +2,16 @@
     width: 100%;
     margin: 70px auto auto auto;
 
+    @media screen and (max-width: 768px) {
+        margin: 60px auto auto auto;
+    }
+
     .tutorial-row {
         display: flex;
         flex-direction: column;
         height: 100%;
         width: 100%;
-
         position: relative;
-
-        @media screen and (max-width: 768px) {
-            margin: 60px auto auto auto;
-        }
 
     }
 }
@@ -72,5 +71,6 @@
 
     .menu-icon {
         display: block !important; // mobile par visible
+        margin-top: 5px;
     }
 }
