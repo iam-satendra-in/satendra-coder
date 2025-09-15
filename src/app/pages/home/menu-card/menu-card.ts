@@ -9,7 +9,6 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../../../auth/login-page/login-page';
 import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
-import { ToastService } from 'sc-angular-toastify';
 
 interface MenuItem {
   label: string;
@@ -43,7 +42,7 @@ export class MenuCard {
 
   readonly dialog = inject(MatDialog);
 
-  constructor(private tost: ToastService, private safestorage: SSafeStorage) {
+  constructor(private safestorage: SSafeStorage) {
     const userdata = this.safestorage.getItem('user');
     if (userdata) {
       this.isLoggedIn = true;
