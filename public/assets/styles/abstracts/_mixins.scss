@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as vars;
+
+@mixin clearfix {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  
+  @mixin responsive($breakpoint) {
+    @if $breakpoint == sm {
+      @media (max-width: vars.$breakpoint-sm) { @content; }
+    } @else if vars.$breakpoint == md {
+      @media (max-width: vars.$breakpoint-md) { @content; }
+    } @else if vars.$breakpoint == lg {
+      @media (max-width: vars.$breakpoint-lg) { @content; }
+    } @else if vars.$breakpoint == xl {
+      @media (max-width: vars.$breakpoint-xl) { @content; }
+    }
+  }
+  

@@ -1,0 +1,33 @@
+/* Dark theme */
+body.dark-theme {
+  --background-color: #23242c;
+  --text-color: #ddd;
+  --secondary-background: #303138;
+  --btn-background-color: #26a69a;
+
+  // Mentorship
+  --mentor-bg: #101426;
+  --mentor-color: #ffff;
+
+}
+
+body.dark-theme {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+
+body.dark-theme .dark_mode_1 {
+  background-color: var(--menu-background-color) !important;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .primary_text {
+  color: var(--text-color) !important;
+}
+
+body.dark-theme .primary_button {
+  color: var(--text-color) !important;
+  background-color: var(--btn-background-color);
+}

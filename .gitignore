@@ -46,14 +46,14 @@ Thumbs.db
 /src/app/core/constants/constants.ts
 
 # Ignore public assets folder
-/public/assets/
-/public/assets/*
-!/public/assets/logo.png
-!/public/assets/favicon.ico
+# /public/assets/
+# /public/assets/*
+# !/public/assets/logo.png
+# !/public/assets/favicon.ico
 
 # Ignore all assets folder
-/src/assets/
-./public/assets
+# /src/assets/
+# ./public/assets
 
 # Ignore environment files
 /src/environments/environment*.ts
