@@ -6,10 +6,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>🚀 Satendra Coder - NPM Packages</h1>
+            <h1>🚀NPM Packages</h1>
             <p>Powerful, lightweight, and developer-friendly NPM packages to boost your productivity.</p>
             <br>
-            <a href="#packages" class="btn-primary">Explore Packages</a>
+            <a href="/sc-angular-snippets" class="btn-primary">Explore Packages</a>
         </div>
     </section>
 
@@ -62,29 +62,7 @@
         </div>
     </section>
 
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>💬 What Developers Say</h2>
-
-            <div class="testimonial-card">
-                <img [src]="testimonials[currentIndex].image" alt="developer" class="avatar" />
-                <blockquote>
-                    "{{ testimonials[currentIndex].text }}"
-                </blockquote>
-                <cite>- {{ testimonials[currentIndex].author }}</cite>
-
-                <div class="controls">
-                    <button (click)="prev()">&#10094;</button>
-                    <button (click)="next()">&#10095;</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
+    <app-global-contact></app-global-contact>
     <!-- Footer -->
     <app-footer-card> </app-footer-card>
 

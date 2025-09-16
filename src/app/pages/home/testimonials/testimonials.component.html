@@ -1,0 +1,18 @@
+<section class="testimonials">
+    <div class="container">
+        <h2>💬 What Developers Say</h2>
+        <br><br>
+        <div class="testimonial-card">
+            <img [src]="testimonials[currentIndex].image" alt="developer" class="avatar" />
+            <blockquote>
+                "{{ testimonials[currentIndex].text }}"
+            </blockquote>
+            <cite>- {{ testimonials[currentIndex].author }}</cite>
+
+            <div class="controls">
+                <button (click)="prev()">&#10094;</button>
+                <button (click)="next()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+</section>
