@@ -1,44 +1,52 @@
 <div class="faq-wrapper">
-    <h2 class="faq-title">Frequently Asked Questions</h2>
-    <p class="faq-subtitle">Everything you need to know about SatendraCoder</p>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <p class="faq-subtitle">Everything you need to know about SatendraCoder</p>
 
-    <div class="faq-columns">
-        <!-- LEFT SIDE -->
-        <div class="faq-column">
-            <div class="faq-item" *ngFor="let faq of faqs.slice(0, 4); let i = index" [class.active]="i === activeIndex"
-                (click)="toggleFAQ(i)">
-                <div class="faq-question">
-                    {{ faq.question }}
-                    <span class="icon" [class.rotate]="i === activeIndex">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960"
-                            fill="#fff">
-                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                        </svg>
-                    </span>
-                </div>
-                <div class="faq-answer" *ngIf="i === activeIndex">
-                    <p>{{ faq.answer }}</p>
-                </div>
+  <div class="faq-columns">
+    <!-- LEFT SIDE -->
+    <div class="faq-column">
+      @for (faq of faqs.slice(0, 4); track faq; let i = $index) {
+        <div class="faq-item" [class.active]="i === activeIndex"
+          (click)="toggleFAQ(i)">
+          <div class="faq-question">
+            {{ faq.question }}
+            <span class="icon" [class.rotate]="i === activeIndex">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960"
+                fill="#fff">
+                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+              </svg>
+            </span>
+          </div>
+          @if (i === activeIndex) {
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
             </div>
+          }
         </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="faq-column">
-            <div class="faq-item" *ngFor="let faq of faqs.slice(4, 8); let i = index"
-                [class.active]="i + 4 === activeIndex" (click)="toggleFAQ(i + 4)">
-                <div class="faq-question">
-                    {{ faq.question }}
-                    <span class="icon" [class.rotate]="i + 4 === activeIndex">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960"
-                            fill="#fff">
-                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                        </svg>
-                    </span>
-                </div>
-                <div class="faq-answer" *ngIf="i + 4 === activeIndex">
-                    <p>{{ faq.answer }}</p>
-                </div>
-            </div>
-        </div>
+      }
     </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="faq-column">
+      @for (faq of faqs.slice(4, 8); track faq; let i = $index) {
+        <div class="faq-item"
+          [class.active]="i + 4 === activeIndex" (click)="toggleFAQ(i + 4)">
+          <div class="faq-question">
+            {{ faq.question }}
+            <span class="icon" [class.rotate]="i + 4 === activeIndex">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960"
+                fill="#fff">
+                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+              </svg>
+            </span>
+          </div>
+          @if (i + 4 === activeIndex) {
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
 </div>

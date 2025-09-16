@@ -1,50 +1,56 @@
 <aside class="sidebar">
-    <!-- Advertisement Section -->
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Advertisement</h3>
-        <div class="ad-space">
-            <div class="ad-content">
-                <h4>Boost Your Skills</h4>
-                <p>Learn from industry experts with our premium courses</p>
-                <button class="ad-btn">Get Started</button>
-            </div>
-        </div>
+  <!-- Advertisement Section -->
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">Advertisement</h3>
+    <div class="ad-space">
+      <div class="ad-content">
+        <h4>Boost Your Skills</h4>
+        <p>Learn from industry experts with our premium courses</p>
+        <button class="ad-btn">Get Started</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Best Tools Section -->
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Best Tools</h3>
-        <div class="tools-list">
-            <div *ngFor="let tool of tools" class="tool-card">
-                <img [src]="tool.imageUrl" [alt]="tool.name" class="tool-image">
-                <div class="tool-content">
-                    <h4 class="tool-name">{{ tool.name }}</h4>
-                    <p class="tool-description">{{ tool.description }}</p>
-                    <div class="tool-rating">
-                        <div class="stars">
-                            <span *ngFor="let star of getStars(tool.rating)" class="star">★</span>
-                        </div>
-                        <span class="rating-text">{{ tool.rating }}</span>
-                    </div>
-                </div>
+  <!-- Best Tools Section -->
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">Best Tools</h3>
+    <div class="tools-list">
+      @for (tool of tools; track tool) {
+        <div class="tool-card">
+          <img [src]="tool.imageUrl" [alt]="tool.name" class="tool-image">
+          <div class="tool-content">
+            <h4 class="tool-name">{{ tool.name }}</h4>
+            <p class="tool-description">{{ tool.description }}</p>
+            <div class="tool-rating">
+              <div class="stars">
+                @for (star of getStars(tool.rating); track star) {
+                  <span class="star">★</span>
+                }
+              </div>
+              <span class="rating-text">{{ tool.rating }}</span>
             </div>
+          </div>
         </div>
+      }
     </div>
+  </div>
 
-    <!-- Latest Blogs Section -->
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Latest Blogs</h3>
-        <div class="latest-blogs">
-            <div *ngFor="let blog of latestBlogs" class="latest-blog-item" [routerLink]="['/blog', blog.id]">
-                <img [src]="blog.imageUrl" [alt]="blog.title" class="latest-blog-image">
-                <div class="latest-blog-content">
-                    <h4 class="latest-blog-title">{{ blog.title }}</h4>
-                    <div class="latest-blog-meta">
-                        <span class="latest-blog-date">{{ blog.publishDate | date:'MMM d' }}</span>
-                        <span class="latest-blog-read-time">{{ blog.readTime }} min</span>
-                    </div>
-                </div>
+  <!-- Latest Blogs Section -->
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">Latest Blogs</h3>
+    <div class="latest-blogs">
+      @for (blog of latestBlogs; track blog) {
+        <div class="latest-blog-item" [routerLink]="['/blog', blog.id]">
+          <img [src]="blog.imageUrl" [alt]="blog.title" class="latest-blog-image">
+          <div class="latest-blog-content">
+            <h4 class="latest-blog-title">{{ blog.title }}</h4>
+            <div class="latest-blog-meta">
+              <span class="latest-blog-date">{{ blog.publishDate | date:'MMM d' }}</span>
+              <span class="latest-blog-read-time">{{ blog.readTime }} min</span>
             </div>
+          </div>
         </div>
+      }
     </div>
+  </div>
 </aside>

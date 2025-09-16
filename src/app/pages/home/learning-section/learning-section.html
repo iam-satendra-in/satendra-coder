@@ -1,23 +1,25 @@
 <div class="technical-skills">
-    <div class="container">
-        <div class="header">
-            <h1 class="title">Everything You Need to Grow as a Developer</h1>
-            <p class="subtitle">
-                From beginner tutorials to advanced tools — learn, practice, build, and grow with a complete developer
-                ecosystem.
-            </p>
-        </div>
-
-        <div class="grid">
-            <div class="category-card" *ngFor="let category of categories">
-                <div class="icon">{{ category.icon }}</div>
-                <a [routerLink]="category?.link">
-                    <div class="info">
-                        <h3>{{ category.title }}</h3>
-                        <p>{{ category.description }}</p>
-                    </div>
-                </a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Everything You Need to Grow as a Developer</h1>
+      <p class="subtitle">
+        From beginner tutorials to advanced tools — learn, practice, build, and grow with a complete developer
+        ecosystem.
+      </p>
     </div>
+
+    <div class="grid">
+      @for (category of categories; track category) {
+        <div class="category-card">
+          <div class="icon">{{ category.icon }}</div>
+          <a [routerLink]="category?.link">
+            <div class="info">
+              <h3>{{ category.title }}</h3>
+              <p>{{ category.description }}</p>
+            </div>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
 </div>

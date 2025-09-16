@@ -1,78 +1,88 @@
 <section class="contact-page">
-    <button class="close" (click)="closeAndRedirect()">×</button>
-    <div class="contact-container">
-        <!-- Left: Profile -->
-        <div class="left-profile">
-            <div class="profile-card">
-                <img src="/assets/images/global/satendra.png" alt="Satendra Rajput" class="profile-img" />
-                <h2>Satendra Rajput</h2>
-                <p class="subtitle">
-                    Software Engineer | Angular Developer | Java Full Stack Developer |
-                    Content Creator | Mentor
-                </p>
-                <!-- <div class="socials">
-                    <a href="https://instagram.com/satendracoder" target="_blank">📸</a>
-                    <a href="mailto:satendracoder@gmail.com">📧</a>
-                    <a href="https://satendracoder.com" target="_blank">🌐</a>
-                </div> -->
-                <ul class="highlights">
-                    <li>✅ Crack Angular interviews with confidence</li>
-                    <li>✅ Learn with real-world projects and use cases</li>
-                    <li>✅ Master Angular best practices and architecture</li>
-                    <li>✅ Understand Java Spring Boot for backend APIs</li>
-                    <li>✅ Improve portfolio and resume for top companies</li>
-                    <li>✅ Explore content creation and personal branding</li>
-                </ul>
-                <p class="note">
-                    Ask me anything about coding, careers, content, or frontend mentoring.
-                </p>
-            </div>
-        </div>
-
-        <!-- Right: Contact Form -->
-        <div class="right-form">
-            <div class="form-card">
-                <h2>Contact Satendra</h2>
-                <p>Drop your query and I’ll get back to you personally.</p>
-                <form #contactForm="ngForm" (ngSubmit)="submitMemberForm(contactForm)">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input id="name" name="name" type="text" required [(ngModel)]="memberData.name"
-                            #name="ngModel" />
-                        <small *ngIf="name.invalid && name.touched" class="error">Name is required</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" required [(ngModel)]="memberData.email"
-                            #email="ngModel" />
-                        <small *ngIf="email.invalid && email.touched" class="error">Valid email is required</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mobile">Mobile</label>
-                        <input id="mobile" name="mobile" type="tel" required pattern="^[0-9]{10}$"
-                            [(ngModel)]="memberData.mobile" #mobile="ngModel" />
-                        <small *ngIf="mobile.invalid && mobile.touched" class="error">10-digit mobile number
-                            required</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" required minlength="20"
-                            [(ngModel)]="memberData.message" #message="ngModel"></textarea>
-                        <small *ngIf="message.errors?.['minlength'] && message.touched" class="error">
-                            Message must be at least 20 characters
-                        </small>
-                        <small *ngIf="message.errors?.['required'] && message.touched" class="error">
-                            Message is required
-                        </small>
-                    </div>
-
-                    <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
-                </form>
-
-            </div>
-        </div>
+  <button class="close" (click)="closeAndRedirect()">×</button>
+  <div class="contact-container">
+    <!-- Left: Profile -->
+    <div class="left-profile">
+      <div class="profile-card">
+        <img src="/assets/images/global/satendra.png" alt="Satendra Rajput" class="profile-img" />
+        <h2>Satendra Rajput</h2>
+        <p class="subtitle">
+          Software Engineer | Angular Developer | Java Full Stack Developer |
+          Content Creator | Mentor
+        </p>
+        <!-- <div class="socials">
+        <a href="https://instagram.com/satendracoder" target="_blank">📸</a>
+        <a href="mailto:satendracoder@gmail.com">📧</a>
+        <a href="https://satendracoder.com" target="_blank">🌐</a>
+      </div> -->
+      <ul class="highlights">
+        <li>✅ Crack Angular interviews with confidence</li>
+        <li>✅ Learn with real-world projects and use cases</li>
+        <li>✅ Master Angular best practices and architecture</li>
+        <li>✅ Understand Java Spring Boot for backend APIs</li>
+        <li>✅ Improve portfolio and resume for top companies</li>
+        <li>✅ Explore content creation and personal branding</li>
+      </ul>
+      <p class="note">
+        Ask me anything about coding, careers, content, or frontend mentoring.
+      </p>
     </div>
-</section>
+  </div>
+
+  <!-- Right: Contact Form -->
+  <div class="right-form">
+    <div class="form-card">
+      <h2>Contact Satendra</h2>
+      <p>Drop your query and I’ll get back to you personally.</p>
+      <form #contactForm="ngForm" (ngSubmit)="submitMemberForm(contactForm)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required [(ngModel)]="memberData.name"
+            #name="ngModel" />
+            @if (name.invalid && name.touched) {
+              <small class="error">Name is required</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required [(ngModel)]="memberData.email"
+              #email="ngModel" />
+              @if (email.invalid && email.touched) {
+                <small class="error">Valid email is required</small>
+              }
+            </div>
+
+            <div class="form-group">
+              <label for="mobile">Mobile</label>
+              <input id="mobile" name="mobile" type="tel" required pattern="^[0-9]{10}$"
+                [(ngModel)]="memberData.mobile" #mobile="ngModel" />
+                @if (mobile.invalid && mobile.touched) {
+                  <small class="error">10-digit mobile number
+                  required</small>
+                }
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required minlength="20"
+                [(ngModel)]="memberData.message" #message="ngModel"></textarea>
+                @if (message.errors?.['minlength'] && message.touched) {
+                  <small class="error">
+                    Message must be at least 20 characters
+                  </small>
+                }
+                @if (message.errors?.['required'] && message.touched) {
+                  <small class="error">
+                    Message is required
+                  </small>
+                }
+              </div>
+
+              <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>

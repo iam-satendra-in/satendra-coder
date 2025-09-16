@@ -1,21 +1,23 @@
 <div class="blog-card" [routerLink]="['/blog', blog.id]">
-    <div class="card-image">
-        <img [src]="blog.imageUrl" [alt]="blog.title" loading="lazy">
-        <div class="category-badge">{{ blog.category }}</div>
+  <div class="card-image">
+    <img [src]="blog.imageUrl" [alt]="blog.title" loading="lazy">
+    <div class="category-badge">{{ blog.category }}</div>
+  </div>
+
+  <div class="card-content">
+    <div class="card-meta">
+      <span class="author">{{ blog.author }}</span>
+      <span class="date">{{ blog.publishDate | date:'MMM d, y' }}</span>
+      <span class="read-time">{{ blog.readTime }} min read</span>
     </div>
 
-    <div class="card-content">
-        <div class="card-meta">
-            <span class="author">{{ blog.author }}</span>
-            <span class="date">{{ blog.publishDate | date:'MMM d, y' }}</span>
-            <span class="read-time">{{ blog.readTime }} min read</span>
-        </div>
+    <h3 class="card-title">{{ blog.title }}</h3>
+    <p class="card-excerpt">{{ blog.excerpt }}</p>
 
-        <h3 class="card-title">{{ blog.title }}</h3>
-        <p class="card-excerpt">{{ blog.excerpt }}</p>
-
-        <div class="card-tags">
-            <span *ngFor="let tag of blog.tags.slice(0, 3)" class="tag">{{ tag }}</span>
-        </div>
+    <div class="card-tags">
+      @for (tag of blog.tags.slice(0, 3); track tag) {
+        <span class="tag">{{ tag }}</span>
+      }
     </div>
+  </div>
 </div>

@@ -1,32 +1,36 @@
 <div class="blog-slider">
-    <div class="slider-header">
-        <h3 class="slider-title">{{ title }}</h3>
-        <div class="slider-controls">
-            <button class="slider-btn" (click)="previousSlide()" [disabled]="currentSlide === 0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </button>
-            <button class="slider-btn" (click)="nextSlide()" [disabled]="currentSlide >= maxSlides - 1">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </button>
+  <div class="slider-header">
+    <h3 class="slider-title">{{ title }}</h3>
+    <div class="slider-controls">
+      <button class="slider-btn" (click)="previousSlide()" [disabled]="currentSlide === 0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="slider-btn" (click)="nextSlide()" [disabled]="currentSlide >= maxSlides - 1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            </svg>
+          </button>
         </div>
-    </div>
+      </div>
 
-    <div class="slider-container" #sliderContainer>
+      <div class="slider-container" #sliderContainer>
         <div class="slider-wrapper" [style.transform]="'translateX(' + (-currentSlide * slideWidth) + '%)'">
-            <div *ngFor="let blog of blogs" class="slide">
-                <app-blog-card [blog]="blog"></app-blog-card>
+          @for (blog of blogs; track blog) {
+            <div class="slide">
+              <app-blog-card [blog]="blog"></app-blog-card>
             </div>
+          }
         </div>
-    </div>
+      </div>
 
-    <div class="slider-dots">
-        <button *ngFor="let dot of dots; let i = index" class="dot" [class.active]="i === currentSlide"
-            (click)="goToSlide(i)"></button>
+      <div class="slider-dots">
+        @for (dot of dots; track dot; let i = $index) {
+          <button class="dot" [class.active]="i === currentSlide"
+          (click)="goToSlide(i)"></button>
+        }
+      </div>
     </div>
-</div>

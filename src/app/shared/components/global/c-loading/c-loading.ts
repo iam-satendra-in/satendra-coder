@@ -1,10 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
 import { SLoaders } from '../../../../core/service/global/loaders/s-loaders';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-c-loading',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './c-loading.html',
   styleUrl: './c-loading.scss'
 })
