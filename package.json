@@ -28,6 +28,7 @@
     "html2canvas": "^1.4.1",
     "rxjs": "~7.8.0",
     "sc-angular-snippets": "^1.2.0",
+    "sc-angular-toastify": "^1.2.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
