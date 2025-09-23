@@ -1,20 +1,18 @@
 import { Component, HostListener, inject, SimpleChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CToaster } from './shared/components/global/c-toaster/c-toaster';
-import { CLoading } from './shared/components/global/c-loading/c-loading';
-import { SSeo } from './core/service/other/seo/s-seo';
 import { ScAngularToastify, ToastService } from 'sc-angular-toastify';
+import { ScAngularLoader } from 'sc-angular-loader';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CToaster, CLoading],
+  imports: [RouterOutlet, ScAngularToastify, ScAngularLoader],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected title = 'satendra-coder';
 
-  constructor(private toast: ToastService) {}
+  constructor(private tost: ToastService) {}
 
   // This will catch browser/tab close
   @HostListener('window:beforeunload', ['$event'])
@@ -24,6 +22,6 @@ export class App {
   }
 
   show() {
-    this.toast.show('Hello World!', 'warn', 2000);
+    this.tost.show('Sucessfully login Pages', 'error', 3000);
   }
 }

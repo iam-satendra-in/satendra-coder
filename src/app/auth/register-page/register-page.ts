@@ -2,10 +2,10 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MateriallistModule } from '../../shared/materiallist/materiallist-module';
 import { SAuth } from '../service/s-auth';
-import { SToaster } from '../../core/service/global/toaster/s-toaster';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../login-page/login-page';
+import { ToastService } from 'sc-angular-toastify';
 
 @Component({
   selector: 'app-register-page',
@@ -16,11 +16,11 @@ import { LoginPage } from '../login-page/login-page';
 export class RegisterPage {
   showPassword: boolean = false;
   registerForm!: FormGroup;
-   readonly dialog = inject(MatDialog);
+  readonly dialog = inject(MatDialog);
 
   constructor(
     private authService: SAuth,
-    private toaster: SToaster,
+    private toaster: ToastService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -29,7 +29,6 @@ export class RegisterPage {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
-
   }
 
   togglePasswordVisibility() {
@@ -45,22 +44,17 @@ export class RegisterPage {
         .subscribe((response) => {
           try {
             console.log('Parsed Response:', response);
-            this.toaster.addToast({
-              message: response?.message,
-              type: 'success',
-            });
-             this.registerForm.reset();
-           this.loginCard();
+            this.toaster.show(response?.message, 'success');
+            this.registerForm.reset();
+            this.loginCard();
           } catch (error) {
             console.log('Response is not JSON:', response);
           }
         });
-     
     } else {
       console.log('Form is invalid');
     }
   }
-
 
   // Helper method to check if a field is valid and touched
   get name() {
@@ -75,27 +69,25 @@ export class RegisterPage {
     return this.registerForm.get('password');
   }
 
-    // Google login
+  // Google login
   loginWithGoogle() {
     this.authService.loginWithGoogle();
   }
   // Github login
-    loginWithGitHub(): void {
+  loginWithGitHub(): void {
     this.authService.loginWithGitHub();
   }
 
-  loginCard(){
+  loginCard() {
     this.dialog.closeAll();
-    setTimeout(()=>{
-  const dialogRef = this.dialog.open(LoginPage, {
-      panelClass: 'custom-dialog'
+    setTimeout(() => {
+      const dialogRef = this.dialog.open(LoginPage, {
+        panelClass: 'custom-dialog',
+      });
     });
-    })
   }
 
-  close(){
+  close() {
     this.dialog.closeAll();
   }
-
-  
 }

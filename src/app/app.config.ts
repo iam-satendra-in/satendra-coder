@@ -19,11 +19,12 @@ import {
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
-import { iloadersInterceptor } from './core/interceptor/loader/iloaders-interceptor';
+// import { iloadersInterceptor } from './core/interceptor/loader/iloaders-interceptor';
 import { provideServiceWorker } from '@angular/service-worker';
 
 import { routes } from './app.routes';
 import { iauthInterceptor } from './core/interceptor/auth/iauth-interceptor';
+import { iloadersInterceptor } from 'sc-angular-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [

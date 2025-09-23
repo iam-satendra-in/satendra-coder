@@ -1,11 +1,11 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { SToaster } from '../../service/global/toaster/s-toaster';
 import { SSafeStorage } from '../../service/global/safe-storage/s-safe-storage';
+import { ToastService } from 'sc-angular-toastify';
 
 export const roleGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  const toaster = inject(SToaster);
+  const toaster = inject(ToastService);
   const safeStore = inject(SSafeStorage);
 
   const userStr = safeStore.getItem('user');
@@ -16,11 +16,7 @@ export const roleGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     // Optional: redirect to not-authorized or login
-    toaster.addToast({
-      title: "Role",
-      message: 'unauthorized access',
-      type: 'error'
-    })
+    toaster.show('unauthorized access', 'error');
     router.navigate(['/']);
     return false;
   }

@@ -27,8 +27,8 @@
     "express": "^5.1.0",
     "html2canvas": "^1.4.1",
     "rxjs": "~7.8.0",
-    "sc-angular-snippets": "^1.2.0",
-    "sc-angular-toastify": "^1.2.0",
+    "sc-angular-loader": "^1.2.0",
+    "sc-angular-toastify": "^1.6.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

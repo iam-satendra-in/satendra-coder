@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MateriallistModule } from '../../shared/materiallist/materiallist-module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SAuth } from '../service/s-auth';
-import { SToaster } from '../../core/service/global/toaster/s-toaster';
+import { ToastService } from 'sc-angular-toastify';
 
 @Component({
   selector: 'app-change-password',
@@ -16,7 +16,7 @@ export class ChangePassword {
 
   constructor(
     private apiauth: SAuth,
-    private toster: SToaster,
+    private toster: ToastService,
     private fb: FormBuilder
   ) {
     this.changePasswordForm = this.fb.group({
@@ -46,20 +46,21 @@ export class ChangePassword {
       .changePassword(
         this.f['currentPassword'].value,
         this.f['newPassword'].value
-      ).subscribe(
+      )
+      .subscribe(
         (response) => {
-          this.toster.addToast({
-            type: 'success',
-            message: response.message || 'Password changed successfully',
-          });
+          this.toster.show(
+            response.message || 'Password changed successfully',
+            'success'
+          );
           this.changePasswordForm.reset();
           this.submitted = false;
         },
         (error) => {
-          this.toster.addToast({
-            type: 'error',
-            message: error.error?.message || 'Failed to change password',
-          });
+          this.toster.show(
+            error.error?.message || 'Failed to change password',
+            'error'
+          );
         }
       );
   }
