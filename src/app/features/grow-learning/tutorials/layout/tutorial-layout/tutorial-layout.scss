@@ -1,76 +1,72 @@
 .tutorial-container {
+  width: 100%;
+  margin: 70px auto auto auto;
+
+  @media screen and (max-width: 768px) {
+    margin: 60px auto auto auto;
+  }
+
+  .tutorial-row {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
-    margin: 70px auto auto auto;
-
-    @media screen and (max-width: 768px) {
-        margin: 60px auto auto auto;
-    }
-
-    .tutorial-row {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        position: relative;
-
-    }
+    position: relative;
+  }
 }
 
 .tutorial-wrapper {
-    display: flex;
+  display: flex;
+  width: 1200px;
+  margin: auto;
 }
-
-
 
 /* Content Area */
 .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--secondary-background);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-background);
+  color: var(--color-primary) !important;
 }
 
 /* Top bar */
 .topbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+
+  .menu-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+    display: none; // desktop par hidden
+  }
+
+  .breadcrumb {
+    font-size: 14px;
+    color: var(--color-primary);
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #eee;
+    gap: 6px;
 
-    .menu-icon {
-        font-size: 24px;
-        margin-right: 15px;
-        cursor: pointer;
-        display: none; // desktop par hidden
+    a {
+      text-decoration: none;
+      color: var(--color-primary);
 
+      &:hover {
+        text-decoration: underline;
+        color: #0891b2 !important;
+      }
     }
-
-    .breadcrumb {
-        font-size: 14px;
-        color: #555;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-
-        a {
-            text-decoration: none;
-            color: #333;
-
-            &:hover {
-                text-decoration: underline;
-                color: #0891b2;
-            }
-        }
-    }
+  }
 }
-
-
 
 /* Responsive */
 @media (max-width: 992px) {
-
-    .menu-icon {
-        display: block !important; // mobile par visible
-        margin-top: 5px;
-    }
+  .menu-icon {
+    display: block !important; // mobile par visible
+    margin-top: 5px;
+  }
 }
