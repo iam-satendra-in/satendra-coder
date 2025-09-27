@@ -65,18 +65,6 @@ export class TestimonialsComponent {
 
     // Also check once at start
     this.updateShowElement(this.router.url);
-
-    //SEO for this page
-    this.seoapi.updateMeta({
-      title:
-        'Satendra Coder NPM Packages - Angular Developer Tools & Utilities',
-      description:
-        'Explore Satendra Coder’s NPM packages for Angular developers. Boost productivity with ready-made components, form validators, auth guards, and more.',
-      keywords:
-        'satendra coder npm packages, angular developer tools, angular utilities, angular snippets, angular form validators, angular auth guard',
-      url: 'https://satendracoder.com/npm-package',
-      image: 'https://satendracoder.com/assets/favicon.ico',
-    });
   }
 
   private updateShowElement(url: string) {

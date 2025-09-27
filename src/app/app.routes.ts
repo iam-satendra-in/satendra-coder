@@ -49,46 +49,12 @@ export const routes: Routes = [
       import('./features/blog/blog.routes').then((blog) => blog.BLOG_ROUTES),
   },
 
-  // Tools Routes is lazy loaded
-  {
-    path: '',
-    loadChildren: () =>
-      import('./features/dev-tool/tools.routes').then(
-        (tool) => tool.TOOLS_ROUTES
-      ),
-  },
-
   // e-Book Routes is lazy loaded
   {
     path: 'ebook',
     loadChildren: () =>
       import('./features/ebook/ebook.routes').then(
         (ebook) => ebook.EBOOK_ROUTES
-      ),
-  },
-
-  // NPM Package Routes is lazy loaded
-  {
-    path: '',
-    loadChildren: () =>
-      import('./features/npm-package/npm.routes').then((npm) => npm.NPM_ROUTES),
-  },
-
-  // VSCODE_ROUTES Routes is lazy loaded
-  {
-    path: 'vscode',
-    loadChildren: () =>
-      import('./features/vscode-extension/vscode.routes').then(
-        (vscode) => vscode.VSCODE_ROUTES
-      ),
-  },
-
-  // BROWSER_ROUTES Package Routes is lazy loaded
-  {
-    path: 'browser',
-    loadChildren: () =>
-      import('./features/browser-extension/browser.routes').then(
-        (browser) => browser.BROWSER_ROUTES
       ),
   },
 

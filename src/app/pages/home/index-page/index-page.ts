@@ -3,14 +3,12 @@ import { MenuCard } from '../menu-card/menu-card';
 import { BannerCard } from '../banner-card/banner-card';
 import { FooterCard } from '../footer-card/footer-card';
 import { GlobalContact } from '../../../shared/components/other/global-contact/global-contact';
-import { DevToolsCard } from '../dev-tools-card/dev-tools-card';
 import { MentorshipCard } from '../mentorship-card/mentorship-card';
 import { LearningSection } from '../learning-section/learning-section';
 import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
 import { FaqCard } from '../faq-card/faq-card';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { SSeo } from '../../../core/service/other/seo/s-seo';
-import { LibraryExtensionCard } from '../library-extension-card/library-extension-card';
 import { TestimonialsComponent } from '../testimonials/testimonials.component';
 
 @Component({
@@ -19,14 +17,12 @@ import { TestimonialsComponent } from '../testimonials/testimonials.component';
     BannerCard,
     FooterCard,
     GlobalContact,
-    DevToolsCard,
     MentorshipCard,
     LearningSection,
     LatestBlogCard,
     FaqCard,
     MenuCard,
     MateriallistModule,
-    LibraryExtensionCard,
     TestimonialsComponent,
   ],
   templateUrl: './index-page.html',
@@ -35,11 +31,11 @@ import { TestimonialsComponent } from '../testimonials/testimonials.component';
 export class IndexPage {
   private seo = inject(SSeo);
   titleSeo: string =
-    'Satendra Coder – Empowering Developers with Tools, Tutorials & Tech Insights (Hindi & English)';
+    'Satendra Academy – Learn Coding, AI/ML, DSA, Kids Learning & Communication';
   description: string =
-    'Satendra Coder is a platform by Satendra Rajput offering developer tools, coding tutorials, and tech insights in Hindi & English.';
+    'Master coding, DSA, AI/ML & communication with Satendra Academy. Interactive tutorials, quizzes, roadmaps, kids coding & free eBooks for learners.';
   keywords: string =
-    'satendra coder, coding tutorials, dev tools, angular, spring boot';
+    'Satendra Academy,Coding tutorials for beginners,Java & Angular learning,AI/ML tutorials online,DSA interview preparation,Computer Science fundamentals,Kids coding courses online,Fun maths & coding for kids,Communication skills for developers,Learn English for IT professionals,Online compiler for coding,Programming learning roadmaps';
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -52,52 +48,4 @@ export class IndexPage {
       image: 'https://satendracoder.com/assets/favicon.ico',
     });
   }
-
-  models = [
-    {
-      name: 'ChatGPT 5',
-      role: 'All Rounder Explainer',
-      description:
-        'Great for questions, brainstorming, and clear step-by-step explanations.',
-      side: 'left',
-    },
-    {
-      name: 'Claude Sonnet 4',
-      role: 'Co-Writing Master',
-      description:
-        'Refines polished emails, essays, and scripts while keeping your style.',
-      side: 'left',
-    },
-    {
-      name: 'Gemini 2.5 Pro',
-      role: 'Long Context Master',
-      description:
-        'Handles long documents and images, tracking full context and details.',
-      side: 'left',
-    },
-  ];
-
-  modelsright = [
-    {
-      name: 'Perplexity Sonar Pro',
-      role: 'Live Web Researcher',
-      description:
-        'Delivers fresh answers and news from credible, real-time sources.',
-      side: 'right',
-    },
-    {
-      name: 'DeepSeek',
-      role: 'Reasoning Specialist',
-      description:
-        'Excels at logic, math, and coding with clear, detailed solutions.',
-      side: 'right',
-    },
-    {
-      name: 'Grok 4',
-      role: 'Creative Powerhouse',
-      description:
-        'Bold, unconventional ideas and punchy copy for trend-focused content.',
-      side: 'right',
-    },
-  ];
 }
