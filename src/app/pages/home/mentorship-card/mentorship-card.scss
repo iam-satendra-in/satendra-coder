@@ -1,234 +1,235 @@
 .wrapper {
-    width: 100%;
-    background-color: var(--secondary-background);
-    padding: 2rem 0;
+  width: 100%;
+  background-color: var(--secondary-background);
+  padding: 2rem 0;
 }
 
 .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+
+  .sub-title {
+    color: #0056d2;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+
+  .main-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #0056d2;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .trainer-card {
+      padding: 1rem;
+      text-align: center;
+
+      .trainer-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+        background: #eaf4ff;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      p {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: none;
+      font-size: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 9px 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s ease;
+      z-index: 99;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+  }
+
+  .btn-primary {
+    background: #0056d2;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: #003d99;
+    }
+  }
+}
+
+section.mentorship-section {
+  width: 100%;
+  background-color: var(--background-color);
+  padding: 4rem 1rem;
+
+  .mentorship-wrapper {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
 
-    .sub-title {
-        color: #0056d2;
+    .mentorship-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+
+      h2 {
+        font-size: 2rem;
         font-weight: 600;
-        font-size: 14px;
+        color: var(--mentor-color);
         margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #555;
+        max-width: 700px;
+      }
     }
 
-    .main-title {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #0056d2;
-    }
+    .mentorship-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
 
-    .carousel {
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 2rem;
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .trainer-card {
-            padding: 1rem;
-            text-align: center;
-
-            .trainer-img {
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
-                overflow: hidden;
-                margin: 0 auto 1rem;
-                background: #eaf4ff;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            h3 {
-                font-size: 18px;
-                font-weight: 600;
-                margin-bottom: 0.3rem;
-            }
-
-            p {
-                font-size: 14px;
-                color: #666;
-            }
-        }
-
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border: none;
-            font-size: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 9px 10px;
-            border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            transition: background 0.3s ease;
-            z-index: 99;
-
-            &:hover {
-                background: #f0f0f0;
-            }
-
-            &:disabled {
-                opacity: 0.4;
-                cursor: not-allowed;
-            }
-        }
-
-        .arrow.left {
-            left: 10px;
-        }
-
-        .arrow.right {
-            right: 10px;
-        }
-    }
-
-    .btn-primary {
-        background: #0056d2;
-        color: white;
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: 0.3s ease;
+      .mentorship-card {
+        background: var(--secondary-background);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-            background: #003d99;
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
         }
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: var(--mentor-color);
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: #666;
+        }
+
+        .mentor-icon {
+          width: 50px;
+          height: 50px;
+          background-color: #002777;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          margin-bottom: 1rem;
+
+          img {
+            width: 34px;
+            height: 34px;
+          }
+        }
+      }
     }
-}
 
+    .mentorship-cta {
+      text-align: center;
+      margin-top: 3rem;
 
+      button {
+        background-color: #002777;
+        color: white;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
 
+        &:hover {
+          background-color: #001d5c;
+        }
+      }
+    }
+  }
 
-section.mentorship-section {
-    width: 100%;
-    background-color: var(--background-color);
-    padding: 4rem 1rem;
-
+  @media (max-width: 768px) {
     .mentorship-wrapper {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
+      .mentorship-header h2 {
+        font-size: 1.5rem;
+      }
 
-        .mentorship-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 3rem;
-
-            h2 {
-                font-size: 2rem;
-                font-weight: 600;
-                color: var(--mentor-color);
-                margin-bottom: 0.5rem;
-            }
-
-            p {
-                font-size: 1rem;
-                color: #555;
-                max-width: 700px;
-            }
-        }
-
-        .mentorship-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-
-            .mentorship-card {
-                background: var(--secondary-background);
-                border-radius: 12px;
-                padding: 2rem;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-                &:hover {
-                    transform: translateY(-6px);
-                    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-                }
-
-                h3 {
-                    font-size: 1.25rem;
-                    font-weight: 600;
-                    color: var(--mentor-color);
-                    margin-bottom: 0.5rem;
-                }
-
-                p {
-                    font-size: 0.95rem;
-                    color: #666;
-                }
-
-                .mentor-icon {
-                    width: 50px;
-                    height: 50px;
-                    background-color: #002777;
-                    color: white;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 50%;
-                    margin-bottom: 1rem;
-
-                    img {
-                        width: 34px;
-                        height: 34px;
-                    }
-                }
-            }
-        }
-
-        .mentorship-cta {
-            text-align: center;
-            margin-top: 3rem;
-
-            button {
-                background-color: #002777;
-                color: white;
-                padding: 0.75rem 2rem;
-                border: none;
-                border-radius: 8px;
-                font-size: 1rem;
-                font-weight: 500;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-
-                &:hover {
-                    background-color: #001d5c;
-                }
-            }
-        }
+      .mentorship-content {
+        grid-template-columns: 1fr;
+      }
     }
-
-    @media (max-width: 768px) {
-        .mentorship-wrapper {
-            .mentorship-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .mentorship-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    }
+  }
 }

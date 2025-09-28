@@ -66,38 +66,38 @@ export const menuData = [
     ],
   },
 
-  {
-    title: 'Dev-Tools',
-    link: '/about',
-    Id: 'showDrop_2',
-    Dropdown: [
-      {
-        title: 'JSON Tools',
-        link: '/compiler/cplusplus-compiler',
-        imgUrl: '/assets/images/developer_tools/json/json-file.svg',
-      },
-      {
-        title: 'CSS/HTML/JS Formatters',
-        link: '/compiler/java-compiler',
-        imgUrl: '/assets/icons/program/java.svg',
-      },
-      {
-        title: 'Converters (HTML ↔ JSX)',
-        link: '/compiler/python-compiler',
-        imgUrl: '/assets/images/developer_tools/json/converter.svg',
-      },
-      {
-        title: 'QR Generator',
-        link: '/compiler/javascript-compiler',
-        imgUrl: '/assets/images/developer_tools/json/qr-code.svg',
-      },
-      {
-        title: 'Others',
-        link: '/compiler',
-        imgUrl: '/assets/images/developer_tools/all_tools.svg',
-      },
-    ],
-  },
+  // {
+  //   title: 'Dev-Tools',
+  //   link: '/about',
+  //   Id: 'showDrop_2',
+  //   Dropdown: [
+  //     {
+  //       title: 'JSON Tools',
+  //       link: '/compiler/cplusplus-compiler',
+  //       imgUrl: '/assets/images/developer_tools/json/json-file.svg',
+  //     },
+  //     {
+  //       title: 'CSS/HTML/JS Formatters',
+  //       link: '/compiler/java-compiler',
+  //       imgUrl: '/assets/icons/program/java.svg',
+  //     },
+  //     {
+  //       title: 'Converters (HTML ↔ JSX)',
+  //       link: '/compiler/python-compiler',
+  //       imgUrl: '/assets/images/developer_tools/json/converter.svg',
+  //     },
+  //     {
+  //       title: 'QR Generator',
+  //       link: '/compiler/javascript-compiler',
+  //       imgUrl: '/assets/images/developer_tools/json/qr-code.svg',
+  //     },
+  //     {
+  //       title: 'Others',
+  //       link: '/compiler',
+  //       imgUrl: '/assets/images/developer_tools/all_tools.svg',
+  //     },
+  //   ],
+  // },
 
   {
     title: 'Extensions',

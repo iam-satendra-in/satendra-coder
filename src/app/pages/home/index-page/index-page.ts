@@ -5,11 +5,10 @@ import { FooterCard } from '../footer-card/footer-card';
 import { GlobalContact } from '../../../shared/components/other/global-contact/global-contact';
 import { MentorshipCard } from '../mentorship-card/mentorship-card';
 import { LearningSection } from '../learning-section/learning-section';
-import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
 import { FaqCard } from '../faq-card/faq-card';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { SSeo } from '../../../core/service/other/seo/s-seo';
-import { TestimonialsComponent } from '../testimonials/testimonials.component';
+import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
 
 @Component({
   selector: 'app-index-page',
@@ -19,11 +18,10 @@ import { TestimonialsComponent } from '../testimonials/testimonials.component';
     GlobalContact,
     MentorshipCard,
     LearningSection,
-    LatestBlogCard,
     FaqCard,
     MenuCard,
     MateriallistModule,
-    TestimonialsComponent,
+    LatestBlogCard,
   ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',

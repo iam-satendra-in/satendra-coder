@@ -92,6 +92,14 @@ export const routes: Routes = [
             (company) => company.CAboutUs
           ),
       },
+      //@_about-us routes
+      {
+        path: 'contact',
+        loadComponent: () =>
+          import('./pages/about/contact-us/contact-us.component').then(
+            (company) => company.ContactUsComponent
+          ),
+      },
       //@_pricing-policy routes
       {
         path: 'pricing-policy',

@@ -125,32 +125,6 @@ export class MenuCard {
         },
       ],
     },
-    {
-      label: 'Dev-Tools',
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: 'JSON Formatter',
-          link: '/tools/json-formatter',
-        },
-        {
-          name: 'JSON to XML Converter',
-          link: '/tools/json-to-xml',
-        },
-        {
-          name: 'Base64 Encoder/Decoder',
-          link: '/tools/base64-encoder-decoder',
-        },
-        {
-          name: 'QR Code Generator',
-          link: '/tools/qr-code-generator',
-        },
-        {
-          name: 'More Tools',
-          link: 'tools',
-        },
-      ],
-    },
   ];
 
   // Simulate login/logout for demo purposes

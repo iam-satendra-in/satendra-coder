@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-global-contact',
   imports: [],
   templateUrl: './global-contact.html',
-  styleUrl: './global-contact.scss'
+  styleUrl: './global-contact.scss',
 })
-export class GlobalContact {
-
-}
+export class GlobalContact {}

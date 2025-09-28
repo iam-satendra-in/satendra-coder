@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { SAskme } from '../../../../core/service/global/askme/s-askme';
 import { SSeo } from '../../../../core/service/other/seo/s-seo';
 import { ToastService } from 'sc-angular-toastify';
+import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
 
 @Component({
   selector: 'app-ask-me-anything',
-  imports: [MateriallistModule],
+  imports: [MateriallistModule, MenuCard],
   templateUrl: './ask-me-anything.html',
   styleUrl: './ask-me-anything.scss',
 })
