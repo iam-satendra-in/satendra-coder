@@ -3,29 +3,29 @@
 <div class="home">
   <div class="blog-grid">
     @for (blog of paginatedBlogs; track blog) {
-      <div class="blog-card" (click)="openBlog(blog.id)">
-        <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="blog-image" />
-        <div class="category-badge">{{ blog.category }}</div>
-        <div class="blog-top-read">
-          <span class="author">{{ blog.readTime }} min read</span>
-          <div>
-            @for (tag of blog.tags.slice(0, 2); track tag) {
-              <span class="tag-name">{{ tag }}</span>
-            }
-          </div>
-        </div>
-        <div class="blog-card-body">
-          <h3>{{ blog.title }}</h3>
-          <p>{{ blog.excerpt }}</p>
-        </div>
-        <div class="blog-card-footer">
-          <div class="meta">
-            <span class="author">{{ blog.author }}</span>
-            <span class="date">{{ blog.publishDate | date:'d MMM, y' }}</span>
-          </div>
-          <span class="read-more">Read More →</span>
+    <div class="blog-card" (click)="openBlog(blog.id)">
+      <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="blog-image" />
+      <div class="category-badge">{{ blog.category }}</div>
+      <div class="blog-top-read">
+        <span class="author">{{ blog.readTime }} min read</span>
+        <div>
+          @for (tag of blog.tags.slice(0, 2); track tag) {
+          <span class="tag-name">{{ tag }}</span>
+          }
         </div>
       </div>
+      <div class="blog-card-body">
+        <h3>{{ blog.title }}</h3>
+        <p>{{ blog.excerpt }}</p>
+      </div>
+      <div class="blog-card-footer">
+        <div class="meta">
+          <span class="author">{{ blog.author }}</span>
+          <span class="date">{{ blog.publishDate | date:'d MMM, y' }}</span>
+        </div>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
     }
   </div>
 
@@ -34,14 +34,13 @@
     <li (click)="prevPage()" [class.disabled]="currentPage === 1">Previous</li>
 
     @for (page of pages; track page) {
-      <li [class.active]="page === currentPage" (click)="page > 0 && goToPage(page)">
-        @if (page > 0) {
-          <span>{{ page }}</span>
+    <li [class.active]="page === currentPage" (click)="page > 0 && goToPage(page)">
+      @if (page > 0) {
+      <span>{{ page }}</span>
+      }
+      @if (page < 0) { <strong style="border: none;"><b>...</b></strong>
         }
-        @if (page < 0) {
-          <strong style="border: none;"><b>...</b></strong>
-        }
-      </li>
+    </li>
     }
 
     <li (click)="nextPage()" [class.disabled]="currentPage === totalPages">Next</li>
@@ -49,4 +48,5 @@
 
 </div>
 
+<app-global-contact></app-global-contact>
 <app-footer-card></app-footer-card>

@@ -8,10 +8,17 @@ import { Sblog } from '../../service/sblog';
 import { BlogCard } from '../../components/blog-card/blog-card';
 import { SSeo } from '../../../../core/service/other/seo/s-seo';
 import { Router } from '@angular/router';
+import { GlobalContact } from '../../../../shared/components/other/global-contact/global-contact';
 
 @Component({
   selector: 'app-blog-layout',
-  imports: [MenuCard, FooterCard, MateriallistModule, BlogBanner],
+  imports: [
+    MenuCard,
+    FooterCard,
+    MateriallistModule,
+    BlogBanner,
+    GlobalContact,
+  ],
   templateUrl: './blog-layout.html',
   styleUrl: './blog-layout.scss',
 })
