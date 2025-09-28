@@ -39,12 +39,12 @@ export class AskMeAnything {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.seo.updateMeta({
-      title: 'Contact Satendra Rajput – Connect Personally | Satendra Coder',
+      title: 'Invite Satendra – Fill Out the Contact Form',
       description:
-        'Have questions, suggestions, or collaboration ideas? Contact Satendra Rajput directly through this page. Let’s connect personally for tech discussions, feedback, or project ideas.',
+        'Invite Satendra to collaborate, share ideas, or connect! Fill out the contact form and get a quick response from Satendra Rajput.',
       keywords:
-        'contact satendra rajput, connect with satendra coder, satendra personal contact, message satendra coder, tech discussion, coding collaboration, feedback, satendracoder.com',
-      url: 'https://satendracoder.com/contact-satendra',
+        'Invite Satendra, connect with Satendra, Satendra Rajput contact, invite form, collaboration with Satendra',
+      url: 'https://satendracoder.com/invite-satendra',
       image: 'https://satendracoder.com/assets/cover-image.png',
     });
   }

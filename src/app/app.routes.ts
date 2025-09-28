@@ -144,7 +144,7 @@ export const routes: Routes = [
   },
   //@_ask-me-anything routes
   {
-    path: 'ask-me-anything',
+    path: 'invite-satendra',
     loadComponent: () =>
       import('./shared/components/other/ask-me-anything/ask-me-anything').then(
         (company) => company.AskMeAnything
