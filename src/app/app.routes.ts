@@ -51,7 +51,7 @@ export const routes: Routes = [
 
   // e-Book Routes is lazy loaded
   {
-    path: 'ebook',
+    path: '',
     loadChildren: () =>
       import('./features/ebook/ebook.routes').then(
         (ebook) => ebook.EBOOK_ROUTES

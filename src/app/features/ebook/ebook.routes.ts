@@ -2,14 +2,14 @@ import { Routes } from '@angular/router';
 
 export const EBOOK_ROUTES: Routes = [
   {
-    path: '',
+    path: 'ebook',
     loadComponent: () =>
       import('./pages/ebook-list/ebook-list.component').then(
         (m) => m.EbookListComponent
       ),
   },
   {
-    path: ':id',
+    path: 'ebook/:id',
     loadComponent: () =>
       import('./pages/ebook-detail/ebook-detail.component').then(
         (m) => m.EbookDetailComponent
