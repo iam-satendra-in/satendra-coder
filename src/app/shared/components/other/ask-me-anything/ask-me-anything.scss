@@ -19,21 +19,6 @@
     radial-gradient(at 99% 98%, #f0f0f0 0, transparent 50%),
     radial-gradient(at 67% 59%, #75dfff 0, transparent 50%);
 
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 80px;
-    font-size: 35px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-
-    &:hover {
-      color: #26a69a;
-    }
-  }
-
   .contact-container {
     display: flex;
     gap: 0px;
@@ -41,10 +26,9 @@
     height: 100%;
     margin: 0px auto;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
     align-items: flex-end;
-    padding-top: 10px;
 
     @media screen and (max-width: 786px) {
       display: flex;
@@ -52,64 +36,95 @@
     }
 
     .left-profile {
-      flex: 0 0 40%;
+      // flex: 0 0 45%;
       display: flex;
       justify-content: center;
 
-      .profile-card {
-        background: transparent;
-        padding: 10px;
-        text-align: center;
-        max-width: 100%;
-        width: 100%;
-        color: #201e1e;
+      .contact-info {
+        h3 {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #1a1a1a;
+          margin-bottom: 2rem;
+        }
+      }
 
-        .profile-img {
-          width: 150px;
-          height: 150px;
-          border-radius: 10%;
-          object-fit: cover;
-          margin-bottom: 0px;
-          transform: skewY(10deg);
+      .info-items {
+        margin-bottom: 3rem;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .icon {
+          width: 50px;
+          height: 50px;
+          background: linear-gradient(135deg, #06b6d4, #0891b2);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 1.2rem;
+          flex-shrink: 0;
         }
 
-        h2 {
-          font-size: 22px;
-          margin: 10px 0 5px;
-        }
+        .details {
+          h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+          }
 
-        .subtitle {
-          font-size: 14px;
-          color: #555;
-          margin-bottom: 5px;
-        }
-
-        .socials {
-          margin-bottom: 10px;
-
-          a {
-            margin: 0 6px;
-            font-size: 20px;
-            text-decoration: none;
+          p {
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
           }
         }
+      }
 
-        .highlights {
-          list-style: none;
-          padding-left: 0;
-          margin-bottom: 20px;
-          margin-top: 20px;
-
-          li {
-            font-size: 14px;
-            text-align: left;
-            margin: 5px 0;
-          }
+      .social-links {
+        h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #1a1a1a;
+          margin-bottom: 1rem;
         }
+      }
 
-        .note {
-          font-size: 13px;
-          color: #444;
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+
+        a {
+          width: 45px;
+          height: 45px;
+          background: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #6b46c1;
+          font-size: 1.2rem;
+          text-decoration: none;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+
+          img {
+            width: 32px;
+          }
+
+          &:hover {
+            background: linear-gradient(135deg, #06b5d49e, #0890b2be);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 180, 184, 0.4);
+          }
         }
       }
     }
@@ -122,7 +137,7 @@
       .form-card {
         background: #201e1e;
         color: #f0ebeb;
-        padding: 10px 30px;
+        padding: 30px 50px;
         border-radius: 10px;
         max-width: 500px;
         width: 100%;
@@ -241,11 +256,12 @@
       p {
         font-size: 1.25rem;
         margin-bottom: 30px;
+        background-color: #06b6d4;
       }
 
       button {
-        background-color: #00ffcc;
-        color: #000;
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        color: #fff;
         border: none;
         padding: 12px 30px;
         font-weight: bold;
@@ -254,7 +270,7 @@
         transition: 0.3s;
 
         &:hover {
-          background-color: #00e6b8;
+          background-color: #06b5d468;
         }
       }
     }
@@ -325,14 +341,19 @@
 
         li {
           position: relative;
-          padding-left: 25px;
-          margin-bottom: 10px;
+          padding-left: 35px;
+          margin-bottom: 15px;
 
           &::before {
             content: "✔";
             position: absolute;
             left: 0;
-            color: #00ffcc;
+            bottom: -1px;
+            background-color: #06b6d4;
+            color: #fff;
+            padding: 0px 6px;
+            border: 1px solid #0891b2;
+            border-radius: 50%;
           }
         }
       }

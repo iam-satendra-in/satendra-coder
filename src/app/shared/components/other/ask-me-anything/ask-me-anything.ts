@@ -6,10 +6,12 @@ import { SAskme } from '../../../../core/service/global/askme/s-askme';
 import { SSeo } from '../../../../core/service/other/seo/s-seo';
 import { ToastService } from 'sc-angular-toastify';
 import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
+import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
+import { GlobalContact } from '../global-contact/global-contact';
 
 @Component({
   selector: 'app-ask-me-anything',
-  imports: [MateriallistModule, MenuCard],
+  imports: [MateriallistModule, MenuCard, FooterCard, GlobalContact],
   templateUrl: './ask-me-anything.html',
   styleUrl: './ask-me-anything.scss',
 })
