@@ -32,7 +32,7 @@ export class MentorshipCard {
     },
     {
       name: 'Vishal Tiwari',
-      role: 'Backend Developer',
+      role: 'Backend Developer(ASP Dot Net)',
       img: '/assets/images/global/vishals.jpg',
     },
     {
