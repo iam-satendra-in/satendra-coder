@@ -7,12 +7,6 @@ export const Admin_ROUTES: Routes = [
       import('./layout/admin-layout/admin-layout').then(
         (admin) => admin.AdminLayout
       ),
-    children: [
-      {
-        path: '',
-        loadComponent: () =>
-          import('./pages/a-dashboard/a-dashboard').then((ad) => ad.ADashboard),
-      },
-    ],
+    children: [],
   },
 ];

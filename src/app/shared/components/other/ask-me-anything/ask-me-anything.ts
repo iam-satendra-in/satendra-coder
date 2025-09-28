@@ -8,10 +8,17 @@ import { ToastService } from 'sc-angular-toastify';
 import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
 import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
 import { GlobalContact } from '../global-contact/global-contact';
+import { TestimonialsComponent } from '../../../../pages/home/testimonials/testimonials.component';
 
 @Component({
   selector: 'app-ask-me-anything',
-  imports: [MateriallistModule, MenuCard, FooterCard, GlobalContact],
+  imports: [
+    MateriallistModule,
+    MenuCard,
+    FooterCard,
+    GlobalContact,
+    TestimonialsComponent,
+  ],
   templateUrl: './ask-me-anything.html',
   styleUrl: './ask-me-anything.scss',
 })

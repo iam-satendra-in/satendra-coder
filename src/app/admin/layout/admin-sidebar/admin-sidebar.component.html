@@ -1,0 +1,68 @@
+<div class="sidebar">
+    <!-- Logo Section -->
+    <div class="logo">
+        <a href="">
+            <img src="https://ssbr-inet-platform.vercel.app/assets/images/global/ssbrlogo.svg" alt="" srcset="">
+        </a>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="menu">
+        <!-- Loop through sections (headings) -->
+        @for (section of menuItems; track $index) {
+        <div>
+            <!-- Heading -->
+            <h4>{{ section.heading }}</h4>
+
+            <!-- Loop through menus under each heading -->
+            @for (menu of section.menus; track $index) {
+            <div>
+                <!-- Main Menu Item -->
+                <div class="menu-item" [class.active]="activeMenu === menu.key" (click)="navigate(menu)"
+                    (click)="toggleDropdown(menu.key, !!menu?.children)">
+                    <div class="menu-item-icons">
+                        <span><mat-icon>{{ menu.icon }}</mat-icon></span>
+                        <span>{{ menu.label }}</span>
+                    </div>
+                    <!-- Show dropdown arrow if children exist -->
+
+                    @if (menu.children) {
+                    <span [class.rotate]="isOpen[menu.key]">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                    }
+                </div>
+
+                <!-- Submenu Items -->
+                @if (menu.children && isOpen[menu.key]) {
+                <div class="submenu-item_a" @dropdownAnimation>
+                    @for (child of menu.children; track $index) {
+                    <a [routerLink]="child?.url">
+                        <div class="submenu-item" [class.active]="currentUrl === child.url"
+                            (click)="setActiveSubmenu(child.key)">
+                            <span class="material-symbols-outlined">
+                                {{child?.icon}}
+                            </span>
+                            <span>{{ child.label }}</span>
+                        </div>
+                    </a>
+                    }
+                </div>
+                }
+            </div>
+            }
+        </div>
+        }
+
+    </div>
+
+
+    <!-- Bottom Profile Section -->
+    <div class="profile" (click)="toggleProfileMenu()">
+        <img src="https://mantisdashboard.io/angular/default/assets/images/user/avatar-2.jpg" alt="User Avatar" />
+        <div class="profile-info">
+            <p>JWT User</p>
+            <small>UI/UX Designer</small>
+        </div>
+    </div>
+</div>

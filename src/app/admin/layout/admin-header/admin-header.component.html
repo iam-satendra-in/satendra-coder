@@ -1,0 +1,28 @@
+<header class="app-header">
+    <!-- Left Section -->
+    <div class="left-section">
+        <div class="menu-toggle" (click)="toggleSidebar()">☰</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search..." />
+            <button><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+        <div class="icon-btn">
+            <i class="fa fa-heart"></i>
+        </div>
+        <div class="user-dropdown" (click)="toggleDropdown()">
+            <img src="assets/user.jpg" alt="User" class="avatar" />
+            <span class="user-name">JWT User</span>
+            <i class="fa fa-angle-down arrow" [class.open]="dropdownOpen"></i>
+
+            <ul class="dropdown-menu" *ngIf="dropdownOpen">
+                <li><a routerLink="/profile"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a routerLink="/settings"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a routerLink="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
