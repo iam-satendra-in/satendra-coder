@@ -1,0 +1,99 @@
+<div class="dashboard">
+    <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Welcome back, {{ currentUser.name }}! Here's your content overview.</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon tutorials">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ stats.tutorials }}</h3>
+                <p>Tutorials</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon courses">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ stats.courses }}</h3>
+                <p>Courses</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon blogs">
+                <i class="fas fa-blog"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ stats.blogs }}</h3>
+                <p>Blog Posts</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon quizzes">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <div class="stat-content">
+                <h3>{{ stats.quizzes }}</h3>
+                <p>Quizzes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions-grid">
+        <div class="action-card">
+            <h3>Quick Actions</h3>
+            <div class="action-list">
+                <a [routerLink]="['/admin/tutorials/create']" class="action-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Create Tutorial</span>
+                </a>
+                <a [routerLink]="['/admin/courses/create']" class="action-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Create Course</span>
+                </a>
+                <a [routerLink]="['/admin/blogs/create']" class="action-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Write Blog Post</span>
+                </a>
+                <a [routerLink]="['/admin/quizzes/create']" class="action-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Create Quiz</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="action-card">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <i class="fas fa-edit activity-icon"></i>
+                    <div class="activity-content">
+                        <p>Updated tutorial "Angular Basics"</p>
+                        <small>2 hours ago</small>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-plus activity-icon"></i>
+                    <div class="activity-content">
+                        <p>Created new course "React Advanced"</p>
+                        <small>1 day ago</small>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-blog activity-icon"></i>
+                    <div class="activity-content">
+                        <p>Published blog post "Web Dev Trends"</p>
+                        <small>3 days ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

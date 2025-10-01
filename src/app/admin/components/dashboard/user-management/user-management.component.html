@@ -1,0 +1,128 @@
+<div class="user-management">
+    <div class="page-header">
+        <h1>User Management</h1>
+        <button class="btn btn-primary" (click)="showCreateModal = true">
+            <i class="fas fa-plus"></i>
+            Add New User
+        </button>
+    </div>
+
+    <!-- Role Switcher for Demo -->
+    <div class="role-switcher">
+        <h3>Demo: Switch User Role</h3>
+        <div class="role-buttons">
+            <button class="btn btn-sm" [class.btn-primary]="currentUser?.role === 'admin'"
+                [class.btn-outline]="currentUser?.role !== 'admin'" (click)="switchRole('1')">
+                Admin View
+            </button>
+            <button class="btn btn-sm" [class.btn-primary]="currentUser?.role === 'user'"
+                [class.btn-outline]="currentUser?.role !== 'user'" (click)="switchRole('2')">
+                User View
+            </button>
+            <button class="btn btn-sm" [class.btn-primary]="currentUser?.role === 'guest'"
+                [class.btn-outline]="currentUser?.role !== 'guest'" (click)="switchRole('3')">
+                Guest View
+            </button>
+        </div>
+    </div>
+
+    <div class="users-table">
+        <div class="table-header">
+            <div class="col-avatar">Avatar</div>
+            <div class="col-name">Name</div>
+            <div class="col-email">Email</div>
+            <div class="col-role">Role</div>
+            <div class="col-status">Status</div>
+            <div class="col-last-login">Last Login</div>
+            <div class="col-actions">Actions</div>
+        </div>
+
+        <div class="table-row" *ngFor="let user of users">
+            <div class="col-avatar">
+                <img [src]="user.avatar" [alt]="user.name" class="user-avatar">
+            </div>
+            <div class="col-name">
+                <span class="user-name">{{ user.name }}</span>
+            </div>
+            <div class="col-email">{{ user.email }}</div>
+            <div class="col-role">
+                <span class="role-badge" [class]="user.role">
+                    {{ user.role | titlecase }}
+                </span>
+            </div>
+            <div class="col-status">
+                <span class="status-badge" [class]="user.isActive ? 'active' : 'inactive'">
+                    {{ user.isActive ? 'Active' : 'Inactive' }}
+                </span>
+            </div>
+            <div class="col-last-login">
+                {{ user.lastLogin | date:'short' }}
+            </div>
+            <div class="col-actions">
+                <button class="btn btn-sm btn-outline" (click)="editUser(user)">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)"
+                    [disabled]="user.id === currentUser?.id">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create/Edit User Modal -->
+    <div class="modal-overlay" *ngIf="showCreateModal || showEditModal" (click)="closeModals()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+                <h3>{{ showCreateModal ? 'Create New User' : 'Edit User' }}</h3>
+                <button class="modal-close" (click)="closeModals()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form (ngSubmit)="saveUser()" #userForm="ngForm" class="modal-body">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="editingUser.name" required
+                        class="form-control" placeholder="Enter full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="editingUser.email" required
+                        class="form-control" placeholder="Enter email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role *</label>
+                    <select id="role" name="role" [(ngModel)]="editingUser.role" required class="form-control">
+                        <option value="admin">Administrator</option>
+                        <option value="user">User</option>
+                        <option value="guest">Guest</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="avatar">Avatar URL</label>
+                    <input type="url" id="avatar" name="avatar" [(ngModel)]="editingUser.avatar" class="form-control"
+                        placeholder="Enter avatar image URL">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" [(ngModel)]="editingUser.isActive" name="isActive">
+                        <span>Active User</span>
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" (click)="closeModals()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+                        <i class="fas fa-save"></i>
+                        {{ showCreateModal ? 'Create User' : 'Update User' }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,22 +1,28 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
+import { User } from '../../model/admin.model';
+import { AdminService } from '../../services/admin.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-admin-header',
-  imports: [MateriallistModule],
+  imports: [MateriallistModule, CommonModule],
   templateUrl: './admin-header.component.html',
   styleUrl: './admin-header.component.scss',
 })
 export class AdminHeaderComponent {
-  dropdownOpen = false;
+  currentUser: User;
+  userDropdownOpen = false;
 
-  @Output() sidebarToggle = new EventEmitter<void>();
-
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
+  constructor(private adminService: AdminService) {
+    this.currentUser = this.adminService.getCurrentUser();
   }
 
   toggleSidebar() {
-    this.sidebarToggle.emit();
+    this.adminService.toggleSidebar();
+  }
+
+  toggleUserDropdown() {
+    this.userDropdownOpen = !this.userDropdownOpen;
   }
 }
