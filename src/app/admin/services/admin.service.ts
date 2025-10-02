@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
@@ -37,7 +38,7 @@ export class AdminService {
   private ebooks = new BehaviorSubject<Ebook[]>([]);
   private roadmaps = new BehaviorSubject<Roadmap[]>([]);
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   toggleSidebar() {
     this.sidebarOpen.next(!this.sidebarOpen.value);

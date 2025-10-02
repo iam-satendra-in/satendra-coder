@@ -35,6 +35,14 @@ export const Admin_ROUTES: Routes = [
             './components/dashboard/user-management/user-management.component'
           ).then((m) => m.UserManagementComponent),
       },
+      {
+        path: 'settings',
+        title: 'Settings - Admin | SatendraCoder',
+        loadComponent: () =>
+          import('./components/dashboard/setting/setting.component').then(
+            (m) => m.SettingComponent
+          ),
+      },
 
       // Tutorials Management Routes
       {
