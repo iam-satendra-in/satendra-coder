@@ -12,14 +12,12 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
 export class AdminUserComponent {
   user: User;
   isUpdating = false;
+  isEditing = false;
   showDeleteConfirmation = false;
   deleteConfirmation = '';
+  previewAvatar: string | null = null;
 
-  stats = {
-    tutorials: 0,
-    courses: 0,
-    blogs: 0,
-  };
+  stats = { tutorials: 0, courses: 0, blogs: 0 };
 
   constructor(private adminService: AdminService) {
     this.user = { ...this.adminService.getCurrentUser() };
@@ -29,41 +27,58 @@ export class AdminUserComponent {
     this.loadStats();
   }
 
-  updateProfile() {
-    this.isUpdating = true;
+  enableEditing() {
+    this.isEditing = true;
+  }
 
+  cancelEditing() {
+    this.isEditing = false;
+    this.user = { ...this.adminService.getCurrentUser() }; // reset changes
+  }
+
+  saveProfile() {
+    this.isUpdating = true;
     this.adminService.updateUser(this.user).subscribe({
       next: (updatedUser) => {
         this.user = updatedUser;
         this.isUpdating = false;
-        // Show success message
+        this.isEditing = false;
       },
       error: () => {
         this.isUpdating = false;
-        // Show error message
       },
     });
   }
 
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.previewAvatar = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+
+      // TODO: send `file` to backend API for upload
+    }
+  }
+
   deleteAccount() {
     if (this.deleteConfirmation === 'DELETE') {
-      // In a real app, this would call a delete service
       console.log('Account deleted');
       this.showDeleteConfirmation = false;
     }
   }
 
   private loadStats() {
-    this.adminService.getTutorials().subscribe((tutorials) => {
-      this.stats.tutorials = tutorials.length;
-    });
-
-    this.adminService.getCourses().subscribe((courses) => {
-      this.stats.courses = courses.length;
-    });
-
-    this.adminService.getBlogs().subscribe((blogs) => {
-      this.stats.blogs = blogs.length;
-    });
+    this.adminService
+      .getTutorials()
+      .subscribe((t) => (this.stats.tutorials = t.length));
+    this.adminService
+      .getCourses()
+      .subscribe((c) => (this.stats.courses = c.length));
+    this.adminService
+      .getBlogs()
+      .subscribe((b) => (this.stats.blogs = b.length));
   }
 }

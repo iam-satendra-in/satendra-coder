@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { IndexPage } from './pages/home/index-page/index-page';
 import { roleGuard } from './core/guards/check-role/role-guard';
+import { adminGuard } from './admin/guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -20,8 +21,8 @@ export const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
-    // canActivate: [roleGuard],
-    // data: { roles: ['ADMIN'] }
+    canActivate: [adminGuard],
+    data: { roles: ['MASTER', 'ADMIN', 'STAFF'] },
   },
 
   // Compiler Routes is lazy loaded

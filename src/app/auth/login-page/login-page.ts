@@ -69,15 +69,14 @@ export class LoginPage {
         .SignInUser(this.loginForm.value)
         .subscribe((response) => {
           try {
-            console.log('Parsed Response:', response);
-            this.safeStorage.setItem('token', response?.token);
-            this.safeStorage.setItem('user', response);
+            debugger;
+            this.safeStorage.setItem('userdata', response);
             this.toaster.show('Welcome back! Access granted.', 'success');
             this.dialog.closeAll();
-            if (response.role === 'USER') {
-              this.router.navigate(['/dashboard']);
-            } else {
+            if (response.role === 'MASTER') {
               this.router.navigate(['/admin']);
+            } else {
+              this.router.navigate(['/dashboard']);
             }
           } catch (error) {
             this.toaster.show(response, 'warn');

@@ -1,0 +1,55 @@
+<div class="tutorial-list">
+    <div class="page-header">
+        <h1>Tutorials Management</h1>
+        <button class="btn btn-primary" [routerLink]="['/admin/tutorials/create']">
+            <i class="fas fa-plus"></i>
+            Create Tutorial
+        </button>
+    </div>
+
+    <div class="content-card">
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tutorial of tutorials">
+                        <td class="tutorial-title">{{ tutorial.title }}</td>
+                        <td>
+                            <span class="category-badge">{{ tutorial.category }}</span>
+                        </td>
+                        <td>{{ tutorial.author }}</td>
+                        <td>
+                            <span class="status-badge" [class]="tutorial.published ? 'published' : 'draft'">
+                                {{ tutorial.published ? 'Published' : 'Draft' }}
+                            </span>
+                        </td>
+                        <td>{{ tutorial.price ? '$' + tutorial.price : 'Free' }}</td>
+                        <td>{{ tutorial.createdAt | date:'short' }}</td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-outline"
+                                [routerLink]="['/admin/tutorials/edit', tutorial.id]">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" (click)="deleteTutorial(tutorial.id)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="tutorials.length === 0">
+                        <td colspan="7" class="no-data">No tutorials found. Create your first tutorial!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

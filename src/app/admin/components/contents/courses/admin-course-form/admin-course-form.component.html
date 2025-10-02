@@ -1,0 +1,129 @@
+<div class="course-form">
+    <div class="page-header">
+        <h1>{{ isEdit ? 'Edit' : 'Create' }} Course</h1>
+        <button class="btn btn-outline" (click)="goBack()">
+            <i class="fas fa-arrow-left"></i>
+            Back to List
+        </button>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #courseForm="ngForm" class="form-container">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="title">Course Title *</label>
+                <input type="text" id="title" name="title" [(ngModel)]="course.title" class="form-control"
+                    placeholder="Enter course title">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" [(ngModel)]="course.category" class="form-control">
+                    <option value="">Select Category</option>
+                    <option value="programming">Programming</option>
+                    <option value="design">Design</option>
+                    <option value="business">Business</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="data-science">Data Science</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="level">Level *</label>
+                <select id="level" name="level" [(ngModel)]="course.level" class="form-control">
+                    <option value="">Select Level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price *</label>
+                <input type="number" id="price" name="price" [(ngModel)]="course.price" class="form-control"
+                    placeholder="0.00" min="0" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration *</label>
+                <input type="text" id="duration" name="duration" [(ngModel)]="course.duration" class="form-control"
+                    placeholder="e.g., 8 hours">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="description">Description *</label>
+                <textarea id="description" name="description" [(ngModel)]="course.description" class="form-control"
+                    rows="3" placeholder="Brief description of the course"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="content">Course Content *</label>
+            <!-- <quill-editor [(ngModel)]="course.content" name="content" [styles]="{height: '300px'}"
+                [modules]="quillConfig" placeholder="Write detailed course content here..."></quill-editor> -->
+        </div>
+
+        <div class="lessons-section">
+            <div class="section-header">
+                <h3>Course Lessons</h3>
+                <button type="button" class="btn btn-secondary" (click)="addLesson()">
+                    <i class="fas fa-plus"></i>
+                    Add Lesson
+                </button>
+            </div>
+
+            <div class="lessons-list" *ngIf="course.lessons && course.lessons.length > 0">
+                <div class="lesson-item" *ngFor="let lesson of course.lessons; let i = index">
+                    <div class="lesson-header">
+                        <h4>Lesson {{ i + 1 }}</h4>
+                        <button type="button" class="btn btn-sm btn-danger" (click)="removeLesson(i)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="lesson-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Lesson Title *</label>
+                                <input type="text" [(ngModel)]="lesson.title" [name]="'lesson_title_' + i"
+                                    class="form-control" placeholder="Enter lesson title">
+                            </div>
+                            <div class="form-group">
+                                <label>Duration (minutes) *</label>
+                                <input type="number" [(ngModel)]="lesson.duration" [name]="'lesson_duration_' + i"
+                                    class="form-control" placeholder="30" min="1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Video URL (optional)</label>
+                            <input type="url" [(ngModel)]="lesson.videoUrl" [name]="'lesson_video_' + i"
+                                class="form-control" placeholder="https://example.com/video.mp4">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Lesson Content *</label>
+                            <textarea [(ngModel)]="lesson.content" [name]="'lesson_content_' + i" class="form-control"
+                                rows="4" placeholder="Enter lesson content"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="empty-lessons" *ngIf="!course.lessons || course.lessons.length === 0">
+                <p>No lessons added yet. Click "Add Lesson" to create your first lesson.</p>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <div class="action-buttons">
+                <button type="button" class="btn btn-outline" (click)="goBack()">
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="!courseForm.valid">
+                    <i class="fas fa-save"></i>
+                    {{ isEdit ? 'Update' : 'Create' }} Course
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

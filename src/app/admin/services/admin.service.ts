@@ -23,7 +23,9 @@ export class AdminService {
     name: 'Satendra Rajput',
     email: 'admin@satendracoder.com',
     avatar: '/assets/images/global/sate_1.png',
+    phone: '123-456-7890',
     role: 'admin',
+    designation: 'Full Stack Developer',
     createdAt: new Date(),
   };
 

@@ -43,13 +43,15 @@ export class MenuCard {
   readonly dialog = inject(MatDialog);
 
   constructor(private safestorage: SSafeStorage) {
-    const userdata = this.safestorage.getItem('user');
+    const userdata = this.safestorage.getItem('userdata');
+    console.log(userdata);
+
     if (userdata) {
       this.isLoggedIn = true;
       this.currentUser = {
-        name: userdata.name,
+        name: userdata?.name,
         email: userdata?.email,
-        avatar: this.getInitials(userdata.name),
+        avatar: this.getInitials(userdata?.name),
       };
       this.closeDropdowns();
     } else {

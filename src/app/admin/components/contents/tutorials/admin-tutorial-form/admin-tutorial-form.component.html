@@ -1,0 +1,69 @@
+<div class="tutorial-form">
+    <div class="page-header">
+        <h1>{{ isEdit ? 'Edit' : 'Create' }} Tutorial</h1>
+        <button class="btn btn-outline" (click)="goBack()">
+            <i class="fas fa-arrow-left"></i>
+            Back to List
+        </button>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #tutorialForm="ngForm" class="form-container">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="title">Tutorial Title *</label>
+                <input type="text" id="title" name="title" [(ngModel)]="tutorial.title" required class="form-control"
+                    placeholder="Enter tutorial title">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" [(ngModel)]="tutorial.category" required class="form-control">
+                    <option value="">Select Category</option>
+                    <option value="programming">Programming</option>
+                    <option value="design">Design</option>
+                    <option value="business">Business</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="technology">Technology</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="author">Author *</label>
+                <input type="text" id="author" name="author" [(ngModel)]="tutorial.author" required class="form-control"
+                    placeholder="Enter author name">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (Optional)</label>
+                <input type="number" id="price" name="price" [(ngModel)]="tutorial.price" class="form-control"
+                    placeholder="0.00" min="0" step="0.01">
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="content">Content *</label>
+            <!-- <quill-editor [(ngModel)]="tutorial.content" name="content" [styles]="{height: '400px'}"
+                [modules]="quillConfig" placeholder="Write your tutorial content here..."></quill-editor> -->
+        </div>
+
+        <div class="form-actions">
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="tutorial.published" name="published">
+                    <span class="checkmark"></span>
+                    Publish immediately
+                </label>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" class="btn btn-outline" (click)="goBack()">
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="!tutorialForm.valid">
+                    <i class="fas fa-save"></i>
+                    {{ isEdit ? 'Update' : 'Create' }} Tutorial
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -3,7 +3,9 @@ export interface User {
   name: string;
   email: string;
   avatar?: string;
+  phone?: string;
   role: 'admin' | 'user' | 'guest';
+  designation?: string;
   createdAt: Date;
   lastLogin?: Date;
   isActive?: boolean;

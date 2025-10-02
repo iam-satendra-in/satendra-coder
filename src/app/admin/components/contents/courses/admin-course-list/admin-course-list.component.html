@@ -1,0 +1,56 @@
+<div class="course-list">
+    <div class="page-header">
+        <h1>Course Management</h1>
+        <button class="btn btn-primary" [routerLink]="['/admin/courses/create']">
+            <i class="fas fa-plus"></i>
+            Create Course
+        </button>
+    </div>
+
+    <div class="content-card">
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Level</th>
+                        <th>Lessons</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of courses">
+                        <td class="course-title">{{ course.title }}</td>
+                        <td>
+                            <span class="category-badge">{{ course.category }}</span>
+                        </td>
+                        <td>
+                            <span class="level-badge" [class]="course.level">
+                                {{ course.level | titlecase }}
+                            </span>
+                        </td>
+                        <td>{{ course.lessons.length }} lessons</td>
+                        <td>{{ course.duration }}</td>
+                        <td class="price">{{ course.price }}</td>
+                        <td>{{ course.createdAt | date:'short' }}</td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-outline" [routerLink]="['/admin/courses/edit', course.id]">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" (click)="deleteCourse(course.id)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="courses.length === 0">
+                        <td colspan="8" class="no-data">No courses found. Create your first course!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

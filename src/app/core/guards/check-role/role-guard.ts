@@ -8,7 +8,7 @@ export const roleGuard: CanActivateFn = (route, state) => {
   const toaster = inject(ToastService);
   const safeStore = inject(SSafeStorage);
 
-  const userStr = safeStore.getItem('user');
+  const userStr = safeStore.getItem('userdata');
   const user = userStr ? JSON.parse(userStr) : null;
   const allowedRoles = route.data?.['roles'] as string[];
 
