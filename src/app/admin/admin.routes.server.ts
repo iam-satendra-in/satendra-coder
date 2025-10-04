@@ -8,10 +8,10 @@ export const ADMIN_SERVER_ROUTES: ServerRoute[] = [
   },
   {
     path: 'tutorials/create',
-    renderMode: RenderMode.Server,
+    renderMode: RenderMode.Client,
   },
   {
-    path: 'tutorials/edit/:id',
+    path: 'tutorials/edit/*',
     renderMode: RenderMode.Server,
   },
 
@@ -22,10 +22,10 @@ export const ADMIN_SERVER_ROUTES: ServerRoute[] = [
   },
   {
     path: 'courses/create',
-    renderMode: RenderMode.Server,
+    renderMode: RenderMode.Client,
   },
   {
-    path: 'courses/edit/:id',
+    path: 'courses/edit/*',
     renderMode: RenderMode.Server,
   },
 ];
