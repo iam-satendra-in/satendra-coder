@@ -96,12 +96,6 @@ export const Admin_ROUTES: Routes = [
           ).then((m) => m.AdminCourseFormComponent),
       },
       //
-
-      {
-        path: '**',
-        redirectTo: 'admin',
-        pathMatch: 'full',
-      },
     ],
   },
 ];
