@@ -1,11 +1,13 @@
 import { ServerRoute, RenderMode } from '@angular/ssr';
 
 export const ADMIN_SERVER_ROUTES: ServerRoute[] = [
-  // // Dashboard & Profile
-  // { path: '', renderMode: RenderMode.Server },
-  // { path: 'profile', renderMode: RenderMode.Server },
-  // { path: 'users', renderMode: RenderMode.Server },
-  // { path: 'settings', renderMode: RenderMode.Server },
+  // Admin Layout (parent)
+  { path: '', renderMode: RenderMode.Server },
+
+  // Children routes
+  { path: 'settings', renderMode: RenderMode.Server },
+  { path: 'profile', renderMode: RenderMode.Server },
+  { path: 'users', renderMode: RenderMode.Server },
 
   // Tutorials
   { path: 'tutorials', renderMode: RenderMode.Server },
