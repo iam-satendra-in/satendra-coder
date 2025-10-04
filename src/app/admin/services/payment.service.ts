@@ -7,7 +7,6 @@ import {
 } from '@stripe/stripe-js/dist/stripe-js';
 
 import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
 
 export interface PaymentIntent {
   id: string;
@@ -32,6 +31,9 @@ export interface PaymentMethod {
   providedIn: 'root',
 })
 export class PaymentService {
+  private stripePublishableKey: string = 'pk_test_51234567890abcdef'; // Replace with your actual publishable key
+  // apiKey: 'c9e50be2-2d6d-4ef4-b0a4-87fc4291467a',
+  // apiUrlPay: 'https://api.yourdomain.com', // Replace with your actual API URL
   private stripe: Stripe | null = null;
   private elements: StripeElements | null = null;
   private cardElement: StripeCardElement | null = null;
@@ -72,7 +74,7 @@ export class PaymentService {
   }
 
   private async initializeStripe() {
-    this.stripe = await loadStripe(environment.stripePublishableKey);
+    this.stripe = await loadStripe(this.stripePublishableKey);
   }
 
   async createElements() {
