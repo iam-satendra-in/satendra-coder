@@ -26,6 +26,7 @@ export class SSafeStorage {
   removeItem(key: string): void {
     if (this.isBrowser) {
       sessionStorage.removeItem(key);
+      sessionStorage.clear();
     }
   }
 }

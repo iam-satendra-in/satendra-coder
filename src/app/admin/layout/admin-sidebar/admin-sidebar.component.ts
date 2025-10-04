@@ -25,7 +25,7 @@ export class AdminSidebarComponent {
   menuItems: MenuItem[] = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: 'Dashboard Overview',
       icon: 'fa-tachometer-alt',
       route: '/admin',
     },

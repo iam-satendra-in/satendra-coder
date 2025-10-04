@@ -28,9 +28,11 @@
     "angularx-qrcode": "^20.0.0",
     "express": "^5.1.0",
     "html2canvas": "^1.4.1",
+    "ngx-quill": "^28.0.1",
+    "quill": "^2.0.3",
     "rxjs": "~7.8.0",
     "sc-angular-loader": "^1.2.0",
-    "sc-angular-toastify": "^1.6.0",
+    "sc-angular-toastify": "^1.7.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

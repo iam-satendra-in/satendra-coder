@@ -11,18 +11,14 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const userDataString = safeStore.getItem('userdata');
 
   if (!userDataString) {
-    toast.show('Please log in to access admin area', 'error');
+    debugger;
     router.navigateByUrl('/');
+    toast.show('Please log in to access admin area', 'error');
     return false;
   }
-  console.log('User Data from Storage:', userDataString);
+  //console.log('User Data from Storage:', userDataString);
 
   const userData = userDataString;
-
-  debugger;
-
-  console.log('User Data from Storage:', userData);
-
   const allowedRoles = route.data['roles'] as string[];
 
   if (allowedRoles && allowedRoles.includes(userData.role)) {

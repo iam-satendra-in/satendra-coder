@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminService } from '../../../services/admin.service';
 import { User } from '../../../model/admin.model';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
 
 @Component({
   selector: 'app-admin-user',
@@ -19,8 +20,10 @@ export class AdminUserComponent {
 
   stats = { tutorials: 0, courses: 0, blogs: 0 };
 
-  constructor(private adminService: AdminService) {
-    this.user = { ...this.adminService.getCurrentUser() };
+  constructor(private adminService: AdminService, private safe: SSafeStorage) {
+    const userdata = this.safe.getItem('userdata');
+
+    this.user = userdata;
   }
 
   ngOnInit() {

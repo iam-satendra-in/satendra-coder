@@ -3,10 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Tutorial } from '../../../../model/admin.model';
 import { AdminService } from '../../../../services/admin.service';
 import { MateriallistModule } from '../../../../../shared/materiallist/materiallist-module';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-admin-tutorial-form',
-  imports: [MateriallistModule],
+  imports: [MateriallistModule, QuillModule],
   templateUrl: './admin-tutorial-form.component.html',
   styleUrl: './admin-tutorial-form.component.scss',
 })
@@ -27,8 +28,10 @@ export class AdminTutorialFormComponent {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],
       ['blockquote', 'code-block'],
+      [{ color: [] }, { background: [] }],
       [{ header: 1 }, { header: 2 }],
       [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ align: [] }],
       [{ script: 'sub' }, { script: 'super' }],
       [{ indent: '-1' }, { indent: '+1' }],
       ['link', 'image', 'video'],

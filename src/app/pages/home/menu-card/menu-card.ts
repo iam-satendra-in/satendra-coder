@@ -149,7 +149,7 @@ export class MenuCard {
   }
 
   private logout(): void {
-    this.safestorage.removeItem('user');
+    this.safestorage.removeItem('userdata');
     this.isLoggedIn = false;
     this.currentUser = null;
     this.closeDropdowns();

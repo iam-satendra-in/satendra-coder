@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
   User,
@@ -11,6 +11,8 @@ import {
   Ebook,
   Roadmap,
 } from '../model/admin.model';
+import { SSafeStorage } from '../../core/service/global/safe-storage/s-safe-storage';
+import { clear } from 'console';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +20,8 @@ import {
 export class AdminService {
   private sidebarOpen = new BehaviorSubject<boolean>(true);
   public sidebarOpen$ = this.sidebarOpen.asObservable();
+
+  private safe = inject(SSafeStorage);
 
   private mockUser: User = {
     id: '1',
