@@ -22,7 +22,7 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/service-worker": "^20.3.0",
-    "@angular/ssr": "^20.3.1",
+    "@angular/ssr": "^20.3.4",
     "@fortawesome/fontawesome-free": "^7.0.1",
     "@stripe/stripe-js": "^8.0.0",
     "angularx-qrcode": "^20.0.0",

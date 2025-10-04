@@ -54,7 +54,7 @@ export const Admin_ROUTES: Routes = [
           ).then((m) => m.AdminTutorialListComponent),
       },
       {
-        path: 'tutorials/create',
+        path: 'tutorialscreate',
         title: 'Create Tutorial - Admin | SatendraCoder',
         loadComponent: () =>
           import(
@@ -62,7 +62,7 @@ export const Admin_ROUTES: Routes = [
           ).then((m) => m.AdminTutorialFormComponent),
       },
       {
-        path: 'tutorials/edit/:id',
+        path: 'tutorials/:id',
         title: 'Edit Tutorial - Admin | SatendraCoder',
         loadComponent: () =>
           import(
@@ -80,7 +80,7 @@ export const Admin_ROUTES: Routes = [
           ).then((m) => m.AdminCourseListComponent),
       },
       {
-        path: 'courses/create',
+        path: 'coursescreate',
         title: 'Create Course - Admin | SatendraCoder',
         loadComponent: () =>
           import(
@@ -88,7 +88,7 @@ export const Admin_ROUTES: Routes = [
           ).then((m) => m.AdminCourseFormComponent),
       },
       {
-        path: 'courses/edit/:id',
+        path: 'courses/:id',
         title: 'Edit Course - Admin | SatendraCoder',
         loadComponent: () =>
           import(
