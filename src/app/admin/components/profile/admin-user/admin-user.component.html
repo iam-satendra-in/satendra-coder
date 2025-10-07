@@ -41,7 +41,7 @@
                         <div *ngIf="!isEditing; else emailInput">{{ user.email }}</div>
                         <ng-template #emailInput>
                             <input type="email" id="email" name="email" [(ngModel)]="user.email" required
-                                class="form-control">
+                                class="form-control email" disabled>
                         </ng-template>
                     </div>
 

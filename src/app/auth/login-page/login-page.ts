@@ -65,23 +65,23 @@ export class LoginPage {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.authService
-        .SignInUser(this.loginForm.value)
-        .subscribe((response) => {
-          try {
-            debugger;
-            this.safeStorage.setItem('userdata', response);
-            this.toaster.show('Welcome back! Access granted.', 'success');
-            this.dialog.closeAll();
-            if (response.role === 'MASTER') {
-              this.router.navigate(['/admin']);
-            } else {
-              this.router.navigate(['/dashboard']);
-            }
-          } catch (error) {
-            this.toaster.show(response, 'warn');
+      this.authService.SignInUser(this.loginForm.value).subscribe({
+        next: (response) => {
+          debugger;
+          this.safeStorage.setItem('userdata', response?.data);
+          this.toaster.show('Welcome back! Access granted.', 'success');
+          this.dialog.closeAll();
+          const rolesToNavigate = ['MASTER', 'ADMIN', 'STAFF', 'MENTOR'];
+          if (rolesToNavigate.includes(response?.data.role)) {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/dashboard']);
           }
-        });
+        },
+        error: (err) => {
+          this.toaster.show(err, 'error', 5000);
+        },
+      });
     }
   }
 

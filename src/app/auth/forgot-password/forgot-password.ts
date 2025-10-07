@@ -22,11 +22,11 @@ export class ForgotPassword {
     debugger;
     if (form.invalid) return;
     this.apiUrl.forgotPassword(this.identifier).subscribe({
-      next: (response) => {
+      next: async (response) => {
         debugger;
-        this.toster.show(response.message, 'success');
+        await this.toster.show(response.message, 'success');
         this.identifier = '';
-        this.route.navigate(['/auth/login']);
+        await this.route.navigate(['/auth/login']);
       },
       error: (error) => {
         this.toster.show(

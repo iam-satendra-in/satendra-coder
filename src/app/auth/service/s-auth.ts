@@ -31,24 +31,40 @@ export class SAuth {
 
   //Forgot Password Api
   forgotPassword(email: string): Observable<any> {
-    return this.http.post<any>(APIEndPoint.Auth.forgotPassword, { email }, { headers });
+    return this.http.post<any>(
+      APIEndPoint.Auth.forgotPassword,
+      { email },
+      { headers }
+    );
   }
 
   // Reset Password Api
   resetPassword(token: string, newPassword: string): Observable<any> {
     console.log('Resetting password with token:', token);
-    
-    return this.http.post<any>(APIEndPoint.Auth.resetPassword, { token, newPassword }, { headers });
+
+    return this.http.post<any>(
+      APIEndPoint.Auth.resetPassword,
+      { token, newPassword },
+      { headers }
+    );
   }
 
   // Change Password Api
   changePassword(oldPassword: string, newPassword: string): Observable<any> {
-    return this.http.post<any>(APIEndPoint.Auth.changePassword, { oldPassword, newPassword }, { headers });
+    return this.http.post<any>(
+      APIEndPoint.Auth.changePassword,
+      { oldPassword, newPassword },
+      { headers }
+    );
   }
 
   // Fetch user info from backend after OAuth login
   getUserInfo(): Observable<any> {
     return this.http.get<any>(APIEndPoint.Auth.OAuth, { headers });
+  }
+
+  getAlluser(): Observable<any> {
+    return this.http.get<any>(APIEndPoint.Auth.getAllUser, { headers });
   }
 
   // Redirect to Google login
@@ -59,5 +75,41 @@ export class SAuth {
   // Redirect to GitHub login
   loginWithGitHub(): void {
     window.location.href = 'http://localhost:8080/oauth2/authorization/github';
+  }
+
+  // Update Name
+  updateName(newName: any) {
+    return this.http.put<any>(
+      APIEndPoint.Auth.updateName,
+      { newName },
+      { headers }
+    );
+  }
+
+  // Update User Role (Admin only)
+  updateUserRole(newRole: string): Observable<any> {
+    return this.http.put<any>(
+      APIEndPoint.Auth.updateRole,
+      { newRole },
+      { headers }
+    );
+  }
+
+  //Update Designation
+  updateDesignation(designation: any): Observable<any> {
+    return this.http.put<any>(
+      APIEndPoint.Auth.updateDesignation,
+      { designation },
+      { headers }
+    );
+  }
+
+  //Update Phone
+  updatePhone(phoneNumber: any): Observable<any> {
+    return this.http.put<any>(
+      APIEndPoint.Auth.updatePhone,
+      { phoneNumber },
+      { headers }
+    );
   }
 }

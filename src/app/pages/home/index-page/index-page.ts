@@ -29,11 +29,11 @@ import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
 export class IndexPage {
   private seo = inject(SSeo);
   titleSeo: string =
-    'Satendra Academy – Learn Coding, AI/ML, DSA, Kids Learning & Communication';
+    'Satendra Coder – Learn Coding, AI/ML, DSA, Kids Learning & Communication';
   description: string =
-    'Master coding, DSA, AI/ML & communication with Satendra Academy. Interactive tutorials, quizzes, roadmaps, kids coding & free eBooks for learners.';
+    'Master coding, DSA, AI/ML & communication with Satendra Coder. Interactive tutorials, quizzes, roadmaps, kids coding & free eBooks for learners.';
   keywords: string =
-    'Satendra Academy,Coding tutorials for beginners,Java & Angular learning,AI/ML tutorials online,DSA interview preparation,Computer Science fundamentals,Kids coding courses online,Fun maths & coding for kids,Communication skills for developers,Learn English for IT professionals,Online compiler for coding,Programming learning roadmaps';
+    'Satendra Coder,Coding tutorials for beginners,Java & Angular learning,AI/ML tutorials online,DSA interview preparation,Computer Science fundamentals,Kids coding courses online,Fun maths & coding for kids,Communication skills for developers,Learn English for IT professionals,Online compiler for coding,Programming learning roadmaps';
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

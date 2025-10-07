@@ -13,7 +13,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   if (!userDataString) {
     debugger;
     router.navigateByUrl('/');
-    toast.show('Please log in to access admin area', 'error');
+    // toast.show('Please log in to access admin area', 'error');
     return false;
   }
   //console.log('User Data from Storage:', userDataString);
@@ -26,7 +26,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     toast.show('Access denied - Admins only', 'error');
-    router.navigateByUrl('/dashboard');
+    router.navigateByUrl('/admin');
     return false;
   }
 };

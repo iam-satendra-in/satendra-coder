@@ -3,6 +3,8 @@ import { AdminService } from '../../../services/admin.service';
 import { User } from '../../../model/admin.model';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
+import { SAuth } from '../../../../auth/service/s-auth';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-admin-user',
@@ -12,6 +14,7 @@ import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-saf
 })
 export class AdminUserComponent {
   user: User;
+  OriginalUser!: User;
   isUpdating = false;
   isEditing = false;
   showDeleteConfirmation = false;
@@ -20,14 +23,19 @@ export class AdminUserComponent {
 
   stats = { tutorials: 0, courses: 0, blogs: 0 };
 
-  constructor(private adminService: AdminService, private safe: SSafeStorage) {
+  constructor(
+    private adminService: AdminService,
+    private authapi: SAuth,
+    private safe: SSafeStorage
+  ) {
     const userdata = this.safe.getItem('userdata');
-
     this.user = userdata;
+    this.OriginalUser = { ...userdata };
   }
 
   ngOnInit() {
     this.loadStats();
+    console.log(this.user);
   }
 
   enableEditing() {
@@ -36,21 +44,28 @@ export class AdminUserComponent {
 
   cancelEditing() {
     this.isEditing = false;
-    this.user = { ...this.adminService.getCurrentUser() }; // reset changes
+    this.user = this.safe.getItem('userdata');
   }
 
   saveProfile() {
-    this.isUpdating = true;
-    this.adminService.updateUser(this.user).subscribe({
-      next: (updatedUser) => {
-        this.user = updatedUser;
-        this.isUpdating = false;
+    debugger;
+
+    const name$ = this.authapi.updateName(this.user.name);
+    const phone$ = this.authapi.updatePhone(this.user.phone);
+    const designation$ = this.authapi.updateDesignation(this.user.designation);
+
+    forkJoin([name$, phone$, designation$]).subscribe(
+      ([userResponse, postsResponse, settingsResponse]) => {
+        console.log('User:', userResponse);
+        console.log('Posts:', postsResponse);
+        console.log('Settings:', settingsResponse);
         this.isEditing = false;
       },
-      error: () => {
+      (error) => {
         this.isUpdating = false;
-      },
-    });
+        console.error('Error in API calls', error);
+      }
+    );
   }
 
   onFileSelected(event: any) {

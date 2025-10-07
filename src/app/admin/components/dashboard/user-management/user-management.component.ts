@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { User } from '../../../model/admin.model';
 import { AuthService } from '../../../services/auth.service';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { SAuth } from '../../../../auth/service/s-auth';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-user-management',
@@ -10,23 +12,23 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
   styleUrl: './user-management.component.scss',
 })
 export class UserManagementComponent {
-  users: User[] = [];
+  users: any;
   currentUser: User | null = null;
   showCreateModal = false;
   showEditModal = false;
   editingUser: Partial<User> = {};
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private authapi: SAuth) {}
 
   ngOnInit() {
     this.loadUsers();
-    this.authService.currentUser$.subscribe((user) => {
-      this.currentUser = user;
-    });
   }
 
   loadUsers() {
-    this.users = this.authService.getAllUsers();
+    // this.users = this.authService.getAllUsers();
+    this.authapi.getAlluser().subscribe((res) => {
+      this.users = res?.data;
+    });
   }
 
   switchRole(userId: string) {
@@ -46,21 +48,19 @@ export class UserManagementComponent {
   }
 
   saveUser() {
-    if (this.showCreateModal) {
-      this.authService.createUser({
-        name: this.editingUser.name!,
-        email: this.editingUser.email!,
-        role: this.editingUser.role!,
-        avatar: this.editingUser.avatar,
-        isActive: this.editingUser.isActive ?? true,
-        permissions: this.getPermissionsByRole(this.editingUser.role!),
-      });
-    } else if (this.showEditModal && this.editingUser.id) {
-      this.authService.updateUser(this.editingUser.id, {
-        ...this.editingUser,
-        permissions: this.getPermissionsByRole(this.editingUser.role!),
-      });
-    }
+    // if (this.showCreateModal) {
+    //   this.authService.createUser({
+    //     name: this.editingUser.name!,
+    //     email: this.editingUser.email!,
+    //     role: this.editingUser.role!,
+    //     avatar: this.editingUser.avatar,
+    //     isActive: this.editingUser.isActive ?? true,
+    //   });
+    // } else if (this.showEditModal && this.editingUser.id) {
+    //   this.authService.updateUser(this.editingUser.id, {
+    //     ...this.editingUser,
+    //   });
+    // }
 
     this.loadUsers();
     this.closeModals();
@@ -70,25 +70,5 @@ export class UserManagementComponent {
     this.showCreateModal = false;
     this.showEditModal = false;
     this.editingUser = {};
-  }
-
-  private getPermissionsByRole(role: string): string[] {
-    switch (role) {
-      case 'admin':
-        return [
-          'create',
-          'read',
-          'update',
-          'delete',
-          'manage_users',
-          'manage_payments',
-        ];
-      case 'user':
-        return ['read', 'attempt_quiz', 'view_tutorials'];
-      case 'guest':
-        return ['read'];
-      default:
-        return ['read'];
-    }
   }
 }

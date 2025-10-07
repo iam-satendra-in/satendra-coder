@@ -88,12 +88,17 @@
             font-weight: 500;
             margin-bottom: 8px;
 
-            &.admin {
+            &.MASTER {
               background: #dbeafe;
               color: #1e40af;
             }
 
-            &.user {
+            &.ADMIN {
+              background: #dbeafe;
+              color: #1e40af;
+            }
+
+            &.USER {
               background: #f3f4f6;
               color: #374151;
             }
@@ -122,6 +127,10 @@
             font-weight: 500;
             color: #374151;
             font-size: 14px;
+          }
+
+          .email {
+            cursor: not-allowed;
           }
 
           .form-control {
