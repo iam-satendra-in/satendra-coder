@@ -31,13 +31,14 @@ export class NpmPackDetails {
     this.route.paramMap.subscribe((params) => {
       const pkg = params.get('id') || '';
       this.packageName.set(pkg);
-      //console.log('📦 Package ID:', pkg);
+      console.log('📦 Package ID:', pkg);
 
       if (!pkg) return;
 
       // Metadata
       this.npmService.getPackageMetadata(pkg).subscribe((data) => {
         this.metadata.set(data);
+        console.log(this.metadata);
 
         const latest = data['dist-tags']?.latest ?? '';
         this.latestVersion.set(latest);
