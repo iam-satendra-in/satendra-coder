@@ -122,8 +122,8 @@ export class MenuCard {
           link: '/compiler',
         },
         {
-          name: 'eBooks Library',
-          link: '/ebook',
+          name: 'Developer Tools',
+          link: '/tools',
         },
       ],
     },

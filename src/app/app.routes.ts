@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { IndexPage } from './pages/home/index-page/index-page';
-import { roleGuard } from './core/guards/check-role/role-guard';
 import { adminGuard } from './admin/guards/admin.guard';
 
 export const routes: Routes = [
@@ -49,6 +48,31 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/dev-tool/tools.routes').then(
         (tools) => tools.TOOLS_ROUTES
+      ),
+  },
+
+  // NPM Package Routes is lazy loaded
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/npm-package/npm.routes').then((npm) => npm.NPM_ROUTES),
+  },
+
+  // VSCODE_ROUTES Routes is lazy loaded
+  {
+    path: 'vscode',
+    loadChildren: () =>
+      import('./features/vscode-extension/vscode.routes').then(
+        (vscode) => vscode.VSCODE_ROUTES
+      ),
+  },
+
+  // BROWSER_ROUTES Package Routes is lazy loaded
+  {
+    path: 'browser',
+    loadChildren: () =>
+      import('./features/browser-extension/browser.routes').then(
+        (browser) => browser.BROWSER_ROUTES
       ),
   },
 
