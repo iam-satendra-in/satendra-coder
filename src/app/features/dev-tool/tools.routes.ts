@@ -103,7 +103,6 @@ export const TOOLS_ROUTES: Routes = [
           ),
       },
 
-
       // JS to TS Converter
       {
         path: 'js-to-ts-converter',
@@ -143,7 +142,6 @@ export const TOOLS_ROUTES: Routes = [
             (c) => c.HtmlFormatter
           ),
       },
-
 
       // JavaScript Formatter
       {
@@ -193,7 +191,6 @@ export const TOOLS_ROUTES: Routes = [
             (c) => c.RobotsGenerate
           ),
       },
-
     ],
   },
 ];

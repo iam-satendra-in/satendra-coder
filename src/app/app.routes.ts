@@ -43,6 +43,15 @@ export const routes: Routes = [
       ),
   },
 
+  // DevTools Routes is lazy loaded
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/dev-tool/tools.routes').then(
+        (tools) => tools.TOOLS_ROUTES
+      ),
+  },
+
   // Blog Routes is lazy loaded
   {
     path: '',
