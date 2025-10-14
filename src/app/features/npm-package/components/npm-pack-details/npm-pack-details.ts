@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { Component, signal } from '@angular/core';
 import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
 import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
@@ -5,11 +6,12 @@ import { SnpmPackage } from '../../service/snpm-package';
 import { DatePipe } from '@angular/common';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { ActivatedRoute } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-npm-pack-details',
   standalone: true,
-  imports: [MenuCard, FooterCard, DatePipe, MateriallistModule],
+  imports: [MenuCard, FooterCard, DatePipe, MateriallistModule, MarkdownModule],
   templateUrl: './npm-pack-details.html',
   styleUrl: './npm-pack-details.scss',
 })
@@ -24,6 +26,7 @@ export class NpmPackDetails {
   license = signal<string>('N/A');
   size = signal<string>('N/A');
   maintainers = signal<any[]>([]);
+  readmeFile = signal<any>('');
 
   constructor(private route: ActivatedRoute, private npmService: SnpmPackage) {}
 
@@ -31,20 +34,21 @@ export class NpmPackDetails {
     this.route.paramMap.subscribe((params) => {
       const pkg = params.get('id') || '';
       this.packageName.set(pkg);
-      console.log('📦 Package ID:', pkg);
+      //console.log('📦 Package ID:', pkg);
 
       if (!pkg) return;
 
       // Metadata
       this.npmService.getPackageMetadata(pkg).subscribe((data) => {
         this.metadata.set(data);
-        console.log(this.metadata);
+        console.log(data, 'jkjsagjh');
 
         const latest = data['dist-tags']?.latest ?? '';
         this.latestVersion.set(latest);
         this.license.set(data.license ?? 'N/A');
         this.lastPublished.set(data.time?.[latest] ?? '');
         this.maintainers.set(data.maintainers ?? []);
+        this.readmeFile.set(data?.readme);
 
         const unpackedSize = data.versions?.[latest]?.dist?.unpackedSize;
         this.size.set(

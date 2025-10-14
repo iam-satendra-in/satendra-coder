@@ -53,14 +53,11 @@
     <section class="usage card">
         <h2>Usage</h2>
         <pre><code class="language-typescript">
-import &#123; ScSnippetModule &#125; from '{{ packageName() }}';
-
-&#64;NgModule(&#123;
-  imports: [ScSnippetModule],
-&#125;)
-export class AppModule &#123; &#125;
+            {{readmeFile()}}
     </code></pre>
     </section>
+
+    
 
     <!-- Dependencies -->
     <div class="grid">
@@ -88,8 +85,8 @@ export class AppModule &#123; &#125;
     <section class="maintainers card">
         <h2>Maintainers</h2>
         <div class="maintainer" *ngFor="let m of maintainers()">
-            <img src="https://i.pravatar.cc/40?u={{ m.name }}" alt="avatar">
-            <span>{{ m.name }}</span>
+            <img src="/assets/images/global/sate_1.png" alt="avatar">
+            <span><b>{{ m?.name? 'Satendra Rajput':'Satendra Rajput' }}</b></span>
         </div>
     </section>
 </div>

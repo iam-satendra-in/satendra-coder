@@ -128,7 +128,7 @@ export const routes: Routes = [
       },
       //@_about-us routes
       {
-        path: 'contact',
+        path: 'contact-us',
         loadComponent: () =>
           import('./pages/about/contact-us/contact-us.component').then(
             (company) => company.ContactUsComponent
