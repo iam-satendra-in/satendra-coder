@@ -44,8 +44,6 @@ export class MenuCard {
 
   constructor(private safestorage: SSafeStorage) {
     const userdata = this.safestorage.getItem('userdata');
-    console.log(userdata);
-
     if (userdata) {
       this.isLoggedIn = true;
       this.currentUser = {
